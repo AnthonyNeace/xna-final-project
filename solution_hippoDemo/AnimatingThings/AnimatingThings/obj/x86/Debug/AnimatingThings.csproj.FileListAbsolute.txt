@@ -1,0 +1,25 @@
+C:\Dropbox\CS485\Examples\ClassExamples\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\tank.xnb
+C:\Dropbox\CS485\Examples\ClassExamples\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\engine_diff_tex_0.xnb
+C:\Dropbox\CS485\Examples\ClassExamples\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\turret_alt_diff_tex_0.xnb
+C:\Dropbox\CS485\Examples\ClassExamples\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\AnimatingThings.exe
+C:\Dropbox\CS485\Examples\ClassExamples\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\AnimatingThings.pdb
+C:\Dropbox\CS485\Examples\ClassExamples\AnimatingThings\AnimatingThings\AnimatingThings\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Dropbox\CS485\Examples\ClassExamples\AnimatingThings\AnimatingThings\AnimatingThings\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Dropbox\CS485\Examples\ClassExamples\AnimatingThings\AnimatingThings\AnimatingThings\obj\x86\Debug\AnimatingThings.exe
+C:\Dropbox\CS485\Examples\ClassExamples\AnimatingThings\AnimatingThings\AnimatingThings\obj\x86\Debug\AnimatingThings.pdb
+C:\Dropbox\CS485\Examples\ClassExamples\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\test.xnb
+C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\tank.xnb
+C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\test.xnb
+C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\engine_diff_tex_0.xnb
+C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\turret_alt_diff_tex_0.xnb
+C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\AnimatingThings.exe
+C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\AnimatingThings.pdb
+C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThings\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThings\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThings\obj\x86\Debug\AnimatingThings.exe
+C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThings\obj\x86\Debug\AnimatingThings.pdb
+C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo.xnb
+C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2.xnb
+C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb
+C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo2.xnb
+C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo7.xnb

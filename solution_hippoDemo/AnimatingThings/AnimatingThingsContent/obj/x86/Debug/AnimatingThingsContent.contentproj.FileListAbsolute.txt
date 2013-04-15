@@ -1,0 +1,2 @@
+C:\Dropbox\CS485\Examples\ClassExamples\AnimatingThings\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\ResolveAssemblyReference.cache
