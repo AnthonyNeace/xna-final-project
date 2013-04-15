@@ -21,11 +21,11 @@ https://trello.com/board/xna-final-project/5163312653beb3df0e0095c4
 
 File Structure
 --------------
-* assets
-** Contains images, models, and other media that can be used for documentation.
-* solution_finalGame
-** Contains the game as submitted by the end of April.
-* solution_hippoDemo
-** Contains a demo used to test models and animated in XNA.
-* solution_prototypeGame
-** Contains the game as submitted for our first review period.
+assets
+* Contains images, models, and other media that can be used for documentation.
+solution_finalGame
+* Contains the game as submitted by the end of April.
+solution_hippoDemo
+* Contains a demo used to test models and animated in XNA.
+solution_prototypeGame
+* Contains the game as submitted for our first review period.
