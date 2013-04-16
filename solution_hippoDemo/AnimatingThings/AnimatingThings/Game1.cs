@@ -19,6 +19,7 @@ namespace AnimatingThings
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         VertexPositionColor[] vertices;
+        SpriteManager spriteManager;
         int[] indices;
         GraphicsDevice device;
         Model m;
@@ -26,6 +27,9 @@ namespace AnimatingThings
         Terrain t;
         Matrix[] modelTransforms;
         Matrix[] originalTransforms;
+
+
+
 
         private float angle = 0f;
         private int terrainWidth = 0;
@@ -62,28 +66,34 @@ namespace AnimatingThings
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            //m = Content.Load<Model>("test");
+            //Loading Model
             m = Content.Load<Model>("hippo7");
+            modelTransforms = new Matrix[m.Bones.Count];
+            originalTransforms = new Matrix[m.Bones.Count];
+            m.CopyBoneTransformsTo(originalTransforms);
 
+            //Loading Terrain
             t = new Terrain(this);
             t.Initialize();
             Components.Add(t);
 
-            modelTransforms = new Matrix[m.Bones.Count];
-            originalTransforms = new Matrix[m.Bones.Count];
-            
-            m.CopyBoneTransformsTo(originalTransforms);
+            //Loading Height Texture
+            Texture2D heightMap = Content.Load<Texture2D>("Untitled");
+            //LoadHeightData(heightMap);
+            //SetUpVertices();
+            //SetUpIndices();
 
-            Texture2D heightMap = Content.Load<Texture2D>("Untitled"); LoadHeightData(heightMap);
-            SetUpVertices();
-            SetUpIndices();
-
+            //Intializing Camera
             c = new Camera(this);
             Components.Add(c);
 
+            //Initalizing Sprite Manager
+            spriteManager = new SpriteManager(this);
+            Components.Add(spriteManager);
+
             // TODO: use this.Content to load your game content here
         }
-
+        /*
         private void SetUpVertices()
         {
 
@@ -155,7 +165,7 @@ namespace AnimatingThings
             for (int x = 0; x < terrainWidth; x++)
                 for (int y = 0; y < terrainHeight; y++)
                     heightData[x, y] = heightMapColors[x + y * terrainWidth].R / 5.0f;
-        }
+        }*/
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload

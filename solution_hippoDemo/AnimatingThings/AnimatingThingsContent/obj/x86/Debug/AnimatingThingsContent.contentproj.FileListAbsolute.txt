@@ -3,3 +3,4 @@ C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\A
 C:\Users\Alex\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\AnimatingThingsContent.contentprojResolveAssemblyReference.cache
 F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\AnimatingThingsContent.contentprojResolveAssemblyReference.cache
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\AnimatingThingsContent.contentprojResolveAssemblyReference.cache
+C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\AnimatingThingsContent.contentprojResolveAssemblyReference.cache
