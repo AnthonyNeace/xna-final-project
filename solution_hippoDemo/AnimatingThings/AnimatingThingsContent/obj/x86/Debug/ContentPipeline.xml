@@ -7,14 +7,14 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\tank.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\tank.xnb</Output>
       <Time>2013-04-15T15:17:33-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\tank_0.xml</Key>
-        <Value>2013-04-16T00:15:33.6424091-04:00</Value>
+        <Value>2013-04-16T01:55:10.3048348-04:00</Value>
       </Dependency>
-      <Request>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\engine_diff_tex_0.xnb</Request>
-      <Request>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\turret_alt_diff_tex_0.xnb</Request>
+      <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\engine_diff_tex_0.xnb</Request>
+      <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\turret_alt_diff_tex_0.xnb</Request>
     </Item>
     <Item>
       <Source>test.FBX</Source>
@@ -22,11 +22,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\test.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\test.xnb</Output>
       <Time>2013-04-15T15:17:33-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\test_0.xml</Key>
-        <Value>2013-04-16T00:15:40.7780118-04:00</Value>
+        <Value>2013-04-16T01:55:16.9675572-04:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -35,13 +35,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo.xnb</Output>
       <Time>2013-04-15T15:17:31-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\hippoXNAattempt4_0.xml</Key>
-        <Value>2013-04-16T00:15:44.8905363-04:00</Value>
+        <Value>2013-04-16T01:55:21.1020823-04:00</Value>
       </Dependency>
-      <Request>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Request>
+      <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Request>
     </Item>
     <Item>
       <Source>hippoXNAttempt3.fbx</Source>
@@ -49,13 +49,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo2.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo2.xnb</Output>
       <Time>2013-04-15T15:17:32-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\hippoXNAttempt3_0.xml</Key>
-        <Value>2013-04-16T00:15:46.8187794-04:00</Value>
+        <Value>2013-04-16T01:55:22.9683185-04:00</Value>
       </Dependency>
-      <Request>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Request>
+      <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Request>
     </Item>
     <Item>
       <Source>hippoXNAattempt7.fbx</Source>
@@ -63,13 +63,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo7.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo7.xnb</Output>
       <Time>2013-04-15T15:17:32-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\hippoXNAattempt7_0.xml</Key>
-        <Value>2013-04-16T00:15:51.0653192-04:00</Value>
+        <Value>2013-04-16T01:55:27.1878545-04:00</Value>
       </Dependency>
-      <Request>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Request>
+      <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Request>
     </Item>
     <Item>
       <Source>hippo04UV_2.png</Source>
@@ -77,7 +77,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2.xnb</Output>
       <Time>2013-04-15T15:17:31-04:00</Time>
     </Item>
     <Item>
@@ -86,8 +86,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\Untitled.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\Untitled.xnb</Output>
       <Time>2013-04-15T15:36:41-04:00</Time>
+    </Item>
+    <Item>
+      <Source>grass-texture-2.jpg</Source>
+      <Name>grass-texture-2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\grass-texture-2.xnb</Output>
+      <Time>2013-04-16T01:19:11.7724312-04:00</Time>
     </Item>
     <Item>
       <Source>tank.fbx</Source>
@@ -109,7 +118,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\engine_diff_tex_0.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\engine_diff_tex_0.xnb</Output>
       <Time>2013-04-15T15:17:31-04:00</Time>
     </Item>
     <Item>
@@ -125,7 +134,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\turret_alt_diff_tex_0.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\turret_alt_diff_tex_0.xnb</Output>
       <Time>2013-04-15T15:17:36-04:00</Time>
     </Item>
     <Item>
@@ -155,7 +164,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Output>
       <Time>2013-04-15T15:17:31-04:00</Time>
     </Item>
     <Item>
@@ -172,25 +181,16 @@
       <Output>obj\x86\Debug\hippoXNAattempt7_0.xml</Output>
       <Time>2013-04-15T15:17:32-04:00</Time>
     </Item>
-    <Item>
-      <Source>grass-texture-2.jpg</Source>
-      <Name>grass-texture-2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\grass-texture-2.xnb</Output>
-      <Time>2013-04-16T01:19:11.7724312-04:00</Time>
-    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\</RootDirectory>
-      <LoggerRootDirectory>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\</LoggerRootDirectory>
-      <IntermediateDirectory>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\</RootDirectory>
+      <LoggerRootDirectory>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\</LoggerRootDirectory>
+      <IntermediateDirectory>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
