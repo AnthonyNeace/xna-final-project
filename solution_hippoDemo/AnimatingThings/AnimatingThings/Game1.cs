@@ -18,10 +18,19 @@ namespace AnimatingThings
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
-        Model m; Camera c;
+        VertexPositionColor[] vertices;
+        int[] indices;
+        GraphicsDevice device;
+        Model m;
+        public Camera c;
+        Terrain t;
         Matrix[] modelTransforms;
         Matrix[] originalTransforms;
+
+        private float angle = 0f;
+        private int terrainWidth = 0;
+        private int terrainHeight = 0;
+        private float[,] heightData;
 
         float r1 = 0, r2 = 0;
 
@@ -55,18 +64,97 @@ namespace AnimatingThings
 
             //m = Content.Load<Model>("test");
             m = Content.Load<Model>("hippo7");
-            
+
+            t = new Terrain(this);
+            t.Initialize();
+            Components.Add(t);
 
             modelTransforms = new Matrix[m.Bones.Count];
             originalTransforms = new Matrix[m.Bones.Count];
             
             m.CopyBoneTransformsTo(originalTransforms);
 
+            Texture2D heightMap = Content.Load<Texture2D>("Untitled"); LoadHeightData(heightMap);
+            SetUpVertices();
+            SetUpIndices();
 
             c = new Camera(this);
             Components.Add(c);
 
             // TODO: use this.Content to load your game content here
+        }
+
+        private void SetUpVertices()
+        {
+
+            float minHeight = float.MaxValue;
+            float maxHeight = float.MinValue;
+            for (int x = 0; x < terrainWidth; x++)
+            {
+                for (int y = 0; y < terrainHeight; y++)
+                {
+                    if (heightData[x, y] < minHeight)
+                        minHeight = heightData[x, y];
+                    if (heightData[x, y] > maxHeight)
+                        maxHeight = heightData[x, y];
+                }
+            }
+
+            vertices = new VertexPositionColor[terrainWidth * terrainHeight];
+            for (int x = 0; x < terrainWidth; x++)
+            {
+                for (int y = 0; y < terrainHeight; y++)
+                {
+                    vertices[x + y * terrainWidth].Position = new Vector3(x, heightData[x, y], -y);
+
+                    if (heightData[x, y] < minHeight + (maxHeight - minHeight) / 4)
+                        vertices[x + y * terrainWidth].Color = Color.Blue;
+                    else if (heightData[x, y] < minHeight + (maxHeight - minHeight) * 2 / 4)
+                        vertices[x + y * terrainWidth].Color = Color.Green;
+                    else if (heightData[x, y] < minHeight + (maxHeight - minHeight) * 3 / 4)
+                        vertices[x + y * terrainWidth].Color = Color.Brown;
+                    else
+                        vertices[x + y * terrainWidth].Color = Color.White;
+                }
+            }
+        }
+
+        private void SetUpIndices()
+        {
+            indices = new int[(terrainWidth - 1) * (terrainHeight - 1) * 6];
+            int counter = 0;
+            for (int y = 0; y < terrainHeight - 1; y++)
+            {
+                for (int x = 0; x < terrainWidth - 1; x++)
+                {
+                    int lowerLeft = x + y * terrainWidth;
+                    int lowerRight = (x + 1) + y * terrainWidth;
+                    int topLeft = x + (y + 1) * terrainWidth;
+                    int topRight = (x + 1) + (y + 1) * terrainWidth;
+
+                    indices[counter++] = topLeft;
+                    indices[counter++] = lowerRight;
+                    indices[counter++] = lowerLeft;
+
+                    indices[counter++] = topLeft;
+                    indices[counter++] = topRight;
+                    indices[counter++] = lowerRight;
+                }
+            }
+        }
+
+        private void LoadHeightData(Texture2D heightMap)
+        {
+            terrainWidth = heightMap.Width;
+            terrainHeight = heightMap.Height;
+
+            Color[] heightMapColors = new Color[terrainWidth * terrainHeight];
+            heightMap.GetData(heightMapColors);
+
+            heightData = new float[terrainWidth, terrainHeight];
+            for (int x = 0; x < terrainWidth; x++)
+                for (int y = 0; y < terrainHeight; y++)
+                    heightData[x, y] = heightMapColors[x + y * terrainWidth].R / 5.0f;
         }
 
         /// <summary>
@@ -86,7 +174,7 @@ namespace AnimatingThings
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
             // TODO: Add your update logic here
@@ -124,7 +212,7 @@ namespace AnimatingThings
             //m.Bones[4].Transform = rotmat4;
 
 
-            Matrix worldMatrix = Matrix.CreateScale(1f, 1f, 1f);
+            Matrix worldMatrix = Matrix.Identity * Matrix.CreateRotationX((float)(Math.PI) * 1.5f) * Matrix.CreateScale(10.0f) * Matrix.CreateTranslation(0.0f, 52.0f, 0.0f);
             m.CopyAbsoluteBoneTransformsTo(modelTransforms);
 
 
@@ -133,14 +221,17 @@ namespace AnimatingThings
                 foreach (BasicEffect effect in mesh.Effects)
                 {
                     effect.EnableDefaultLighting();
-                    effect.World = modelTransforms[mesh.ParentBone.Index] * Matrix.CreateScale(0.01f);
+                    effect.World = worldMatrix;
                     effect.View = c.view;
                     effect.Projection = c.proj;
                 }
                 mesh.Draw();
             }
 
-
+            //RasterizerState rs = new RasterizerState();
+            //rs.CullMode = CullMode.None;
+            //rs.FillMode = FillMode.WireFrame; //Draws the wireframe, used for debugging
+            //device.RasterizerState = rs;
 
             // TODO: Add your drawing code here
 

@@ -21,13 +21,13 @@ namespace AnimatingThings
         public Matrix view, proj;
 
         // camera position 
-        public Vector3 position = new Vector3(0f, 0f, 0.5f);
+        public Vector3 position = new Vector3(0.0f, 100.0f, 200.0f);
 
         // Vector3 used to store yaw, pitch and roll (roll is not used)
         public Vector3 angle = new Vector3();
 
         // scale factor for movement speed
-        private float speed = 0.005f/2f;
+        private float speed = 0.5f;
         // scale factor for turning speed
         private float turnSpeed = 90f;
 
@@ -84,6 +84,15 @@ namespace AnimatingThings
 
 
             MouseState mouse = Mouse.GetState();
+
+            if (angle.X <= MathHelper.ToRadians(-90.0f))
+            {
+                angle.X = MathHelper.ToRadians(-90.0f);
+            }
+            else if (angle.X >= MathHelper.ToRadians(90.0f))
+            {
+                angle.X = MathHelper.ToRadians(90.0f);
+            }
 
             if (mouse.MiddleButton == ButtonState.Pressed) { base.Update(gameTime); return; }
 
