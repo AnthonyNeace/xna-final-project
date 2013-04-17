@@ -16,6 +16,9 @@ namespace AnimatingThings
     public class SpriteManager : Microsoft.Xna.Framework.DrawableGameComponent
     {
         SpriteBatch spriteBatch;
+        SpriteFont font;
+        Color fontcolor = Color.Black;
+        SpriteEffects spriteEffects;
         //Sprite button;
         List<Sprite> buttons = new List<Sprite>();
 
@@ -39,6 +42,7 @@ namespace AnimatingThings
                     new Vector2(0, 1), //Speed
                     0)); //Score
             }
+            font = Game.Content.Load<SpriteFont>("Spritefont");
             base.Initialize();
         }
 
@@ -57,10 +61,20 @@ namespace AnimatingThings
                     if (mouse.LeftButton == ButtonState.Pressed)
                     {
                         b.textureImage = Game.Content.Load<Texture2D>("buttonpressed");
+                        fontcolor = Color.White;
                     }
-                    else b.textureImage = Game.Content.Load<Texture2D>("buttonhover");
+                    else
+                    {
+                        b.textureImage = Game.Content.Load<Texture2D>("buttonhover");
+                        fontcolor = Color.White;
+                    }
                 }
-                else b.textureImage = Game.Content.Load<Texture2D>("buttonnorm");
+                else
+                {
+                    fontcolor = Color.Black;
+                    b.textureImage = Game.Content.Load<Texture2D>("buttonnorm");
+                }
+
             }
 
             base.Update(gameTime);
@@ -72,7 +86,14 @@ namespace AnimatingThings
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
             spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
             // Draw the buttons
+            string text = "Feed";
+            spriteBatch.DrawString(font, text,
+                new Vector2(20, 20), fontcolor, 0.0f, Vector2.Zero, 1.0f, spriteEffects, 1.0f);
+            text = "Pet";
+            spriteBatch.DrawString(font, text,
+                new Vector2(20, 20+50), fontcolor, 0.0f, Vector2.Zero, 1.0f, spriteEffects, 1.0f);
 
+            // Draw the buttons
             foreach(Sprite b in buttons)
             {
                 b.Draw(gameTime, spriteBatch);

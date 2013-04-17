@@ -93,3 +93,4 @@ C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\Animating
 C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\AnimatingThings.exe
 C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\AnimatingThings.pdb
 C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\obj\x86\Debug\AnimatingThings.pdb
+C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\SpriteFont.xnb

@@ -208,6 +208,15 @@
       <Output>obj\x86\Debug\hippoXNAattempt7_0.xml</Output>
       <Time>2013-04-15T15:17:32-04:00</Time>
     </Item>
+    <Item>
+      <Source>SpriteFont.spritefont</Source>
+      <Name>SpriteFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\SpriteFont.xnb</Output>
+      <Time>2013-04-17T17:33:12.9423402-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
