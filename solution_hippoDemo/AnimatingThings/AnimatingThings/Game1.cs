@@ -89,83 +89,11 @@ namespace AnimatingThings
 
             //Initalizing Sprite Manager
             spriteManager = new SpriteManager(this);
+            spriteManager.Initialize();
             Components.Add(spriteManager);
 
             // TODO: use this.Content to load your game content here
         }
-        /*
-        private void SetUpVertices()
-        {
-
-            float minHeight = float.MaxValue;
-            float maxHeight = float.MinValue;
-            for (int x = 0; x < terrainWidth; x++)
-            {
-                for (int y = 0; y < terrainHeight; y++)
-                {
-                    if (heightData[x, y] < minHeight)
-                        minHeight = heightData[x, y];
-                    if (heightData[x, y] > maxHeight)
-                        maxHeight = heightData[x, y];
-                }
-            }
-
-            vertices = new VertexPositionColor[terrainWidth * terrainHeight];
-            for (int x = 0; x < terrainWidth; x++)
-            {
-                for (int y = 0; y < terrainHeight; y++)
-                {
-                    vertices[x + y * terrainWidth].Position = new Vector3(x, heightData[x, y], -y);
-
-                    if (heightData[x, y] < minHeight + (maxHeight - minHeight) / 4)
-                        vertices[x + y * terrainWidth].Color = Color.Blue;
-                    else if (heightData[x, y] < minHeight + (maxHeight - minHeight) * 2 / 4)
-                        vertices[x + y * terrainWidth].Color = Color.Green;
-                    else if (heightData[x, y] < minHeight + (maxHeight - minHeight) * 3 / 4)
-                        vertices[x + y * terrainWidth].Color = Color.Brown;
-                    else
-                        vertices[x + y * terrainWidth].Color = Color.White;
-                }
-            }
-        }
-
-        private void SetUpIndices()
-        {
-            indices = new int[(terrainWidth - 1) * (terrainHeight - 1) * 6];
-            int counter = 0;
-            for (int y = 0; y < terrainHeight - 1; y++)
-            {
-                for (int x = 0; x < terrainWidth - 1; x++)
-                {
-                    int lowerLeft = x + y * terrainWidth;
-                    int lowerRight = (x + 1) + y * terrainWidth;
-                    int topLeft = x + (y + 1) * terrainWidth;
-                    int topRight = (x + 1) + (y + 1) * terrainWidth;
-
-                    indices[counter++] = topLeft;
-                    indices[counter++] = lowerRight;
-                    indices[counter++] = lowerLeft;
-
-                    indices[counter++] = topLeft;
-                    indices[counter++] = topRight;
-                    indices[counter++] = lowerRight;
-                }
-            }
-        }
-
-        private void LoadHeightData(Texture2D heightMap)
-        {
-            terrainWidth = heightMap.Width;
-            terrainHeight = heightMap.Height;
-
-            Color[] heightMapColors = new Color[terrainWidth * terrainHeight];
-            heightMap.GetData(heightMapColors);
-
-            heightData = new float[terrainWidth, terrainHeight];
-            for (int x = 0; x < terrainWidth; x++)
-                for (int y = 0; y < terrainHeight; y++)
-                    heightData[x, y] = heightMapColors[x + y * terrainWidth].R / 5.0f;
-        }*/
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
@@ -203,7 +131,8 @@ namespace AnimatingThings
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-
+            GraphicsDevice.BlendState = BlendState.Opaque;
+            GraphicsDevice.DepthStencilState = DepthStencilState.Default;
 
             //draw model
             Matrix rotmat1 = Matrix.CreateRotationX(r1) * originalTransforms[0];
@@ -222,7 +151,7 @@ namespace AnimatingThings
             //m.Bones[4].Transform = rotmat4;
 
 
-            Matrix worldMatrix = Matrix.Identity * Matrix.CreateRotationX((float)(Math.PI) * 1.5f) * Matrix.CreateScale(10.0f) * Matrix.CreateTranslation(0.0f, 52.0f, 0.0f);
+            Matrix worldMatrix = Matrix.Identity * Matrix.CreateRotationX((float)(Math.PI) * 1.5f) * Matrix.CreateScale(10.0f) * Matrix.CreateTranslation(0.0f, 0.0f, 0.0f);
             m.CopyAbsoluteBoneTransformsTo(modelTransforms);
 
 

@@ -125,7 +125,10 @@ namespace AnimatingThings
             heightData = new float[terrainWidth, terrainHeight];
             for (int x = 0; x < terrainWidth; x++)
                 for (int y = 0; y < terrainHeight; y++)
-                    heightData[x, y] = heightMapColors[x + y * terrainWidth].R / 5.0f;
+                {
+                    //heightData[x, y] = heightMapColors[x + y * terrainWidth].R / 5.0f;
+                    heightData[x, y] = 0;
+                }
         }
 
         //Builds the terrain based on array populated in SetUpVertices,SetUpIndices, and LoadHeightData

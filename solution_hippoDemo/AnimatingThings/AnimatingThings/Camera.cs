@@ -21,7 +21,7 @@ namespace AnimatingThings
         public Matrix view, proj;
 
         // camera position 
-        public Vector3 position = new Vector3(0.0f, 100.0f, 200.0f);
+        public Vector3 position = new Vector3(0.0f, 50.0f, 200.0f);
 
         // Vector3 used to store yaw, pitch and roll (roll is not used)
         public Vector3 angle = new Vector3();
