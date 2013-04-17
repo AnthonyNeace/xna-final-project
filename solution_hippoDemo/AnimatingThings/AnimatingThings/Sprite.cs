@@ -9,7 +9,7 @@ namespace AnimatingThings
 {
     abstract class Sprite
     {
-        Texture2D textureImage;
+        public Texture2D textureImage;
         public Point frameSize;
         Point currentFrame;
         Point sheetSize;

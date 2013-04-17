@@ -85,36 +85,46 @@ namespace AnimatingThings
 
             MouseState mouse = Mouse.GetState();
 
-            if (angle.X <= MathHelper.ToRadians(-90.0f))
+            if (angle.X <= MathHelper.ToRadians(-30.0f))
             {
-                angle.X = MathHelper.ToRadians(-90.0f);
+                angle.X = MathHelper.ToRadians(-30.0f);
             }
-            else if (angle.X >= MathHelper.ToRadians(90.0f))
+            else if (angle.X >= MathHelper.ToRadians(30.0f))
             {
-                angle.X = MathHelper.ToRadians(90.0f);
+                angle.X = MathHelper.ToRadians(30.0f);
+            }
+
+            if (angle.Y <= MathHelper.ToRadians(-30.0f))
+            {
+                angle.Y = MathHelper.ToRadians(-30.0f);
+            }
+            else if (angle.Y >= MathHelper.ToRadians(30.0f))
+            {
+                angle.Y = MathHelper.ToRadians(30.0f);
             }
 
             if (mouse.MiddleButton == ButtonState.Pressed) { base.Update(gameTime); return; }
 
             // update yaw and pitch angles
-            angle.X += MathHelper.ToRadians((mouse.Y - centerY) * turnSpeed * 0.001f); // pitch
-            angle.Y += MathHelper.ToRadians((mouse.X - centerX) * turnSpeed * 0.001f); // yaw
+            angle.X = MathHelper.ToRadians((mouse.Y - centerY) * turnSpeed * 0.0001f); // pitch
+            //angle.Y += MathHelper.ToRadians((mouse.X - centerX) * turnSpeed * 0.001f); // yaw
+            angle.Y = MathHelper.ToRadians((mouse.X - centerX) * turnSpeed * 0.0001f);
 
             // compute forward and side vectors (they are orthogonal to each other)
             Vector3 forward = Vector3.Transform(new Vector3(0, 0f, -1f), Matrix.CreateRotationX(-angle.X) * /**/Matrix.CreateRotationY(-angle.Y) );
             Vector3 left = Vector3.Transform(new Vector3(-1f, 0, 0f), Matrix.CreateRotationX(-angle.X) * /**/Matrix.CreateRotationY(-angle.Y));
             
             // handle keyboard input
-            KeyboardState keyboard = Keyboard.GetState();
-            if (keyboard.IsKeyDown(Keys.S))
-                position -= forward * speed;
-            if (keyboard.IsKeyDown(Keys.W))
-                position += forward * speed;
+            //KeyboardState keyboard = Keyboard.GetState();
+            //if (keyboard.IsKeyDown(Keys.S))
+            //    position -= forward * speed;
+            //if (keyboard.IsKeyDown(Keys.W))
+            //    position += forward * speed;
 
-            if (keyboard.IsKeyDown(Keys.A))
-                position += left * speed;
-            if (keyboard.IsKeyDown(Keys.D))
-                position -= left * speed;
+            //if (keyboard.IsKeyDown(Keys.A))
+            //    position += left * speed;
+            //if (keyboard.IsKeyDown(Keys.D))
+            //    position -= left * speed;
 
 
 
@@ -128,7 +138,7 @@ namespace AnimatingThings
             // store old mouse position
             prevMouseState = mouse;
             // reset position of mouse to center of window
-            Mouse.SetPosition(centerX, centerY);
+            //Mouse.SetPosition(centerX, centerY);
 
             base.Update(gameTime);
         }
