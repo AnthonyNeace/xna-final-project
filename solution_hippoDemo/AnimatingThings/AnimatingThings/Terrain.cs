@@ -219,11 +219,9 @@ namespace AnimatingThings
 
         public override void Draw(GameTime gameTime)
         {
-
             be.Projection = parent.c.proj;
             be.View = parent.c.view;
             be.World = Matrix.Identity;
-
 
             // enable and set texture for this BE
             be.TextureEnabled = true;
@@ -235,7 +233,7 @@ namespace AnimatingThings
             // set a directional light
             be.DirectionalLight0.Enabled = true;
             be.DirectionalLight0.Direction = Vector3.Normalize(new Vector3(1, 1, 1));
-            be.DirectionalLight0.DiffuseColor = new Vector3(1, 1, 1);
+            //be.DirectionalLight0.DiffuseColor = new Vector3(1, 1, 1);
             be.DirectionalLight0.SpecularColor = Color.White.ToVector3();
 
             // apply vertex/pixel shaders
@@ -250,7 +248,7 @@ namespace AnimatingThings
 
             // draw mesh
             parent.GraphicsDevice.DrawUserIndexedPrimitives<VertexPositionNormalTexture>(PrimitiveType.TriangleList, surf, 0, (sizeX) * (sizeY), _indices, 0, (sizeX - 1) * (sizeY - 1) * 2);
-
+            
             base.Draw(gameTime);
         }
 

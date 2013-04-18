@@ -9,7 +9,25 @@ Content\grass-texture-2.xnb
 Content\buttonhover.xnb
 Content\buttonnorm.xnb
 Content\buttonpressed.xnb
+Content\SpriteFont.xnb
 Content\engine_diff_tex_0.xnb
 Content\turret_alt_diff_tex_0.xnb
 Content\hippo04UV_2_0.xnb
-Content\SpriteFont.xnb
+Content\MiniGameImages\Alert.xnb
+Content\MiniGameImages\Balloonboy.xnb
+Content\MiniGameImages\Camera.xnb
+Content\MiniGameImages\Cone.xnb
+Content\MiniGameImages\Cover copy.xnb
+Content\MiniGameImages\Dice.xnb
+Content\MiniGameImages\empty.xnb
+Content\MiniGameImages\Floppy.xnb
+Content\MiniGameImages\Globe.xnb
+Content\MiniGameImages\Mammath.xnb
+Content\MiniGameImages\Mammath2.xnb
+Content\MiniGameImages\Paint.xnb
+Content\MiniGameImages\Paper.xnb
+Content\MiniGameImages\Rock.xnb
+Content\MiniGameImages\Rock2.xnb
+Content\MiniGameImages\Rock3.xnb
+Content\MiniGameImages\Scissor.xnb
+Content\MiniGameImages\Tree.xnb

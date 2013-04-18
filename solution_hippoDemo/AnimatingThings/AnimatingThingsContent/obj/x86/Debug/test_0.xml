@@ -3,7 +3,7 @@
   <Asset Type="Graphics:BoneContent">
     <Name>Bone01</Name>
     <Identity>
-      <SourceFilename>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\test.FBX</SourceFilename>
+      <SourceFilename>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\test.FBX</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 -7.033165E-10 3.883684E-15 0 7.03637149E-10 1 1.6110236E-13 0 -4.15658676E-15 6.58787261E-14 1 0 4.17489275E-07 -8.001712E-09 -1.32336538E-13 1</Transform>

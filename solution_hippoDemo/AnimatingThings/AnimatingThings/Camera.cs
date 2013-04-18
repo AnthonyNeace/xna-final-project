@@ -21,7 +21,7 @@ namespace AnimatingThings
         public Matrix view, proj;
 
         // camera position 
-        public Vector3 position = new Vector3(0.0f, 50.0f, 200.0f);
+        public Vector3 position = new Vector3(-60.0f, 65.0f, 100.0f);
 
         // Vector3 used to store yaw, pitch and roll (roll is not used)
         public Vector3 angle = new Vector3();
@@ -106,9 +106,9 @@ namespace AnimatingThings
             if (mouse.MiddleButton == ButtonState.Pressed) { base.Update(gameTime); return; }
 
             // update yaw and pitch angles
-            angle.X = MathHelper.ToRadians((mouse.Y - centerY) * turnSpeed * 0.0001f); // pitch
+            angle.X = MathHelper.ToRadians((mouse.Y - centerY) * turnSpeed * 0.0001f) + MathHelper.ToRadians(30.0f); // pitch
             //angle.Y += MathHelper.ToRadians((mouse.X - centerX) * turnSpeed * 0.001f); // yaw
-            angle.Y = MathHelper.ToRadians((mouse.X - centerX) * turnSpeed * 0.0001f);
+            angle.Y = MathHelper.ToRadians((mouse.X - centerX) * turnSpeed * 0.0001f) + MathHelper.ToRadians(30.0f);
 
             // compute forward and side vectors (they are orthogonal to each other)
             Vector3 forward = Vector3.Transform(new Vector3(0, 0f, -1f), Matrix.CreateRotationX(-angle.X) * /**/Matrix.CreateRotationY(-angle.Y) );
