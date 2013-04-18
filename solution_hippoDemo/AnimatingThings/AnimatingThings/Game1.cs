@@ -83,7 +83,7 @@ namespace xnaPetGame
             // Load Fonts
             startFont = Content.Load<SpriteFont>(@"fonts\Start");
             descriptionFont = Content.Load<SpriteFont>(@"fonts\Description");
-            font = Content.Load<SpriteFont>("Spritefont");
+            font = Content.Load<SpriteFont>(@"fonts\SpriteFont");
 
             //Add MiniGame
             minigame = new MiniGame(this);

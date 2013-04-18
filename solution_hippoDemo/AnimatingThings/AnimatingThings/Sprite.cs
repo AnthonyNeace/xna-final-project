@@ -20,19 +20,23 @@ namespace xnaPetGame
         const int defaultMillisecondsPerFrame = 16;
         public Vector2 speed;
         public Vector2 position;
+        string text;
+        public Color fontcolor;
+        SpriteFont font;// = Game.Content.Load<SpriteFont>("Spritefont");
+        SpriteEffects spriteEffects;
 
 
         public Sprite(Texture2D textureImage, Vector2 position, Point frameSize,
-            int collisionOffset, Point currentFrame, Point sheetSize, Vector2 speed, int scoreValue)
+            int collisionOffset, Point currentFrame, Point sheetSize, Vector2 speed, SpriteFont font, Color fontcolor, string text)
             : this(textureImage, position, frameSize, collisionOffset, currentFrame,
-            sheetSize, speed, defaultMillisecondsPerFrame, scoreValue)
+            sheetSize, speed, defaultMillisecondsPerFrame, font, fontcolor, text)
         {
             //default constructor
         }
 
         public Sprite(Texture2D textureImage, Vector2 position, Point frameSize,
             int collisionOffset, Point currentFrame, Point sheetSize, Vector2 speed,
-            int millisecondsPerFrame, int scoreValue)
+            int millisecondsPerFrame, SpriteFont font, Color fontcolor, string text)
         {
             //requires millisecondsPerFrame
             this.textureImage = textureImage;
@@ -43,7 +47,9 @@ namespace xnaPetGame
             this.sheetSize = sheetSize;
             this.speed = speed;
             this.millisecondsPerFrame = millisecondsPerFrame;
-            this.scoreValue = scoreValue;
+            this.font = font;
+            this.fontcolor = fontcolor;
+            this.text = text;
         }
 
         public virtual void Update(GameTime gameTime, Rectangle clientBounds)
@@ -73,6 +79,8 @@ namespace xnaPetGame
             frameSize.X, frameSize.Y),
             Color.White, 0, Vector2.Zero,
             1f, SpriteEffects.None, 0);
+            spriteBatch.DrawString(font, text,
+                new Vector2(position.X+10, position.Y+10), fontcolor, 0.0f, Vector2.Zero, 1.0f, spriteEffects, 1.0f);
         }
 
         public abstract Vector2 direction

@@ -14,18 +14,18 @@ namespace xnaPetGame
 
 
         public AutoSprite(Texture2D textureImage, Vector2 position, Point frameSize,
-            int collisionOffset, Point currentFrame, Point sheetSize, Vector2 speed, int scoreValue)
+            int collisionOffset, Point currentFrame, Point sheetSize, Vector2 speed, SpriteFont font, Color fontcolor, string text)
             : base(textureImage, position, frameSize, collisionOffset, currentFrame,
-            sheetSize, speed, scoreValue)
+            sheetSize, speed, font, fontcolor, text)
         {
             //default construcotr
         }
 
         public AutoSprite(Texture2D textureImage, Vector2 position, Point frameSize,
             int collisionOffset, Point currentFrame, Point sheetSize, Vector2 speed,
-            int millisecondsPerFrame, int scoreValue)
+            int millisecondsPerFrame, SpriteFont font, Color fontcolor, string text)
             : base(textureImage, position, frameSize, collisionOffset, currentFrame,
-            sheetSize, speed, millisecondsPerFrame, scoreValue)
+            sheetSize, speed, millisecondsPerFrame, font, fontcolor, text)
         {
             //constructor with msPerFrame
         }

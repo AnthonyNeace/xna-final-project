@@ -31,6 +31,7 @@ namespace xnaPetGame
         public override void Initialize()
         {
             //spriteBatch = new SpriteBatch(Game.GraphicsDevice);
+            font = Game.Content.Load<SpriteFont>(@"fonts/Spritefont");
             for (int i = 0; i < 400; i += 50)
             {
                 buttons.Add(new AutoSprite(Game.Content.Load<Texture2D>("buttonnorm"),//Testure
@@ -40,9 +41,11 @@ namespace xnaPetGame
                     new Point(0, 0), //Current Frame
                     new Point(2, 1), //Sheetsize
                     new Vector2(0, 1), //Speed
-                    0)); //Score
+                    font,
+                    Color.Black,
+                    "Go Cats!")); //Score
             }
-            font = Game.Content.Load<SpriteFont>("Spritefont");
+            //font = Game.Content.Load<SpriteFont>("Spritefont");
             base.Initialize();
         }
 
@@ -61,17 +64,17 @@ namespace xnaPetGame
                     if (mouse.LeftButton == ButtonState.Pressed)
                     {
                         b.textureImage = Game.Content.Load<Texture2D>("buttonpressed");
-                        fontcolor = Color.White;
+                        b.fontcolor = Color.White;
                     }
                     else
                     {
                         b.textureImage = Game.Content.Load<Texture2D>("buttonhover");
-                        fontcolor = Color.White;
+                        b.fontcolor = Color.White;
                     }
                 }
                 else
                 {
-                    fontcolor = Color.Black;
+                    b.fontcolor = Color.Black;
                     b.textureImage = Game.Content.Load<Texture2D>("buttonnorm");
                 }
 
@@ -87,12 +90,12 @@ namespace xnaPetGame
             spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
             // Draw the buttons
             
-            string text = "Feed";
-            spriteBatch.DrawString(font, text,
-                new Vector2(20, 20), fontcolor, 0.0f, Vector2.Zero, 1.0f, spriteEffects, 1.0f);
-            text = "Pet";
-            spriteBatch.DrawString(font, text,
-                new Vector2(20, 20+50), fontcolor, 0.0f, Vector2.Zero, 1.0f, spriteEffects, 1.0f);
+            //string text = "Feed";
+            //spriteBatch.DrawString(font, text,
+            //    new Vector2(20, 20), fontcolor, 0.0f, Vector2.Zero, 1.0f, spriteEffects, 1.0f);
+            //text = "Pet";
+            //spriteBatch.DrawString(font, text,
+            //    new Vector2(20, 20+50), fontcolor, 0.0f, Vector2.Zero, 1.0f, spriteEffects, 1.0f);
             // Draw the buttons
             foreach(Sprite b in buttons)
             {

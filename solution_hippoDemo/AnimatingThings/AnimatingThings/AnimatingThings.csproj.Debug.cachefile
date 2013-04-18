@@ -27,9 +27,9 @@ Content\MiniGameImages\Rock2.xnb
 Content\MiniGameImages\Rock3.xnb
 Content\MiniGameImages\Scissor.xnb
 Content\MiniGameImages\Tree.xnb
-Content\SpriteFont.xnb
+Content\fonts\Start.xnb
+Content\fonts\Description.xnb
 Content\engine_diff_tex_0.xnb
 Content\turret_alt_diff_tex_0.xnb
 Content\hippo04UV_2_0.xnb
-Content\fonts\Start.xnb
-Content\fonts\Description.xnb
+Content\fonts\SpriteFont.xnb

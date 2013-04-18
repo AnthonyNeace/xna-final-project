@@ -40,7 +40,7 @@ namespace xnaPetGame
             p = game.Content.Load<Texture2D>(@"MiniGameImages/Paper");
             c = paper = game.Content.Load<Texture2D>(@"MiniGameImages/Paper");
 
-            sf = game.Content.Load<SpriteFont>("SpriteFont");   
+            sf = game.Content.Load<SpriteFont>(@"fonts\SpriteFont");   
         }
 
          public override void Initialize()

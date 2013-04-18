@@ -115,7 +115,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SpriteFont.spritefont">
+    <Compile Include="fonts\SpriteFont.spritefont">
       <Name>SpriteFont</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
