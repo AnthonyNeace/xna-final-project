@@ -7,7 +7,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AnimatingThings</RootNamespace>
+    <RootNamespace>xnaPetGame</RootNamespace>
     <AssemblyName>AnimatingThings</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -117,6 +117,7 @@
     <Compile Include="Sprite.cs" />
     <Compile Include="SpriteManager.cs" />
     <Compile Include="Terrain.cs" />
+    <Compile Include="TextInterface.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
@@ -124,8 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AnimatingThingsContent\AnimatingThingsContent.contentproj">
-      <Name>AnimatingThingsContent</Name>
+      <Name>AnimatingThingsContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
+      <Project>{35DBF4FC-5CB1-41E9-89E6-F7218E2D7EE8}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

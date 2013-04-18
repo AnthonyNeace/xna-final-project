@@ -9,34 +9,43 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace AnimatingThings
+namespace xnaPetGame
 {
 
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        public SpriteBatch spriteBatch;
         SpriteManager spriteManager;
         Model m;
         public Camera c;
         Terrain t;
         Matrix[] modelTransforms;
         Matrix[] originalTransforms;
+        Matrix worldMatrix;
+        Boolean colorSwitch = false;
+        public Color mainBGColor = new Color(0, 0, 0);
+
+
+        public SpriteFont startFont, descriptionFont, font;
 
         float r1 = 0, r2 = 0;
+
+        TextInterface text;
 
         //**** MiniGame ****//
         MiniGame minigame;
         Matching matching;
 
         //**** Game State ****//
-        public enum GameState { InHome, InMiniGame };
-        GameState currentState = GameState.InHome;
+        public enum GameState { Start, Instructions, InHome, InMiniGame };
+        public GameState currentState = GameState.Start;
 
         public Boolean inMain = false;
         public Boolean inMini = false;
         public Boolean inMatching = true;
 
+        int updatecounter = 0;
 
         public Boolean playing
         {
@@ -61,7 +70,6 @@ namespace AnimatingThings
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
             this.IsMouseVisible = true; //shows mouse
             base.Initialize();
         }
@@ -71,6 +79,11 @@ namespace AnimatingThings
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            // Load Fonts
+            startFont = Content.Load<SpriteFont>(@"fonts\Start");
+            descriptionFont = Content.Load<SpriteFont>(@"fonts\Description");
+            font = Content.Load<SpriteFont>("Spritefont");
 
             //Add MiniGame
             minigame = new MiniGame(this);
@@ -87,7 +100,6 @@ namespace AnimatingThings
             //Loading Terrain
             t = new Terrain(this);
             t.Initialize();
-            Components.Add(t);
 
             //Loading Height Texture
             Texture2D heightMap = Content.Load<Texture2D>("Untitled");
@@ -102,9 +114,10 @@ namespace AnimatingThings
             //Initalizing Sprite Manager
             spriteManager = new SpriteManager(this);
             spriteManager.Initialize();
-            Components.Add(spriteManager);
 
-            // TODO: use this.Content to load your game content here
+            // Initializing Text Utility Class
+            text = new TextInterface(this);
+            Components.Add(text);
         }
 
 
@@ -112,6 +125,82 @@ namespace AnimatingThings
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+        }
+
+        void gameStateUpdateManager(GameTime gameTime){
+
+            // This handles the passing of components to their appropriate states.  This also
+            // will eventually be where the updating of gamestates occur.
+            switch(currentState){
+                case GameState.Start:
+                    // Delay for keyboard input
+                    // If you hold enter, proceed to next game state
+                    if (updatecounter == 6)
+                    {
+                        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                        {
+                            currentState = GameState.Instructions;
+                        }
+                        updatecounter = 0;
+                        break;
+                    }
+                    break;
+                case GameState.Instructions:
+                    if (updatecounter == 12)
+                    {
+                        // Delay for keyboard input
+                        // If you hold enter, proceed to next game state
+                        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                        {
+                            currentState = GameState.InHome;
+                            Components.Add(spriteManager);
+                        }
+                        updatecounter = 0;
+                        break;
+                    }
+                    break;
+                case GameState.InHome:
+                    keyboardControls(gameTime);
+                    break;
+                case GameState.InMiniGame:
+                    keyboardControls(gameTime);
+                    break;
+            }
+
+        }
+
+        // Watches for keyboard input, reacts appropriately
+        void keyboardControls(GameTime gameTime)
+        {
+            if (Keyboard.GetState().IsKeyDown(Keys.M) == true && (currentState == GameState.InHome))
+            {
+                inMini = true;
+                inMain = false;
+                inMatching = false;
+                //playing = false;
+                currentState = GameState.InMiniGame;
+                Components.Remove(spriteManager);
+
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.H) == true && (currentState == GameState.InMiniGame))
+            {
+                inMain = true;
+                inMini = false;
+                inMatching = false;
+                //playing = true;
+                currentState = GameState.InHome;
+                Components.Add(spriteManager);
+
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.P))
+            {
+                inMain = false;
+                inMini = false;
+                inMatching = true;
+                //playing = true;
+            }
         }
 
 
@@ -126,31 +215,7 @@ namespace AnimatingThings
             r1 = MathHelper.Pi * 1.5f;
             r2 += 0.04f;
 
-            if (Keyboard.GetState().IsKeyDown(Keys.M))
-            {
-                inMini = true;
-                inMain = false;
-                inMatching = false;
-                //playing = false;
-
-            }
-
-            if (Keyboard.GetState().IsKeyDown(Keys.H))
-            {
-                inMain = true;
-                inMini = false;
-                inMatching = false;
-                //playing = true;
-
-            }
-
-            if (Keyboard.GetState().IsKeyDown(Keys.P))
-            {
-                inMain = false;
-                inMini = false;
-                inMatching = true;
-                //playing = true;
-            }
+            gameStateUpdateManager(gameTime);
 
             if (inMain == true)
             {
@@ -167,6 +232,7 @@ namespace AnimatingThings
             //    matching.Update(gameTime);
             //}
 
+            updatecounter++;
             base.Update(gameTime);
         }
 
@@ -178,26 +244,19 @@ namespace AnimatingThings
             GraphicsDevice.BlendState = BlendState.Opaque;
             GraphicsDevice.DepthStencilState = DepthStencilState.Default;
 
-            t.Draw(gameTime);
-
+            //text.Draw(gameTime);
             //draw model
-            Matrix rotmat1 = Matrix.CreateRotationX(r1) * originalTransforms[0];
-            m.Bones[0].Transform = rotmat1;
-
-            Matrix worldMatrix = Matrix.Identity * Matrix.CreateRotationX((float)(Math.PI) * 1.5f) * Matrix.CreateScale(10.0f) * Matrix.CreateTranslation(0.0f, 0.0f, 0.0f);
-            m.CopyAbsoluteBoneTransformsTo(modelTransforms);
-
-            
-            foreach (ModelMesh mesh in m.Meshes)
+            switch (currentState)
             {
-                foreach (BasicEffect effect in mesh.Effects)
-                {
-                    effect.EnableDefaultLighting();
-                    effect.World = worldMatrix;
-                    effect.View = c.view;
-                    effect.Projection = c.proj;
-                }
-                mesh.Draw();
+                case GameState.Start:
+                    mainBGColor = mainScreenColorFade(mainBGColor);
+                    GraphicsDevice.Clear(mainBGColor);
+                    drawHippo(gameTime);
+                    break;
+                case GameState.InHome:
+                    t.Draw(gameTime);
+                    drawHippo(gameTime);
+                    break;
             }
 
             //RasterizerState rs = new RasterizerState();
@@ -217,6 +276,55 @@ namespace AnimatingThings
             //    matching.Draw(spriteBatch);
             //}
             base.Draw(gameTime);
+        }
+
+        // Draws the hippo.
+        void drawHippo(GameTime gameTime)
+        {
+            Matrix rotmat1 = Matrix.CreateRotationX(r1) * originalTransforms[0];
+            m.Bones[0].Transform = rotmat1;
+
+            switch (currentState)
+            {
+                case GameState.Start:
+                    worldMatrix = Matrix.Identity * Matrix.CreateRotationZ(r2) * Matrix.CreateRotationX((float)(Math.PI) * 1.5f) * Matrix.CreateScale((float)(10.0f+Math.Sin(r2))) * Matrix.CreateTranslation(0.0f, -25.0f, 0.0f);
+                    break;
+                case GameState.InHome:
+                    worldMatrix = Matrix.Identity * Matrix.CreateRotationX((float)(Math.PI) * 1.5f) * Matrix.CreateScale(10.0f) * Matrix.CreateTranslation(0.0f, 0.0f, 0.0f);
+                    break;
+            }
+            m.CopyAbsoluteBoneTransformsTo(modelTransforms);
+
+
+            foreach (ModelMesh mesh in m.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.EnableDefaultLighting();
+                    effect.World = worldMatrix;
+                    effect.View = c.view;
+                    effect.Projection = c.proj;
+                }
+                mesh.Draw();
+            }
+        }
+
+        // Creates an animated gradient.
+        public Color mainScreenColorFade(Color bgColor)
+        {
+            // Increment or decrecrement, depending on switch
+            if (!colorSwitch)
+                bgColor = new Color((bgColor.R + 1f) / 255, (bgColor.G + 1f) / 255, (bgColor.B + 1f) / 255);
+            else
+                bgColor = new Color((bgColor.R - 1f) / 255, (bgColor.G - 1f) / 255, (bgColor.B - 1f) / 255);
+
+            // Boolean switch to switch count direction
+            if (bgColor.R == 100)
+                colorSwitch = true;
+            else if (bgColor.R == 0)
+                colorSwitch = false;
+
+            return bgColor;
         }
     }
 }

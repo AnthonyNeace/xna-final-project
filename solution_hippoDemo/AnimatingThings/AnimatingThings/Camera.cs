@@ -10,11 +10,9 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
 
-namespace AnimatingThings
+namespace xnaPetGame
 {
-    /// <summary>
-    /// This is a game component that implements IUpdateable.
-    /// </summary>
+
     public class Camera : Microsoft.Xna.Framework.GameComponent
     {
         // view matrix
@@ -46,13 +44,9 @@ namespace AnimatingThings
             Initialize();
         }
 
-        /// <summary>
-        /// Allows the game component to perform any initialization it needs to before starting
-        /// to run.  This is where it can query for any required services and load content.
-        /// </summary>
+
         public override void Initialize()
         {
-            // TODO: Add your initialization code here
             
             // Set mouse position and do initial get state
 
@@ -71,13 +65,8 @@ namespace AnimatingThings
             base.Initialize();
         }
 
-        /// <summary>
-        /// Allows the game component to update itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            // TODO: Add your update code here
             centerX = Game.Window.ClientBounds.Width / 2;
             centerY = Game.Window.ClientBounds.Height / 2;
 

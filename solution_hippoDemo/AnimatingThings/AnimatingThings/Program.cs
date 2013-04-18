@@ -1,6 +1,6 @@
 using System;
 
-namespace AnimatingThings
+namespace xnaPetGame
 {
 #if WINDOWS || XBOX
     static class Program

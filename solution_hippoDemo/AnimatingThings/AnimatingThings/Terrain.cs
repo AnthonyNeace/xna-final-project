@@ -10,11 +10,9 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
 
-namespace AnimatingThings
+namespace xnaPetGame
 {
-    /// <summary>
-    /// This is a game component that implements IUpdateable.
-    /// </summary>
+
     public class Terrain : Microsoft.Xna.Framework.DrawableGameComponent
     {
         Game1 parent;
@@ -49,12 +47,11 @@ namespace AnimatingThings
 
             be = new BasicEffect(parent.GraphicsDevice);
 
-            // TODO: Construct any child components here
+
         }
 
         public override void Initialize()
         {
-            // TODO: Add your initialization code here
 
             Texture2D heightMap = parent.Content.Load<Texture2D>("Untitled");
             LoadHeightData(heightMap);
@@ -126,7 +123,6 @@ namespace AnimatingThings
             for (int x = 0; x < terrainWidth; x++)
                 for (int y = 0; y < terrainHeight; y++)
                 {
-                    //heightData[x, y] = heightMapColors[x + y * terrainWidth].R / 5.0f;
                     heightData[x, y] = 0;
                 }
         }

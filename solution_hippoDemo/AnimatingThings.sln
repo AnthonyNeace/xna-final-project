@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+# Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimatingThings", "AnimatingThings\AnimatingThings\AnimatingThings.csproj", "{9F076004-19E2-4C60-9B69-06B82A8C217D}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "AnimatingThingsContent", "AnimatingThings\AnimatingThingsContent\AnimatingThingsContent.contentproj", "{35DBF4FC-5CB1-41E9-89E6-F7218E2D7EE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimatingThingsContent", "AnimatingThings\AnimatingThingsContent\AnimatingThingsContent.contentproj", "{35DBF4FC-5CB1-41E9-89E6-F7218E2D7EE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

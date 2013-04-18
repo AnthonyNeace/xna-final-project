@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
 
-namespace AnimatingThings
+namespace xnaPetGame
 {
 
     public class SpriteManager : Microsoft.Xna.Framework.DrawableGameComponent
@@ -86,19 +86,13 @@ namespace AnimatingThings
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
             spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
             // Draw the buttons
+            
             string text = "Feed";
             spriteBatch.DrawString(font, text,
                 new Vector2(20, 20), fontcolor, 0.0f, Vector2.Zero, 1.0f, spriteEffects, 1.0f);
             text = "Pet";
             spriteBatch.DrawString(font, text,
                 new Vector2(20, 20+50), fontcolor, 0.0f, Vector2.Zero, 1.0f, spriteEffects, 1.0f);
-            text = "To play Rock Paper Scissors, Press M";
-            spriteBatch.DrawString(font, text,
-                new Vector2(20, 20 + 375), fontcolor, 0.0f, Vector2.Zero, 1.0f, spriteEffects, 1.0f);
-            text = "To return Home, Press H";
-            spriteBatch.DrawString(font, text,
-                new Vector2(20, 20 + 400), fontcolor, 0.0f, Vector2.Zero, 1.0f, spriteEffects, 1.0f);
-
             // Draw the buttons
             foreach(Sprite b in buttons)
             {
