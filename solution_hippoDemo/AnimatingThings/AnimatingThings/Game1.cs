@@ -22,14 +22,14 @@ namespace xnaPetGame
         Terrain t;
         Matrix[] modelTransforms;
         Matrix[] originalTransforms;
-        Matrix worldMatrix;
+        public Matrix worldMatrix;
         Boolean colorSwitch = false;
         public Color mainBGColor = new Color(0, 0, 0);
 
 
         public SpriteFont startFont, descriptionFont, font;
 
-        float r1 = 0, r2 = 0;
+        public float r1 = 0, r2 = 0;
 
         TextInterface text;
 
@@ -206,14 +206,14 @@ namespace xnaPetGame
             // TODO: Add your update logic here
 
             r1 = MathHelper.Pi * 1.5f;
-            r2 += 0.04f;
+            //r2 += 0.04f;
 
             gameStateUpdateManager(gameTime);
 
             if (inMain == true)
             {
                 r1 = MathHelper.Pi * 1.5f;
-                r2 += 0.04f;
+                //r2 += 0.04f;
 
             }
             else if (inMini == true)
@@ -271,11 +271,24 @@ namespace xnaPetGame
             base.Draw(gameTime);
         }
 
+        bool goingdown = false;
+
         // Draws the hippo.
         void drawHippo(GameTime gameTime)
         {
             Matrix rotmat1 = Matrix.CreateRotationX(r1) * originalTransforms[0];
             m.Bones[0].Transform = rotmat1;
+
+            if (r2 >= 10.00f)
+                goingdown = !goingdown;
+            if (r2 <= -20.00f)
+                goingdown = !goingdown;
+            if (!goingdown)
+                r2-=0.02f;
+            else
+                r2+=0.02f;
+
+            Console.WriteLine("r2: "+ r2);
 
             switch (currentState)
             {
@@ -283,7 +296,9 @@ namespace xnaPetGame
                     worldMatrix = Matrix.Identity * Matrix.CreateRotationZ(r2) * Matrix.CreateRotationX((float)(Math.PI) * 1.5f) * Matrix.CreateScale((float)(10.0f+Math.Sin(r2))) * Matrix.CreateTranslation(0.0f, -25.0f, 0.0f);
                     break;
                 case GameState.InHome:
-                    worldMatrix = Matrix.Identity * Matrix.CreateRotationX((float)(Math.PI) * 1.5f) * Matrix.CreateScale(10.0f) * Matrix.CreateTranslation(0.0f, 0.0f, 0.0f);
+                    
+                    worldMatrix = Matrix.Identity * Matrix.CreateRotationX((float)(Math.PI) * 1.5f) * Matrix.CreateScale(5.0f) * Matrix.CreateTranslation(0.0f, 0.0f, 0.0f) * Matrix.CreateRotationY(r2/10);
+                    //c.view = Matrix.CreateLookAt(c.position, Vector3.Zero, Vector3.Up);
                     break;
             }
             m.CopyAbsoluteBoneTransformsTo(modelTransforms);

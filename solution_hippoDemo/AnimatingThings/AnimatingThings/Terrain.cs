@@ -209,7 +209,8 @@ namespace xnaPetGame
 
         public override void Update(GameTime gameTime)
         {
-
+            parent.r1 = MathHelper.Pi * 1.5f;
+            parent.r2 += 0.04f;
             base.Update(gameTime);
         }
 
@@ -217,7 +218,7 @@ namespace xnaPetGame
         {
             be.Projection = parent.c.proj;
             be.View = parent.c.view;
-            be.World = Matrix.Identity;
+            be.World = Matrix.Identity * Matrix.CreateRotationY(parent.r2 / 10);
 
             // enable and set texture for this BE
             be.TextureEnabled = true;

@@ -19,7 +19,7 @@ namespace xnaPetGame
         public Matrix view, proj;
 
         // camera position 
-        public Vector3 position = new Vector3(-60.0f, 65.0f, 100.0f);
+        public Vector3 position = new Vector3(-40.0f, 50.0f, 60.0f);
 
         // Vector3 used to store yaw, pitch and roll (roll is not used)
         public Vector3 angle = new Vector3();
