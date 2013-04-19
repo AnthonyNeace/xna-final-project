@@ -397,6 +397,52 @@
       <Output>obj\x86\Debug\hippoXNAattempt7_0.xml</Output>
       <Time>2013-04-15T15:17:32-04:00</Time>
     </Item>
+    <Item>
+      <Source>tree4-fbx.FBX</Source>
+      <Name>tree4-fbx</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\tree4-fbx.xnb</Output>
+      <Time>2013-04-19T13:18:43.8844713-04:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\tree4-fbx_0.xml</Key>
+        <Value>2013-04-19T13:23:29.3783188-04:00</Value>
+      </Dependency>
+      <Request>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\texture_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>texture.tga</Source>
+      <Name>texture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\texture.xnb</Output>
+      <Time>2013-04-19T13:18:58.0538006-04:00</Time>
+    </Item>
+    <Item>
+      <Source>tree4-fbx.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\tree4-fbx_0.xml</Output>
+      <Time>2013-04-19T13:18:43.8844713-04:00</Time>
+    </Item>
+    <Item>
+      <Source>texture.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\texture_0.xnb</Output>
+      <Time>2013-04-19T13:18:58.0538006-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

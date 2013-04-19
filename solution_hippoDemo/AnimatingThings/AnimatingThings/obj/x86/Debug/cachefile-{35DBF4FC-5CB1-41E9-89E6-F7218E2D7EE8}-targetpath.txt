@@ -33,3 +33,6 @@ Content\fonts\Description.xnb
 Content\engine_diff_tex_0.xnb
 Content\turret_alt_diff_tex_0.xnb
 Content\hippo04UV_2_0.xnb
+Content\tree4-fbx.xnb
+Content\texture.xnb
+Content\texture_0.xnb

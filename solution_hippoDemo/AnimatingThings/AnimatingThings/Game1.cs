@@ -18,10 +18,13 @@ namespace xnaPetGame
         public SpriteBatch spriteBatch;
         SpriteManager spriteManager;
         Model m;
+        Model tree;
         public Camera c;
         Terrain t;
         Matrix[] modelTransforms;
+        Matrix[] treemodelTransforms;
         Matrix[] originalTransforms;
+        Matrix[] treeoriginalTransforms;
         public Matrix worldMatrix;
         Boolean colorSwitch = false;
         public Color mainBGColor = new Color(0, 0, 0);
@@ -95,6 +98,12 @@ namespace xnaPetGame
             modelTransforms = new Matrix[m.Bones.Count];
             originalTransforms = new Matrix[m.Bones.Count];
             m.CopyBoneTransformsTo(originalTransforms);
+
+            //Load Tree
+            tree = Content.Load<Model>("tree4-fbx");
+            treemodelTransforms = new Matrix[tree.Bones.Count];
+            treeoriginalTransforms = new Matrix[m.Bones.Count];
+            tree.CopyBoneTransformsTo(treeoriginalTransforms);
 
             //Loading Terrain
             t = new Terrain(this);
@@ -234,21 +243,27 @@ namespace xnaPetGame
         {
             GraphicsDevice.Clear(Color.DarkOliveGreen);
 
-            GraphicsDevice.BlendState = BlendState.Opaque;
-            GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+            //GraphicsDevice.BlendState = BlendState.AlphaBlend;
+            
+            //GraphicsDevice.DepthStencilState = DepthStencilState.Default;
 
             //text.Draw(gameTime);
             //draw model
             switch (currentState)
             {
                 case GameState.Start:
+                    GraphicsDevice.DepthStencilState = DepthStencilState.Default;
                     mainBGColor = mainScreenColorFade(mainBGColor);
                     GraphicsDevice.Clear(mainBGColor);
                     drawHippo(gameTime);
                     break;
                 case GameState.InHome:
+                    //GraphicsDevice.DepthStencilState = DepthStencilState.Default;
                     t.Draw(gameTime);
+                    drawTree(gameTime);
+                    GraphicsDevice.DepthStencilState = DepthStencilState.Default;
                     drawHippo(gameTime);
+                    
                     break;
             }
 
@@ -276,9 +291,12 @@ namespace xnaPetGame
         // Draws the hippo.
         void drawHippo(GameTime gameTime)
         {
+
             Matrix rotmat1 = Matrix.CreateRotationX(r1) * originalTransforms[0];
             m.Bones[0].Transform = rotmat1;
 
+
+            //Creates Pretty Rotation Effect
             if (r2 >= 10.00f)
                 goingdown = !goingdown;
             if (r2 <= -20.00f)
@@ -288,16 +306,22 @@ namespace xnaPetGame
             else
                 r2+=0.02f;
 
-            Console.WriteLine("r2: "+ r2);
-
             switch (currentState)
             {
                 case GameState.Start:
-                    worldMatrix = Matrix.Identity * Matrix.CreateRotationZ(r2) * Matrix.CreateRotationX((float)(Math.PI) * 1.5f) * Matrix.CreateScale((float)(10.0f+Math.Sin(r2))) * Matrix.CreateTranslation(0.0f, -25.0f, 0.0f);
+                    worldMatrix = Matrix.Identity * 
+                        Matrix.CreateRotationZ(r2) * 
+                        Matrix.CreateRotationX((float)(Math.PI) * 1.5f) * 
+                        Matrix.CreateScale((float)(10.0f+Math.Sin(r2))) * 
+                        Matrix.CreateTranslation(0.0f, -25.0f, 0.0f);
                     break;
                 case GameState.InHome:
                     
-                    worldMatrix = Matrix.Identity * Matrix.CreateRotationX((float)(Math.PI) * 1.5f) * Matrix.CreateScale(5.0f) * Matrix.CreateTranslation(0.0f, 0.0f, 0.0f) * Matrix.CreateRotationY(r2/10);
+                    worldMatrix = Matrix.Identity * 
+                        Matrix.CreateRotationX((float)(Math.PI) * 1.5f) * 
+                        Matrix.CreateScale(5.0f) * 
+                        Matrix.CreateTranslation(0.0f, 0.0f, 0.0f) *
+                        Matrix.CreateRotationY(r2/10);
                     //c.view = Matrix.CreateLookAt(c.position, Vector3.Zero, Vector3.Up);
                     break;
             }
@@ -316,6 +340,41 @@ namespace xnaPetGame
                 mesh.Draw();
             }
         }
+
+        // Draws the hippo.
+        void drawTree(GameTime gameTime)
+        {
+
+            Matrix rotmat1 = Matrix.CreateRotationX(r1) * originalTransforms[0];
+            tree.Bones[0].Transform = rotmat1;
+            for (int i = -45; i <= 45; i += 15)
+            {
+                worldMatrix = Matrix.Identity *
+                    Matrix.CreateRotationX((float)(Math.PI) * 1.5f) *
+                    Matrix.CreateRotationY(i)*
+                    Matrix.CreateScale(5.0f) *
+                    Matrix.CreateTranslation(i, 0.0f, -30.0f) *
+                    Matrix.CreateRotationY(r2 / 10);
+                //c.view = Matrix.CreateLookAt(c.position, Vector3.Zero, Vector3.Up);
+
+
+                tree.CopyAbsoluteBoneTransformsTo(modelTransforms);
+
+
+                foreach (ModelMesh mesh in tree.Meshes)
+                {
+                    foreach (BasicEffect effect in mesh.Effects)
+                    {
+                        effect.EnableDefaultLighting();
+                        effect.World = worldMatrix;
+                        effect.View = c.view;
+                        effect.Projection = c.proj;
+                    }
+                    mesh.Draw();
+                }
+            }
+        }
+
 
         // Creates an animated gradient.
         public Color mainScreenColorFade(Color bgColor)
