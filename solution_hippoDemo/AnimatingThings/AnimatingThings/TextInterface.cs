@@ -84,20 +84,11 @@ namespace xnaPetGame
                     break;
                 // INGAME TEXT
                 case Game1.GameState.InHome:
-                    parent.spriteBatch.Begin();
-                    //string text;
-                    text = "To play Rock Paper Scissors, Press M";
-                    parent.spriteBatch.DrawString(parent.font, text,
-                        new Vector2(20, 20 + 375), fontcolor, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
-                    text = "To return Home, Press H";
-                    parent.spriteBatch.DrawString(parent.font, text,
-                        new Vector2(20, 20 + 400), fontcolor, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
-                    parent.spriteBatch.End();
                     break;
                 // GAMEOVER TEXT
                 case Game1.GameState.InMiniGame:
                     parent.spriteBatch.Begin();
-                    text = "To play Rock Paper Scissors, Press M";
+                    text = "To reset Rock Paper Scissors, Press R";
                     parent.spriteBatch.DrawString(parent.font, text,
                         new Vector2(20, 20 + 375), fontcolor, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
                     text = "To return Home, Press H";

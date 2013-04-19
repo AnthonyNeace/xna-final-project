@@ -59,7 +59,6 @@ namespace xnaPetGame
             }
         }
 
-        
 
         public Game1()
         {
@@ -113,7 +112,6 @@ namespace xnaPetGame
 
             //Initalizing Sprite Manager
             spriteManager = new SpriteManager(this);
-            spriteManager.Initialize();
 
             // Initializing Text Utility Class
             text = new TextInterface(this);
@@ -172,15 +170,10 @@ namespace xnaPetGame
         // Watches for keyboard input, reacts appropriately
         void keyboardControls(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.M) == true && (currentState == GameState.InHome))
+            if (inMini)
             {
-                inMini = true;
-                inMain = false;
-                inMatching = false;
-                //playing = false;
-                currentState = GameState.InMiniGame;
+                spriteManager.ClearLists();
                 Components.Remove(spriteManager);
-
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.H) == true && (currentState == GameState.InMiniGame))

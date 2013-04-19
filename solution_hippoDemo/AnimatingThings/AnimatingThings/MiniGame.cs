@@ -13,6 +13,8 @@ namespace xnaPetGame
 {
     class MiniGame: Microsoft.Xna.Framework.GameComponent
     {
+
+        MouseState currentmouse, previousmouse;
         Texture2D rock, paper, scissors, p,c;
         SpriteFont sf;
         Game1 game;
@@ -69,11 +71,12 @@ namespace xnaPetGame
 
 
                 //Get mouse left click to identify which sprite the user chooses
-                MouseState mouse = Mouse.GetState();
-                if (mouse.LeftButton == ButtonState.Pressed && waiting == true)
+                currentmouse = Mouse.GetState();
+                if (currentmouse.LeftButton == ButtonState.Pressed &&
+                    previousmouse.LeftButton == ButtonState.Released && waiting == true)
                 {
-                    select.X = mouse.X;
-                    select.Y = mouse.Y;
+                    select.X = currentmouse.X;
+                    select.Y = currentmouse.Y;
                     waiting = false;
                     played = true;
                     // Console.WriteLine("Point X: " + select.X + ", Point Y: " + select.Y);
@@ -128,6 +131,8 @@ namespace xnaPetGame
                     result = "You Lost";
                 }
             }
+
+            previousmouse = currentmouse;
             base.Update(gameTime);
         }
 

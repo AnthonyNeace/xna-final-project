@@ -15,39 +15,93 @@ namespace xnaPetGame
 
     public class SpriteManager : Microsoft.Xna.Framework.DrawableGameComponent
     {
+        MouseState currentmouse, previousmouse;
+
+        Game1 parent;
+
         SpriteBatch spriteBatch;
         SpriteFont font;
         Color fontcolor = Color.Black;
-        SpriteEffects spriteEffects;
-        //float opacity = 1.0f;
-        //Sprite button;
+        bool isgametrayopen = false;
+
         List<Sprite> buttons = new List<Sprite>();
+        List<Sprite> gamelist = new List<Sprite>();
 
         public SpriteManager(Game game)
             : base(game)
         {
-
+            parent = (Game1)game;
         }
 
         public override void Initialize()
         {
             //spriteBatch = new SpriteBatch(Game.GraphicsDevice);
             font = Game.Content.Load<SpriteFont>(@"fonts/Spritefont");
-            for (int i = 0; i < 300; i += 50)
+
+
+
+            buttons.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
+                new Vector2(10, 20),//Position
+                new Point(100, 50),//Framesize
+                0, //Collision Offset
+                font,
+                Color.Black,
+                "Feed"));
+
+            buttons.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
+                new Vector2(10, 70),//Position
+                new Point(100, 50),//Framesize
+                0, //Collision Offset
+                font,
+                Color.Black,
+                "Pet"));
+
+            buttons.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
+                new Vector2(10, 120),//Position
+                new Point(100, 50),//Framesize
+                0, //Collision Offset
+                font,
+                Color.Black,
+                "Play"));
+
+            gamelist.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
+                new Vector2(-200, 120),//Position
+                new Point(100, 50),//Framesize
+                0, //Collision Offset
+                font,
+                Color.Black,
+                "RPS"));
+
+            gamelist.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
+                new Vector2(-200, 120),//Position
+                new Point(100, 50),//Framesize
+                0, //Collision Offset
+                font,
+                Color.Black,
+                "Matching"));
+
+            foreach (Sprite b in buttons)
             {
-                buttons.Add(new AutoSprite(Game.Content.Load<Texture2D>("buttonnorm"),//Testure
-                    new Vector2(10, i+10),//Position
-                    new Point(100, 50),//Framesize
-                    0, //Collision Offset
-                    new Point(0, 0), //Current Frame
-                    new Point(2, 1), //Sheetsize
-                    new Vector2(0, 1), //Speed
-                    font,
-                    Color.Black,
-                    "Go Cats!")); //Score
+                b.buttonhover = Game.Content.Load<Texture2D>("buttonhover");
+                b.buttonnorm = Game.Content.Load<Texture2D>("buttonnorm");
+                b.buttonpressed = Game.Content.Load<Texture2D>("buttonpressed");
             }
+
+            foreach (Sprite b in gamelist)
+            {
+                b.buttonhover = Game.Content.Load<Texture2D>("buttonhover");
+                b.buttonnorm = Game.Content.Load<Texture2D>("buttonnorm");
+                b.buttonpressed = Game.Content.Load<Texture2D>("buttonpressed");
+            }
+
             //font = Game.Content.Load<SpriteFont>("Spritefont");
             base.Initialize();
+        }
+
+        public void ClearLists()
+        {
+                buttons.Clear();
+                gamelist.Clear();
         }
 
         protected override void LoadContent()
@@ -55,59 +109,87 @@ namespace xnaPetGame
             base.LoadContent();
         }
 
+        protected override void UnloadContent()
+        {
+            base.UnloadContent();
+        }
+
+        void opengametray()
+        {
+            int i = 120;
+            foreach (Sprite b in gamelist)
+            {
+                b.position.X = i;
+                i += 110;
+            }
+        }
+
+        void closegametray()
+        {
+            foreach (Sprite b in gamelist)
+            {
+                b.position.X = -300;
+            }
+        }
+
         public override void Update(GameTime gameTime)
         {
-            MouseState mouse = Mouse.GetState();
+            currentmouse = Mouse.GetState();
 
-            foreach(Sprite b in buttons){
-                b.buttonhover = Game.Content.Load<Texture2D>("buttonhover");
-                b.buttonnorm = Game.Content.Load<Texture2D>("buttonnorm");
-                b.buttonpressed = Game.Content.Load<Texture2D>("buttonpressed");
-                if (b.collisionRect.Contains(mouse.X, mouse.Y))
+            if (isgametrayopen) opengametray();
+            else closegametray();
+
+            foreach (Sprite b in buttons)
+            {
+                if (b.text.CompareTo("Play") == 0 && isgametrayopen)
                 {
-                    if (mouse.LeftButton == ButtonState.Pressed)
-                    {
-                        b._opacity = 0.0f;
-                        b.fontcolor = Color.White;
-                    }
-                    else
-                    {
-                        b._opacity = 1.0f;
-                        if(b.opacity >= 0.0f) b.opacity -= 0.025f;
-                        b.fontcolor = Color.White;
-                    }
+                    b.opacity = 0.0f;
+                    b.fontcolor = Color.White;
                 }
-                else
+                if (b.text.CompareTo("Play")==0 &&
+                    b.collisionRect.Contains(currentmouse.X, currentmouse.Y) &&
+                    currentmouse.LeftButton == ButtonState.Pressed &&
+                    previousmouse.LeftButton == ButtonState.Released)
                 {
-                    b._opacity = 1.0f;
-                    if (b.opacity <= 1.0f) b.opacity += 0.025f;
-                    b.fontcolor = Color.Black;
+                    isgametrayopen = !isgametrayopen;
                 }
 
+                b.Update(gameTime);
             }
+            foreach (Sprite b in gamelist)
+            {
+                if (b.text.CompareTo("RPS") == 0 &&
+                    b.collisionRect.Contains(currentmouse.X, currentmouse.Y) &&
+                    currentmouse.LeftButton == ButtonState.Pressed &&
+                    previousmouse.LeftButton == ButtonState.Released)
+                {
+                    parent.currentState = Game1.GameState.InMiniGame;
+                    parent.inMini = true;
+                }
+                b.Update(gameTime);
+            }
+
+            previousmouse = currentmouse;
 
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            //GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
-            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
-            // Draw the buttons
+            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.NonPremultiplied);
             
-            //string text = "Feed";
-            //spriteBatch.DrawString(font, text,
-            //    new Vector2(20, 20), fontcolor, 0.0f, Vector2.Zero, 1.0f, spriteEffects, 1.0f);
-            //text = "Pet";
-            //spriteBatch.DrawString(font, text,
-            //    new Vector2(20, 20+50), fontcolor, 0.0f, Vector2.Zero, 1.0f, spriteEffects, 1.0f);
             // Draw the buttons
             foreach(Sprite b in buttons)
             {
                 b.Draw(gameTime, spriteBatch);
             }
-            //b.Draw(gameTime, spriteBatch);
+
+            foreach (Sprite b in gamelist)
+            {
+                b.Draw(gameTime, spriteBatch);
+            }
 
             spriteBatch.End();
 
