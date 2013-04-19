@@ -19,6 +19,7 @@ namespace xnaPetGame
         SpriteFont font;
         Color fontcolor = Color.Black;
         SpriteEffects spriteEffects;
+        //float opacity = 1.0f;
         //Sprite button;
         List<Sprite> buttons = new List<Sprite>();
 
@@ -32,7 +33,7 @@ namespace xnaPetGame
         {
             //spriteBatch = new SpriteBatch(Game.GraphicsDevice);
             font = Game.Content.Load<SpriteFont>(@"fonts/Spritefont");
-            for (int i = 0; i < 400; i += 50)
+            for (int i = 0; i < 300; i += 50)
             {
                 buttons.Add(new AutoSprite(Game.Content.Load<Texture2D>("buttonnorm"),//Testure
                     new Vector2(10, i+10),//Position
@@ -59,23 +60,28 @@ namespace xnaPetGame
             MouseState mouse = Mouse.GetState();
 
             foreach(Sprite b in buttons){
+                b.buttonhover = Game.Content.Load<Texture2D>("buttonhover");
+                b.buttonnorm = Game.Content.Load<Texture2D>("buttonnorm");
+                b.buttonpressed = Game.Content.Load<Texture2D>("buttonpressed");
                 if (b.collisionRect.Contains(mouse.X, mouse.Y))
                 {
                     if (mouse.LeftButton == ButtonState.Pressed)
                     {
-                        b.textureImage = Game.Content.Load<Texture2D>("buttonpressed");
+                        b._opacity = 0.0f;
                         b.fontcolor = Color.White;
                     }
                     else
                     {
-                        b.textureImage = Game.Content.Load<Texture2D>("buttonhover");
+                        b._opacity = 1.0f;
+                        if(b.opacity >= 0.0f) b.opacity -= 0.025f;
                         b.fontcolor = Color.White;
                     }
                 }
                 else
                 {
+                    b._opacity = 1.0f;
+                    if (b.opacity <= 1.0f) b.opacity += 0.025f;
                     b.fontcolor = Color.Black;
-                    b.textureImage = Game.Content.Load<Texture2D>("buttonnorm");
                 }
 
             }

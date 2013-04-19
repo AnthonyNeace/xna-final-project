@@ -96,7 +96,6 @@ C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\Animating
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\buttonhover.xnb
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\buttonnorm.xnb
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\buttonpressed.xnb
-F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\SpriteFont.xnb
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Alert.xnb
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Balloonboy.xnb
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Camera.xnb
@@ -179,3 +178,4 @@ C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\Animating
 C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\fonts\Start.xnb
 C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\fonts\Description.xnb
 C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\fonts\SpriteFont.xnb
+F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\fonts\SpriteFont.xnb

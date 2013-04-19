@@ -7,14 +7,14 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\tank.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\tank.xnb</Output>
       <Time>2013-04-15T15:17:33-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\tank_0.xml</Key>
-        <Value>2013-04-18T17:35:34.4427784-04:00</Value>
+        <Value>2013-04-18T21:28:02.1451345-04:00</Value>
       </Dependency>
-      <Request>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\engine_diff_tex_0.xnb</Request>
-      <Request>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\turret_alt_diff_tex_0.xnb</Request>
+      <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\engine_diff_tex_0.xnb</Request>
+      <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\turret_alt_diff_tex_0.xnb</Request>
     </Item>
     <Item>
       <Source>test.FBX</Source>
@@ -22,11 +22,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\test.xnb</Output>
-      <Time>2013-04-16T01:39:12-04:00</Time>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\test.xnb</Output>
+      <Time>2013-04-15T15:17:33-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\test_0.xml</Key>
-        <Value>2013-04-18T17:35:47.4147599-04:00</Value>
+        <Value>2013-04-18T21:28:09.2782717-04:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -35,13 +35,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo.xnb</Output>
       <Time>2013-04-15T15:17:31-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\hippoXNAattempt4_0.xml</Key>
-        <Value>2013-04-18T17:35:54.790098-04:00</Value>
+        <Value>2013-04-18T21:28:13.4137995-04:00</Value>
       </Dependency>
-      <Request>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Request>
+      <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Request>
     </Item>
     <Item>
       <Source>hippoXNAttempt3.fbx</Source>
@@ -49,13 +49,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo2.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo2.xnb</Output>
       <Time>2013-04-15T15:17:32-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\hippoXNAttempt3_0.xml</Key>
-        <Value>2013-04-18T17:35:58.7446001-04:00</Value>
+        <Value>2013-04-18T21:28:15.3100389-04:00</Value>
       </Dependency>
-      <Request>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Request>
+      <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Request>
     </Item>
     <Item>
       <Source>hippoXNAattempt7.fbx</Source>
@@ -63,13 +63,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo7.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo7.xnb</Output>
       <Time>2013-04-15T15:17:32-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\hippoXNAattempt7_0.xml</Key>
-        <Value>2013-04-18T17:36:06.4565805-04:00</Value>
+        <Value>2013-04-18T21:28:19.4655666-04:00</Value>
       </Dependency>
-      <Request>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Request>
+      <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Request>
     </Item>
     <Item>
       <Source>hippo04UV_2.png</Source>
@@ -77,7 +77,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2.xnb</Output>
       <Time>2013-04-15T15:17:31-04:00</Time>
     </Item>
     <Item>
@@ -86,7 +86,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\Untitled.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\Untitled.xnb</Output>
       <Time>2013-04-15T15:36:41-04:00</Time>
     </Item>
     <Item>
@@ -95,8 +95,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\grass-texture-2.xnb</Output>
-      <Time>2013-04-16T01:19:11-04:00</Time>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\grass-texture-2.xnb</Output>
+      <Time>2013-04-16T01:19:11.7724312-04:00</Time>
     </Item>
     <Item>
       <Source>buttonhover.png</Source>
@@ -104,8 +104,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\buttonhover.xnb</Output>
-      <Time>2013-04-16T19:07:06.073585-04:00</Time>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\buttonhover.xnb</Output>
+      <Time>2013-04-16T19:07:06-04:00</Time>
     </Item>
     <Item>
       <Source>buttonnorm.png</Source>
@@ -113,8 +113,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\buttonnorm.xnb</Output>
-      <Time>2013-04-16T19:07:06.0775876-04:00</Time>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\buttonnorm.xnb</Output>
+      <Time>2013-04-16T19:07:06-04:00</Time>
     </Item>
     <Item>
       <Source>buttonpressed.png</Source>
@@ -122,8 +122,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\buttonpressed.xnb</Output>
-      <Time>2013-04-16T19:07:06.0815862-04:00</Time>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\buttonpressed.xnb</Output>
+      <Time>2013-04-16T19:07:06-04:00</Time>
     </Item>
     <Item>
       <Source>MiniGameImages\Alert.png</Source>
@@ -131,7 +131,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Alert.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Alert.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -140,7 +140,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Balloonboy.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Balloonboy.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -149,7 +149,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Camera.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Camera.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -158,7 +158,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Cone.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Cone.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -167,7 +167,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Cover copy.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Cover copy.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -176,7 +176,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Dice.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Dice.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -185,7 +185,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\empty.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\empty.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -194,7 +194,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Floppy.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Floppy.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -203,7 +203,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Globe.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Globe.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -212,7 +212,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Mammath.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Mammath.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -221,7 +221,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Mammath2.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Mammath2.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -230,7 +230,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Paint.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Paint.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -239,7 +239,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Paper.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Paper.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -248,7 +248,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Rock.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Rock.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -257,7 +257,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Rock2.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Rock2.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -266,7 +266,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Rock3.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Rock3.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -275,7 +275,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Scissor.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Scissor.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
     </Item>
     <Item>
@@ -284,8 +284,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Tree.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\Tree.xnb</Output>
       <Time>2013-04-17T20:32:49-04:00</Time>
+    </Item>
+    <Item>
+      <Source>fonts\SpriteFont.spritefont</Source>
+      <Name>fonts\SpriteFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\fonts\SpriteFont.xnb</Output>
+      <Time>2013-04-18T17:38:24-04:00</Time>
     </Item>
     <Item>
       <Source>fonts\Start.spritefont</Source>
@@ -293,8 +302,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\fonts\Start.xnb</Output>
-      <Time>2013-04-17T23:32:43-04:00</Time>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\fonts\Start.xnb</Output>
+      <Time>2013-04-17T23:32:43.9722191-04:00</Time>
     </Item>
     <Item>
       <Source>fonts\Description.spritefont</Source>
@@ -302,8 +311,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\fonts\Description.xnb</Output>
-      <Time>2013-04-17T23:32:43-04:00</Time>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\fonts\Description.xnb</Output>
+      <Time>2013-04-17T23:32:43.96919-04:00</Time>
     </Item>
     <Item>
       <Source>tank.fbx</Source>
@@ -325,8 +334,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\engine_diff_tex_0.xnb</Output>
-      <Time>2013-04-16T01:39:11-04:00</Time>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\engine_diff_tex_0.xnb</Output>
+      <Time>2013-04-15T15:17:31-04:00</Time>
     </Item>
     <Item>
       <Source>turret_alt_diff_tex.tga</Source>
@@ -341,15 +350,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\turret_alt_diff_tex_0.xnb</Output>
-      <Time>2013-04-16T01:39:12-04:00</Time>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\turret_alt_diff_tex_0.xnb</Output>
+      <Time>2013-04-15T15:17:36-04:00</Time>
     </Item>
     <Item>
       <Source>test.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\test_0.xml</Output>
-      <Time>2013-04-16T01:39:12-04:00</Time>
+      <Time>2013-04-15T15:17:33-04:00</Time>
     </Item>
     <Item>
       <Source>hippoXNAattempt4.fbx</Source>
@@ -371,7 +380,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Output>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Output>
       <Time>2013-04-15T15:17:31-04:00</Time>
     </Item>
     <Item>
@@ -388,25 +397,16 @@
       <Output>obj\x86\Debug\hippoXNAattempt7_0.xml</Output>
       <Time>2013-04-15T15:17:32-04:00</Time>
     </Item>
-    <Item>
-      <Source>fonts\SpriteFont.spritefont</Source>
-      <Name>fonts\SpriteFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\fonts\SpriteFont.xnb</Output>
-      <Time>2013-04-18T17:38:24.953214-04:00</Time>
-    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\</RootDirectory>
+      <LoggerRootDirectory>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\</LoggerRootDirectory>
+      <IntermediateDirectory>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -434,8 +434,8 @@
         <Value>2010-08-23T13:41:18-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-01-19T14:37:43.1570861-05:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-01-11T16:46:01.8310915-05:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

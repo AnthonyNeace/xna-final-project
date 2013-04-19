@@ -9,7 +9,10 @@ namespace xnaPetGame
 {
     abstract class Sprite
     {
-        public Texture2D textureImage;
+        Game1 parent;
+        public Texture2D buttonnorm;
+        public Texture2D buttonhover;
+        public Texture2D buttonpressed;
         public Point frameSize;
         Point currentFrame;
         Point sheetSize;
@@ -19,13 +22,19 @@ namespace xnaPetGame
         int millisecondsPerFrame;
         const int defaultMillisecondsPerFrame = 16;
         public Vector2 speed;
+        public float opacity = 1.0f;
+        public float _opacity = 1.0f;
         public Vector2 position;
         string text;
         public Color fontcolor;
         SpriteFont font;// = Game.Content.Load<SpriteFont>("Spritefont");
         SpriteEffects spriteEffects;
 
-
+        public Sprite(Game game)
+        {
+            parent = (Game1)game;
+        }
+    
         public Sprite(Texture2D textureImage, Vector2 position, Point frameSize,
             int collisionOffset, Point currentFrame, Point sheetSize, Vector2 speed, SpriteFont font, Color fontcolor, string text)
             : this(textureImage, position, frameSize, collisionOffset, currentFrame,
@@ -39,7 +48,7 @@ namespace xnaPetGame
             int millisecondsPerFrame, SpriteFont font, Color fontcolor, string text)
         {
             //requires millisecondsPerFrame
-            this.textureImage = textureImage;
+            //this.textureImage = textureImage;
             this.position = position;
             this.frameSize = frameSize;
             this.collisionOffset = collisionOffset;
@@ -72,13 +81,30 @@ namespace xnaPetGame
 
         public virtual void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(textureImage,
+            spriteBatch.Draw(buttonnorm,
+            position,
+            new Rectangle(currentFrame.X * frameSize.X,
+            currentFrame.Y * frameSize.Y,
+            frameSize.X, frameSize.Y),
+            Color.White * opacity, 0, Vector2.Zero,
+            1f, SpriteEffects.None, 0.75f);
+
+            spriteBatch.Draw(buttonhover,
+            position,
+            new Rectangle(currentFrame.X * frameSize.X,
+            currentFrame.Y * frameSize.Y,
+            frameSize.X, frameSize.Y),
+            Color.White * _opacity, 0, Vector2.Zero,
+            1f, SpriteEffects.None, 0.5f);
+
+            spriteBatch.Draw(buttonpressed,
             position,
             new Rectangle(currentFrame.X * frameSize.X,
             currentFrame.Y * frameSize.Y,
             frameSize.X, frameSize.Y),
             Color.White, 0, Vector2.Zero,
-            1f, SpriteEffects.None, 0);
+            1f, SpriteEffects.None, 0.25f);
+
             spriteBatch.DrawString(font, text,
                 new Vector2(position.X+10, position.Y+10), fontcolor, 0.0f, Vector2.Zero, 1.0f, spriteEffects, 1.0f);
         }
