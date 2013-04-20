@@ -86,7 +86,7 @@ namespace xnaPetGame
                 case Game1.GameState.InHome:
                     break;
                 // GAMEOVER TEXT
-                case Game1.GameState.InMiniGame:
+                case Game1.GameState.RPS:
                     parent.spriteBatch.Begin();
                     text = "To reset Rock Paper Scissors, Press R";
                     parent.spriteBatch.DrawString(parent.font, text,

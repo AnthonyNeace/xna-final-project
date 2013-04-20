@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="Button.cs" />
     <Compile Include="Camera.cs" />
+    <Compile Include="Cards.cs" />
     <Compile Include="Matching.cs" />
     <Compile Include="MiniGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

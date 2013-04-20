@@ -17,18 +17,31 @@ namespace xnaPetGame
         GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         SpriteManager spriteManager;
+        DepthStencilState treeDSS = new DepthStencilState();
+        DepthStencilState hippoDSS = new DepthStencilState();
+
         Model m;
         Model tree;
+        Model grass;
+
         public Camera c;
         Terrain t;
+
         Matrix[] modelTransforms;
-        Matrix[] treemodelTransforms;
         Matrix[] originalTransforms;
+
+        Matrix[] treemodelTransforms;
         Matrix[] treeoriginalTransforms;
+
+        Matrix[] grassmodelTransforms;
+        Matrix[] grassoriginalTransforms;
+
         public Matrix worldMatrix;
         Boolean colorSwitch = false;
         public Color mainBGColor = new Color(0, 0, 0);
 
+        Random r = new Random();
+        List<Point> grasspos = new List<Point>();
 
         public SpriteFont startFont, descriptionFont, font;
 
@@ -39,9 +52,10 @@ namespace xnaPetGame
         //**** MiniGame ****//
         MiniGame minigame;
         Matching matching;
+        Cards cards;
 
         //**** Game State ****//
-        public enum GameState { Start, Instructions, InHome, InMiniGame };
+        public enum GameState { Start, Instructions, InHome, RPS };
         public GameState currentState = GameState.Start;
 
         public Boolean inMain = false;
@@ -57,7 +71,7 @@ namespace xnaPetGame
             {
                 if (inMain == false)
                 {
-                    currentState = GameState.InMiniGame;
+                    currentState = GameState.RPS;
                 }
             }
         }
@@ -92,6 +106,8 @@ namespace xnaPetGame
             Components.Add(minigame);
             //matching = new Matching(this);
             //Components.Add(matching);
+            cards = new Cards(this);
+            Components.Add(cards);
 
             //Loading Model
             m = Content.Load<Model>("hippo7");
@@ -104,6 +120,12 @@ namespace xnaPetGame
             treemodelTransforms = new Matrix[tree.Bones.Count];
             treeoriginalTransforms = new Matrix[m.Bones.Count];
             tree.CopyBoneTransformsTo(treeoriginalTransforms);
+
+            //Load Grass
+            grass = Content.Load<Model>("grass_low_poly");
+            grassmodelTransforms = new Matrix[grass.Bones.Count];
+            grassoriginalTransforms = new Matrix[grass.Bones.Count];
+            grass.CopyBoneTransformsTo(grassoriginalTransforms);
 
             //Loading Terrain
             t = new Terrain(this);
@@ -125,6 +147,14 @@ namespace xnaPetGame
             // Initializing Text Utility Class
             text = new TextInterface(this);
             Components.Add(text);
+
+            int hippobox = 25;
+            for(int i = 0; i<200; i++){
+                Point p = new Point(r.Next(80) - 40, r.Next(80) - 40);
+                if((p.X < -hippobox || p.X > hippobox) || (p.Y < -hippobox || p.Y > hippobox))
+                        grasspos.Add(p);
+            }
+
         }
 
 
@@ -169,7 +199,7 @@ namespace xnaPetGame
                 case GameState.InHome:
                     keyboardControls(gameTime);
                     break;
-                case GameState.InMiniGame:
+                case GameState.RPS:
                     keyboardControls(gameTime);
                     break;
             }
@@ -185,7 +215,7 @@ namespace xnaPetGame
                 Components.Remove(spriteManager);
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.H) == true && (currentState == GameState.InMiniGame))
+            if (Keyboard.GetState().IsKeyDown(Keys.H) == true && (currentState == GameState.RPS))
             {
                 inMain = true;
                 inMini = false;
@@ -214,6 +244,16 @@ namespace xnaPetGame
 
             // TODO: Add your update logic here
 
+            //Creates Pretty Rotation Effect
+            if (r2 >= 5.00f)
+                goingdown = !goingdown;
+            if (r2 <= -10.00f)
+                goingdown = !goingdown;
+            if (!goingdown)
+                r2 -= 0.02f;
+            else
+                r2 += 0.02f;
+
             r1 = MathHelper.Pi * 1.5f;
             //r2 += 0.04f;
 
@@ -227,7 +267,7 @@ namespace xnaPetGame
             }
             else if (inMini == true)
             {
-                minigame.Update(gameTime);
+                cards.Update(gameTime);
             }
             //else if (inMatching == true)
             //{
@@ -248,6 +288,12 @@ namespace xnaPetGame
             //GraphicsDevice.DepthStencilState = DepthStencilState.Default;
 
             //text.Draw(gameTime);
+
+            RasterizerState rs = new RasterizerState();
+            rs.CullMode = CullMode.None;
+            //rs.FillMode = FillMode.WireFrame; //Draws the wireframe, used for debugging
+            GraphicsDevice.RasterizerState = rs;
+
             //draw model
             switch (currentState)
             {
@@ -258,19 +304,26 @@ namespace xnaPetGame
                     drawHippo(gameTime);
                     break;
                 case GameState.InHome:
-                    //GraphicsDevice.DepthStencilState = DepthStencilState.Default;
-                    t.Draw(gameTime);
-                    drawTree(gameTime);
-                    GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+                    //DepthStencilState DDS = new DepthStencilState();
+                    //DDS = DepthStencilState.Default;
+                    //GraphicsDevice.DepthStencilState = DDS;
                     drawHippo(gameTime);
-                    
+                    t.Draw(gameTime);
+
+                    //DDS = new DepthStencilState();
+                    //DDS.DepthBufferWriteEnable = false;
+                    //GraphicsDevice.DepthStencilState = DDS;
+                    drawGrass(gameTime);
+                    drawTree(gameTime);                    
                     break;
             }
 
             //RasterizerState rs = new RasterizerState();
             //rs.CullMode = CullMode.None;
-            //rs.FillMode = FillMode.WireFrame; //Draws the wireframe, used for debugging
-            //device.RasterizerState = rs;
+            ////rs.FillMode = FillMode.WireFrame; //Draws the wireframe, used for debugging
+            //GraphicsDevice.RasterizerState = rs;
+
+
 
             if (inMini == true)
             {
@@ -295,17 +348,6 @@ namespace xnaPetGame
             Matrix rotmat1 = Matrix.CreateRotationX(r1) * originalTransforms[0];
             m.Bones[0].Transform = rotmat1;
 
-
-            //Creates Pretty Rotation Effect
-            if (r2 >= 10.00f)
-                goingdown = !goingdown;
-            if (r2 <= -20.00f)
-                goingdown = !goingdown;
-            if (!goingdown)
-                r2-=0.02f;
-            else
-                r2+=0.02f;
-
             switch (currentState)
             {
                 case GameState.Start:
@@ -327,11 +369,16 @@ namespace xnaPetGame
             }
             m.CopyAbsoluteBoneTransformsTo(modelTransforms);
 
+            //GraphicsDevice.BlendState = BlendState.Opaque;
+            //GraphicsDevice.DepthStencilState = DepthStencilState.Default;
 
             foreach (ModelMesh mesh in m.Meshes)
             {
                 foreach (BasicEffect effect in mesh.Effects)
                 {
+                    effect.GraphicsDevice.BlendState = BlendState.Opaque;
+                    effect.GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+                    effect.GraphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
                     effect.EnableDefaultLighting();
                     effect.World = worldMatrix;
                     effect.View = c.view;
@@ -341,31 +388,80 @@ namespace xnaPetGame
             }
         }
 
-        // Draws the hippo.
+        // Draws the tree.
         void drawTree(GameTime gameTime)
         {
 
-            Matrix rotmat1 = Matrix.CreateRotationX(r1) * originalTransforms[0];
+            Matrix rotmat1 = Matrix.CreateRotationX(r1) * treeoriginalTransforms[0];
             tree.Bones[0].Transform = rotmat1;
-            for (int i = -45; i <= 45; i += 15)
+            foreach(Point p in grasspos)
+            {
+                int hippobox = 38;
+                if ((p.Y < -hippobox))
+                {
+
+
+                    worldMatrix = Matrix.Identity *
+                        Matrix.CreateRotationX((float)(Math.PI) * 1.5f) *
+                        Matrix.CreateRotationY(p.X) *
+                        Matrix.CreateScale(10.0f) *
+                        Matrix.CreateTranslation(p.X, -2.0f, p.Y) *
+                        Matrix.CreateRotationY(r2 / 10);
+                    //c.view = Matrix.CreateLookAt(c.position, Vector3.Zero, Vector3.Up);
+
+
+                    tree.CopyAbsoluteBoneTransformsTo(treemodelTransforms);
+
+                    //AlphaTestEffect e = (AlphaTestEffect)e
+
+                    foreach (ModelMesh mesh in tree.Meshes)
+                    {
+                        foreach (AlphaTestEffect effect in mesh.Effects)
+                        {
+                            //effect.GraphicsDevice.BlendState = BlendState.AlphaBlend;
+                            effect.Texture = Content.Load<Texture2D>("treetexture");
+                            effect.GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+                            effect.GraphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
+                            //effect.EnableDefaultLighting();
+                            effect.World = worldMatrix;
+                            effect.View = c.view;
+                            effect.Projection = c.proj;
+                        }
+                        mesh.Draw();
+                    }
+                }
+            }
+        }
+
+        //Draws the grass.
+        void drawGrass(GameTime gameTime)
+        {
+
+            Matrix rotmat1 = Matrix.CreateRotationX(r1) * grassoriginalTransforms[0];
+            grass.Bones[0].Transform = rotmat1;
+            foreach(Point pos in grasspos)
             {
                 worldMatrix = Matrix.Identity *
-                    Matrix.CreateRotationX((float)(Math.PI) * 1.5f) *
-                    Matrix.CreateRotationY(i)*
+                    //Matrix.CreateRotationX((float)(Math.PI)) *
+                    Matrix.CreateRotationY(pos.X) *
+                    //Matrix.CreateRotationY(i) *
                     Matrix.CreateScale(5.0f) *
-                    Matrix.CreateTranslation(i, 0.0f, -30.0f) *
+                    Matrix.CreateTranslation(pos.X, 7.0f, pos.Y) *
                     Matrix.CreateRotationY(r2 / 10);
                 //c.view = Matrix.CreateLookAt(c.position, Vector3.Zero, Vector3.Up);
 
 
-                tree.CopyAbsoluteBoneTransformsTo(modelTransforms);
+                grass.CopyAbsoluteBoneTransformsTo(grassmodelTransforms);
 
 
-                foreach (ModelMesh mesh in tree.Meshes)
+                foreach (ModelMesh mesh in grass.Meshes)
                 {
-                    foreach (BasicEffect effect in mesh.Effects)
+                    
+                    foreach (AlphaTestEffect effect in mesh.Effects)
                     {
-                        effect.EnableDefaultLighting();
+                        effect.Texture = Content.Load<Texture2D>("low_poly_grass2mag");
+                        effect.GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+                        effect.GraphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
                         effect.World = worldMatrix;
                         effect.View = c.view;
                         effect.Projection = c.proj;
@@ -374,7 +470,6 @@ namespace xnaPetGame
                 }
             }
         }
-
 
         // Creates an animated gradient.
         public Color mainScreenColorFade(Color bgColor)

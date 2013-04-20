@@ -62,7 +62,7 @@ namespace xnaPetGame
                 0, //Collision Offset
                 font,
                 Color.Black,
-                "Play"));
+                "Games >"));
 
             gamelist.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
                 new Vector2(-200, 120),//Position
@@ -79,6 +79,14 @@ namespace xnaPetGame
                 font,
                 Color.Black,
                 "Matching"));
+
+            gamelist.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
+                new Vector2(-200, 120),//Position
+                new Point(100, 50),//Framesize
+                0, //Collision Offset
+                font,
+                Color.Black,
+                "Cards"));
 
             foreach (Sprite b in buttons)
             {
@@ -141,12 +149,12 @@ namespace xnaPetGame
 
             foreach (Sprite b in buttons)
             {
-                if (b.text.CompareTo("Play") == 0 && isgametrayopen)
+                if (b.text.CompareTo("Games >") == 0 && isgametrayopen)
                 {
                     b.opacity = 0.0f;
                     b.fontcolor = Color.White;
                 }
-                if (b.text.CompareTo("Play")==0 &&
+                if (b.text.CompareTo("Games >")==0 &&
                     b.collisionRect.Contains(currentmouse.X, currentmouse.Y) &&
                     currentmouse.LeftButton == ButtonState.Pressed &&
                     previousmouse.LeftButton == ButtonState.Released)
@@ -163,7 +171,7 @@ namespace xnaPetGame
                     currentmouse.LeftButton == ButtonState.Pressed &&
                     previousmouse.LeftButton == ButtonState.Released)
                 {
-                    parent.currentState = Game1.GameState.InMiniGame;
+                    parent.currentState = Game1.GameState.RPS;
                     parent.inMini = true;
                 }
                 b.Update(gameTime);

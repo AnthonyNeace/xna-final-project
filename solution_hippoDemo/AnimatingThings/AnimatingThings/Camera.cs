@@ -104,16 +104,16 @@ namespace xnaPetGame
             Vector3 left = Vector3.Transform(new Vector3(-1f, 0, 0f), Matrix.CreateRotationX(-angle.X) * /**/Matrix.CreateRotationY(-angle.Y));
 
              //handle keyboard input
-            KeyboardState keyboard = Keyboard.GetState();
-            if (keyboard.IsKeyDown(Keys.S))
-                position -= forward * speed;
-            if (keyboard.IsKeyDown(Keys.W))
-                position += forward * speed;
+            //KeyboardState keyboard = Keyboard.GetState();
+            //if (keyboard.IsKeyDown(Keys.S))
+            //    position -= forward * speed;
+            //if (keyboard.IsKeyDown(Keys.W))
+            //    position += forward * speed;
 
-            if (keyboard.IsKeyDown(Keys.A))
-                position += left * speed;
-            if (keyboard.IsKeyDown(Keys.D))
-                position -= left * speed;
+            //if (keyboard.IsKeyDown(Keys.A))
+            //    position += left * speed;
+            //if (keyboard.IsKeyDown(Keys.D))
+            //    position -= left * speed;
 
 
 
