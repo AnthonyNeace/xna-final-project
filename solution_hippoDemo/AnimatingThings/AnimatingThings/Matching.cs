@@ -458,7 +458,7 @@ namespace xnaPetGame
                 if (matches.Count() == 12)
                 {
                     matches.Clear();
-                    game.score += 10;
+                    game.score += 50;
                     won = true;
                 }
                 prev = cur;

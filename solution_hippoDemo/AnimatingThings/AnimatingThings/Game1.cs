@@ -46,18 +46,20 @@ namespace xnaPetGame
 
         public SpriteFont startFont, descriptionFont, font;
 
-        public float r1 = 0, r2 = 0;
+        public float r1 = 0, r2 = 0, timer = 0;
         int ctr = 0;
 
         TextInterface text;
 
         Button mainscore;
+        Button happyscore;
+        Button savebutton;
 
         //*** Save Game ***//
         public GameInfo gameFile;
         public String pet = "";
         public int hunger = 0;
-        public int happiness = 0;
+        public int happiness = 100;
         public int score = 0;
 
         //*** Food items ***//
@@ -108,7 +110,18 @@ namespace xnaPetGame
                 Color.Black,
                 temp);
 
+            temp = "Happiness: " + happiness;
+
+            happyscore = new Button(Content.Load<Texture2D>("widebutton"),//Texture
+                new Vector2(Window.ClientBounds.Width - 220, 70),//Position
+                new Point(200, 50),//Framesize
+                0, //Collision Offset
+                font,
+                Color.Black,
+                temp);
+
             mainscore.buttonhover = mainscore.buttonnorm = mainscore.buttonpressed = Content.Load<Texture2D>("widebutton");
+            happyscore.buttonhover = happyscore.buttonnorm = happyscore.buttonpressed = Content.Load<Texture2D>("widebutton");
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -192,9 +205,27 @@ namespace xnaPetGame
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
+            //Update Score
             if (score <= 0)
             {
                 score = 0;
+            }
+
+            //Update Happiness
+            if (happiness <= 0)
+            {
+                happiness = 0;
+            }
+            else if (happiness >= 100)
+            {
+                happiness = 100;
+            }
+            timer += gameTime.ElapsedGameTime.Milliseconds;
+            if (timer >= 3600)
+            {
+                h.restart = true;
+                happiness--;
+                timer -= 3600;
             }
 
             //Creates Pretty Rotation Effect
@@ -254,6 +285,8 @@ namespace xnaPetGame
                         Matrix.CreateRotationX((float)(Math.PI) * 1.5f);
                     mainscore.text = "Score: " + score;
                     mainscore.Update(gameTime);
+                    happyscore.text = "Happiness: " + happiness;
+                    happyscore.Update(gameTime);
                     break;
                 case GameState.RPS:
                     spriteManager.Update(gameTime);
@@ -307,6 +340,7 @@ namespace xnaPetGame
                     drawTree(gameTime);
                     spriteBatch.Begin();
                     mainscore.Draw(gameTime, spriteBatch);
+                    happyscore.Draw(gameTime, spriteBatch);
                     spriteBatch.End();
                     break;
                 case GameState.RPS:

@@ -1,4 +1,4 @@
-Score:57
+Score:9
 Pet:
 Hunger:0
-Happiness:0
+Happiness:1

@@ -57,7 +57,7 @@ namespace xnaPetGame
                 0, //Collision Offset
                 font,
                 Color.Black,
-                "Pet"));
+                "Accessories"));
 
             buttons.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
                 new Vector2(10, 120),//Position
@@ -66,6 +66,14 @@ namespace xnaPetGame
                 font,
                 Color.Black,
                 "Games >"));
+
+            buttons.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
+                new Vector2(10, 170),//Position
+                new Point(100, 50),//Framesize
+                0, //Collision Offset
+                font,
+                Color.Black,
+                "Save Data"));
 
             gamelist.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
                 new Vector2(-200, 120),//Position
@@ -97,7 +105,7 @@ namespace xnaPetGame
                 0, //Collision Offset
                 font,
                 Color.Black,
-                "Apple (-10)"));
+                "Apple\nS:-10/H:+1"));
 
             foodlist.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
                 new Vector2(-200, 20),//Position
@@ -105,7 +113,7 @@ namespace xnaPetGame
                 0, //Collision Offset
                 font,
                 Color.Black,
-                "Cherry (-10)"));
+                "Cherry\nS:-25/H:+5"));
 
             foodlist.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
                 new Vector2(-200, 20),//Position
@@ -113,7 +121,7 @@ namespace xnaPetGame
                 0, //Collision Offset
                 font,
                 Color.Black,
-                "Banana (-10)"));
+                "Banana\nS:-50/H:+10"));
 
 
 
@@ -245,6 +253,10 @@ namespace xnaPetGame
                             {
                                 isfoodtrayopen = !isfoodtrayopen;
                             }
+                            if (b.text.CompareTo("Save Data") == 0)
+                            {
+                                parent.gameFile.saveFile();
+                            }
                         }
 
                         b.Update(gameTime);
@@ -279,20 +291,32 @@ namespace xnaPetGame
                             currentmouse.LeftButton == ButtonState.Pressed &&
                             previousmouse.LeftButton == ButtonState.Released)
                         {
-                            if (b.text.CompareTo("Apple (-10)") == 0)
+                            if (b.text.CompareTo("Apple\nS:-10/H:+1") == 0)
                             {
-                                parent.score -= 10;
-                                isfoodtrayopen = !isfoodtrayopen;
+                                if (parent.score >= 10)
+                                {
+                                    parent.score -= 10;
+                                    parent.happiness += 1;
+                                }
+                                //isfoodtrayopen = !isfoodtrayopen;
                             }
-                            if (b.text.CompareTo("Cherry (-10)") == 0)
+                            if (b.text.CompareTo("Cherry\nS:-25/H:+5") == 0)
                             {
-                                parent.score -= 10;
-                                isfoodtrayopen = !isfoodtrayopen;
+                                if (parent.score >= 25)
+                                {
+                                    parent.score -= 25;
+                                    parent.happiness += 5;
+                                }
+                                //isfoodtrayopen = !isfoodtrayopen;
                             }
-                            if (b.text.CompareTo("Banana (-10)") == 0)
+                            if (b.text.CompareTo("Banana\nS:-50/H:+10") == 0)
                             {
-                                parent.score -= 10;
-                                isfoodtrayopen = !isfoodtrayopen;
+                                if (parent.score >= 50)
+                                {
+                                    parent.score -= 50;
+                                    parent.happiness += 10;
+                                }
+                                //isfoodtrayopen = !isfoodtrayopen;
                             }
                         }
                         b.Update(gameTime);

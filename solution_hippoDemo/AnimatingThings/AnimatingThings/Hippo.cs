@@ -21,7 +21,7 @@ namespace xnaPetGame
         AnimationPlayer animationPlayer;
         public AnimationClip clip;
         public SkinningData skinningData;
-        bool restart;
+        public bool restart;
 
         public string[] clips = {
             "Dance",
@@ -109,13 +109,18 @@ namespace xnaPetGame
                 Matrix[] boneTransforms = new Matrix[hippo.Bones.Count];
             }
 
-            /*worldMatrix = Matrix.Identity *
-                        Matrix.CreateScale(5.0f) *
-                        Matrix.CreateRotationZ(parent.r2 / 10) *
-                        Matrix.Identity * Matrix.CreateTranslation(0.0f, 0.0f, 0.0f) *
-                        Matrix.CreateRotationX((float)(Math.PI) * 1.5f);
-            /*Matrix worldfix = Matrix.Identity * Matrix.CreateTranslation(0.0f, 0.0f, 0.0f) *
-                        Matrix.CreateRotationX((float)(Math.PI) * 1.5f);*/
+            if (parent.happiness >= 75)
+            {
+                currentaction = AnimationState.Dance;
+            }
+            else if (parent.happiness >= 50)
+            {
+                currentaction = AnimationState.Jump;
+            }
+            else if (parent.happiness >= 25)
+            {
+                currentaction = AnimationState.Looking;
+            }
 
             switch (currentaction)
             {
@@ -140,12 +145,6 @@ namespace xnaPetGame
                 case AnimationState.Wiggleface:
                     currentclip = clips[5];
                     break;
-            }
-
-            if (Keyboard.GetState().IsKeyDown(Keys.S))
-            {
-                restart = true;
-                currentaction = AnimationState.Stomplong;
             }
 
             previousaction = currentaction;

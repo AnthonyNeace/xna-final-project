@@ -66,22 +66,7 @@ namespace xnaPetGame
                 {
                     game.Exit();
                 }
-                if (keyInput.IsKeyDown(Keys.Left))
-                {
-                    l += 1;
-                }
-                if (keyInput.IsKeyDown(Keys.Right))
-                {
-                    l -= 1;
-                }
-                if (keyInput.IsKeyDown(Keys.Up))
-                {
-                    u += 1;
-                }
-                if (keyInput.IsKeyDown(Keys.Down))
-                {
-                    u -= 1;
-                }
+                
                 //Reset game
                 if (keyInput.IsKeyDown(Keys.R))
                 {
@@ -149,7 +134,7 @@ namespace xnaPetGame
                         (player == 2 && computer == 1))
                     {
                         result = "You Won!";
-                        game.score += 2;
+                        game.score += 5;
                     }
                     else
                     {
