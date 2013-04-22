@@ -17,8 +17,6 @@ namespace xnaPetGame
         GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         SpriteManager spriteManager;
-        DepthStencilState treeDSS = new DepthStencilState();
-        DepthStencilState hippoDSS = new DepthStencilState();
 
         Model m;
         Model tree;
@@ -26,6 +24,7 @@ namespace xnaPetGame
 
         public Camera c;
         Terrain t;
+        Hippo h;
 
         Matrix[] modelTransforms;
         Matrix[] originalTransforms;
@@ -43,39 +42,39 @@ namespace xnaPetGame
         Random r = new Random();
         List<Point> grasspos = new List<Point>();
 
+        bool goingdown = false;
+
         public SpriteFont startFont, descriptionFont, font;
 
         public float r1 = 0, r2 = 0;
+        int ctr = 0;
 
         TextInterface text;
 
-        //**** MiniGame ****//
-        MiniGame minigame;
+        Button mainscore;
+
+        //*** Save Game ***//
+        public GameInfo gameFile;
+        public String pet = "";
+        public int hunger = 0;
+        public int happiness = 0;
+        public int score = 0;
+
+        //*** Food items ***//
+        Texture2D apple, cherries, banana;
+        public Boolean eatApple = false, eatCherries = false, eatBanana = false;
+        public int removeFood = 0;
+
+        //**** MiniGames ****//
+        RPS rps;
         Matching matching;
         Cards cards;
 
         //**** Game State ****//
-        public enum GameState { Start, Instructions, InHome, RPS };
+        public enum GameState { Start, Instructions, Home, RPS, Cards, Matching };
         public GameState currentState = GameState.Start;
 
-        public Boolean inMain = false;
-        public Boolean inMini = false;
-        public Boolean inMatching = true;
-
         int updatecounter = 0;
-
-        public Boolean playing
-        {
-            get { return inMain; }
-            set
-            {
-                if (inMain == false)
-                {
-                    currentState = GameState.RPS;
-                }
-            }
-        }
-
 
         public Game1()
         {
@@ -93,21 +92,45 @@ namespace xnaPetGame
 
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Load Fonts
             startFont = Content.Load<SpriteFont>(@"fonts\Start");
             descriptionFont = Content.Load<SpriteFont>(@"fonts\Description");
             font = Content.Load<SpriteFont>(@"fonts\SpriteFont");
 
-            //Add MiniGame
-            minigame = new MiniGame(this);
-            Components.Add(minigame);
-            //matching = new Matching(this);
-            //Components.Add(matching);
+            String temp = "Score: " + score;
+
+            mainscore = new Button(Content.Load<Texture2D>("widebutton"),//Texture
+                new Vector2(Window.ClientBounds.Width-220, 20),//Position
+                new Point(200, 50),//Framesize
+                0, //Collision Offset
+                font,
+                Color.Black,
+                temp);
+
+            mainscore.buttonhover = mainscore.buttonnorm = mainscore.buttonpressed = Content.Load<Texture2D>("widebutton");
+
+            // Create a new SpriteBatch, which can be used to draw textures.
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            //Add RPS
+            rps = new RPS(this);
+
+            //Add Matching
+            matching = new Matching(this);
+
+            //Add Cards
             cards = new Cards(this);
-            Components.Add(cards);
+
+            //Save game to file class
+            gameFile = new GameInfo(this);
+            //Load in game info
+            gameFile.getFile();
+
+            //Load Food textures
+            //apple = Content.Load<Texture2D>(@"Food/apple-icon");
+            //cherries = Content.Load<Texture2D>(@"Food/Cherry");
+            //banana = Content.Load<Texture2D>(@"Food/Banana");
 
             //Loading Model
             m = Content.Load<Model>("hippo7");
@@ -131,11 +154,12 @@ namespace xnaPetGame
             t = new Terrain(this);
             t.Initialize();
 
+            //Load Hippo
+            h = new Hippo(this);
+            h.Initialize();
+
             //Loading Height Texture
             Texture2D heightMap = Content.Load<Texture2D>("Untitled");
-            //LoadHeightData(heightMap);
-            //SetUpVertices();
-            //SetUpIndices();
 
             //Intializing Camera
             c = new Camera(this);
@@ -151,98 +175,27 @@ namespace xnaPetGame
             int hippobox = 25;
             for(int i = 0; i<200; i++){
                 Point p = new Point(r.Next(80) - 40, r.Next(80) - 40);
-                if((p.X < -hippobox || p.X > hippobox) || (p.Y < -hippobox || p.Y > hippobox))
+                if((p.X < -hippobox || p.X > hippobox) || (p.Y < -hippobox || p.Y > hippobox+10))
                         grasspos.Add(p);
             }
 
         }
 
-
-
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
+            
         }
-
-        void gameStateUpdateManager(GameTime gameTime){
-
-            // This handles the passing of components to their appropriate states.  This also
-            // will eventually be where the updating of gamestates occur.
-            switch(currentState){
-                case GameState.Start:
-                    // Delay for keyboard input
-                    // If you hold enter, proceed to next game state
-                    if (updatecounter == 6)
-                    {
-                        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
-                        {
-                            currentState = GameState.Instructions;
-                        }
-                        updatecounter = 0;
-                        break;
-                    }
-                    break;
-                case GameState.Instructions:
-                    if (updatecounter == 12)
-                    {
-                        // Delay for keyboard input
-                        // If you hold enter, proceed to next game state
-                        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
-                        {
-                            currentState = GameState.InHome;
-                            Components.Add(spriteManager);
-                        }
-                        updatecounter = 0;
-                        break;
-                    }
-                    break;
-                case GameState.InHome:
-                    keyboardControls(gameTime);
-                    break;
-                case GameState.RPS:
-                    keyboardControls(gameTime);
-                    break;
-            }
-
-        }
-
-        // Watches for keyboard input, reacts appropriately
-        void keyboardControls(GameTime gameTime)
-        {
-            if (inMini)
-            {
-                spriteManager.ClearLists();
-                Components.Remove(spriteManager);
-            }
-
-            if (Keyboard.GetState().IsKeyDown(Keys.H) == true && (currentState == GameState.RPS))
-            {
-                inMain = true;
-                inMini = false;
-                inMatching = false;
-                //playing = true;
-                currentState = GameState.InHome;
-                Components.Add(spriteManager);
-
-            }
-
-            if (Keyboard.GetState().IsKeyDown(Keys.P))
-            {
-                inMain = false;
-                inMini = false;
-                inMatching = true;
-                //playing = true;
-            }
-        }
-
 
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
-            // TODO: Add your update logic here
+            if (score <= 0)
+            {
+                score = 0;
+            }
 
             //Creates Pretty Rotation Effect
             if (r2 >= 5.00f)
@@ -255,25 +208,74 @@ namespace xnaPetGame
                 r2 += 0.02f;
 
             r1 = MathHelper.Pi * 1.5f;
-            //r2 += 0.04f;
-
-            gameStateUpdateManager(gameTime);
-
-            if (inMain == true)
+            //int ctr = 0;
+            switch (currentState)
             {
-                r1 = MathHelper.Pi * 1.5f;
-                //r2 += 0.04f;
+                case GameState.Start:
+                    // Delay for keyboard input
+                    // If you hold enter, proceed to next game state
+                    if (updatecounter == 6)
+                    {
+                        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                        {
+                            currentState = GameState.Instructions;
+                        }
+                        updatecounter = 0;
+                        break;
+                    }
 
+                    h.worldMatrix = Matrix.Identity *
+                        Matrix.CreateScale(5.0f) *
+                        Matrix.CreateRotationZ(r2) *
+                        Matrix.Identity * Matrix.CreateTranslation(0.0f, 0.0f, 0.0f) *
+                        Matrix.CreateRotationX((float)(Math.PI) * 1.5f);
+                    break;
+                case GameState.Instructions:
+                    // Delay for keyboard input
+                    // If you hold enter, proceed to next game state
+                    if (updatecounter == 12)
+                    {
+                        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                        {
+                            currentState = GameState.Home;
+                            Components.Add(spriteManager);
+                        }
+                        updatecounter = 0;
+                        break;
+                    }
+                    break;
+                case GameState.Home:
+                    ctr = 0;
+                    spriteManager.Update(gameTime);
+                    h.worldMatrix = Matrix.Identity *
+                        Matrix.CreateScale(5.0f) *
+                        Matrix.CreateRotationZ(r2 / 10) *
+                        Matrix.Identity * Matrix.CreateTranslation(0.0f, 0.0f, 0.0f) *
+                        Matrix.CreateRotationX((float)(Math.PI) * 1.5f);
+                    mainscore.text = "Score: " + score;
+                    mainscore.Update(gameTime);
+                    break;
+                case GameState.RPS:
+                    spriteManager.Update(gameTime);
+                    if (ctr > 10)
+                        rps.Update(gameTime);
+                    ctr++;
+                    break;
+                case GameState.Matching:
+                    spriteManager.Update(gameTime);
+                    if (ctr > 10)
+                        matching.Update(gameTime);
+                    ctr++;
+                    break;
+                case GameState.Cards:
+                    spriteManager.Update(gameTime);
+                    if(ctr > 10)
+                        cards.Update(gameTime);
+                    ctr++;
+                    break;
             }
-            else if (inMini == true)
-            {
-                cards.Update(gameTime);
-            }
-            //else if (inMatching == true)
-            //{
-            //    matching.Update(gameTime);
-            //}
 
+            h.Update(gameTime);
             updatecounter++;
             base.Update(gameTime);
         }
@@ -283,109 +285,46 @@ namespace xnaPetGame
         {
             GraphicsDevice.Clear(Color.DarkOliveGreen);
 
-            //GraphicsDevice.BlendState = BlendState.AlphaBlend;
-            
-            //GraphicsDevice.DepthStencilState = DepthStencilState.Default;
-
-            //text.Draw(gameTime);
-
             RasterizerState rs = new RasterizerState();
             rs.CullMode = CullMode.None;
-            //rs.FillMode = FillMode.WireFrame; //Draws the wireframe, used for debugging
             GraphicsDevice.RasterizerState = rs;
 
-            //draw model
             switch (currentState)
             {
                 case GameState.Start:
                     GraphicsDevice.DepthStencilState = DepthStencilState.Default;
                     mainBGColor = mainScreenColorFade(mainBGColor);
                     GraphicsDevice.Clear(mainBGColor);
-                    drawHippo(gameTime);
+                    h.Draw(gameTime);
                     break;
-                case GameState.InHome:
-                    //DepthStencilState DDS = new DepthStencilState();
-                    //DDS = DepthStencilState.Default;
-                    //GraphicsDevice.DepthStencilState = DDS;
-                    drawHippo(gameTime);
+                case GameState.Instructions:
+                    break;
+                case GameState.Home:
+                    spriteManager.Draw(gameTime);
                     t.Draw(gameTime);
-
-                    //DDS = new DepthStencilState();
-                    //DDS.DepthBufferWriteEnable = false;
-                    //GraphicsDevice.DepthStencilState = DDS;
+                    h.Draw(gameTime);
                     drawGrass(gameTime);
-                    drawTree(gameTime);                    
+                    drawTree(gameTime);
+                    spriteBatch.Begin();
+                    mainscore.Draw(gameTime, spriteBatch);
+                    spriteBatch.End();
+                    break;
+                case GameState.RPS:
+                    spriteManager.Draw(gameTime);
+                    rps.Draw(gameTime);
+                    break;
+                case GameState.Matching:
+                    spriteManager.Draw(gameTime);
+                    matching.Draw(gameTime);
+                    break;
+                case GameState.Cards:
+                    spriteManager.Draw(gameTime);
+                    cards.Draw(gameTime);
                     break;
             }
 
-            //RasterizerState rs = new RasterizerState();
-            //rs.CullMode = CullMode.None;
-            ////rs.FillMode = FillMode.WireFrame; //Draws the wireframe, used for debugging
-            //GraphicsDevice.RasterizerState = rs;
 
-
-
-            if (inMini == true)
-            {
-                GraphicsDevice.Clear(Color.DodgerBlue);
-                minigame.Draw(spriteBatch);
-            }
-
-            //if (inMatching == true)
-            //{
-            //    GraphicsDevice.Clear(Color.DeepSkyBlue);
-            //    matching.Draw(spriteBatch);
-            //}
             base.Draw(gameTime);
-        }
-
-        bool goingdown = false;
-
-        // Draws the hippo.
-        void drawHippo(GameTime gameTime)
-        {
-
-            Matrix rotmat1 = Matrix.CreateRotationX(r1) * originalTransforms[0];
-            m.Bones[0].Transform = rotmat1;
-
-            switch (currentState)
-            {
-                case GameState.Start:
-                    worldMatrix = Matrix.Identity * 
-                        Matrix.CreateRotationZ(r2) * 
-                        Matrix.CreateRotationX((float)(Math.PI) * 1.5f) * 
-                        Matrix.CreateScale((float)(10.0f+Math.Sin(r2))) * 
-                        Matrix.CreateTranslation(0.0f, -25.0f, 0.0f);
-                    break;
-                case GameState.InHome:
-                    
-                    worldMatrix = Matrix.Identity * 
-                        Matrix.CreateRotationX((float)(Math.PI) * 1.5f) * 
-                        Matrix.CreateScale(5.0f) * 
-                        Matrix.CreateTranslation(0.0f, 0.0f, 0.0f) *
-                        Matrix.CreateRotationY(r2/10);
-                    //c.view = Matrix.CreateLookAt(c.position, Vector3.Zero, Vector3.Up);
-                    break;
-            }
-            m.CopyAbsoluteBoneTransformsTo(modelTransforms);
-
-            //GraphicsDevice.BlendState = BlendState.Opaque;
-            //GraphicsDevice.DepthStencilState = DepthStencilState.Default;
-
-            foreach (ModelMesh mesh in m.Meshes)
-            {
-                foreach (BasicEffect effect in mesh.Effects)
-                {
-                    effect.GraphicsDevice.BlendState = BlendState.Opaque;
-                    effect.GraphicsDevice.DepthStencilState = DepthStencilState.Default;
-                    effect.GraphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
-                    effect.EnableDefaultLighting();
-                    effect.World = worldMatrix;
-                    effect.View = c.view;
-                    effect.Projection = c.proj;
-                }
-                mesh.Draw();
-            }
         }
 
         // Draws the tree.

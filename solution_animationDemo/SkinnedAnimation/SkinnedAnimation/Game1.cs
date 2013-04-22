@@ -187,6 +187,9 @@ namespace SkinnedAnimation
                                                                     1,
                                                                     10000);
 
+            Matrix worldMatrix = Matrix.Identity *
+                        Matrix.CreateRotationX((float)(Math.PI) * 1.5f);
+
             // Render the skinned mesh.
             foreach (ModelMesh mesh in m.Meshes)
             {
@@ -198,7 +201,7 @@ namespace SkinnedAnimation
                     // I currently only have four textures, so I allow the texture to increment forever
                     // and mod it by 4 for selection.
                     effect.Texture = textures[currentTexture%4];
-
+                    effect.World = worldMatrix;
                     effect.View = view;
                     effect.Projection = projection;
                     effect.EnableDefaultLighting();

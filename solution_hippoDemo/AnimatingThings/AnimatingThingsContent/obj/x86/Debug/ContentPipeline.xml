@@ -11,7 +11,7 @@
       <Time>2013-04-15T15:17:33-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\tank_0.xml</Key>
-        <Value>2013-04-20T17:22:32.5909617-04:00</Value>
+        <Value>2013-04-21T22:20:25.1164517-04:00</Value>
       </Dependency>
       <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\engine_diff_tex_0.xnb</Request>
       <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\turret_alt_diff_tex_0.xnb</Request>
@@ -26,7 +26,7 @@
       <Time>2013-04-15T15:17:33-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\test_0.xml</Key>
-        <Value>2013-04-20T17:22:39.8542485-04:00</Value>
+        <Value>2013-04-21T22:20:32.2244912-04:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -39,7 +39,7 @@
       <Time>2013-04-15T15:17:31-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\hippoXNAattempt4_0.xml</Key>
-        <Value>2013-04-20T17:22:44.0521184-04:00</Value>
+        <Value>2013-04-21T22:20:36.6789863-04:00</Value>
       </Dependency>
       <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Request>
     </Item>
@@ -53,7 +53,7 @@
       <Time>2013-04-15T15:17:32-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\hippoXNAttempt3_0.xml</Key>
-        <Value>2013-04-20T17:22:45.9593583-04:00</Value>
+        <Value>2013-04-21T22:20:38.7362476-04:00</Value>
       </Dependency>
       <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Request>
     </Item>
@@ -67,9 +67,57 @@
       <Time>2013-04-15T15:17:32-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\hippoXNAattempt7_0.xml</Key>
-        <Value>2013-04-20T17:22:50.2098986-04:00</Value>
+        <Value>2013-04-21T22:20:43.003792-04:00</Value>
       </Dependency>
       <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>tree4-fbx.FBX</Source>
+      <Name>tree4-fbx</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Parameters>
+        <Data Key="DefaultEffect">AlphaTestEffect</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\tree4-fbx.xnb</Output>
+      <Time>2013-04-19T13:18:43-04:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\tree4-fbx_0.xml</Key>
+        <Value>2013-04-21T22:20:43.0988022-04:00</Value>
+      </Dependency>
+      <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\texture_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>grass_low_poly.FBX</Source>
+      <Name>grass_low_poly</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Parameters>
+        <Data Key="DefaultEffect">AlphaTestEffect</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\grass_low_poly.xnb</Output>
+      <Time>2013-04-19T15:56:17-04:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\grass_low_poly_0.xml</Key>
+        <Value>2013-04-21T22:20:43.3694389-04:00</Value>
+      </Dependency>
+      <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\FBX\E57D2FC0\grass_low_poly.fbm\low_poly_grass2_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>hippo\hippo_final.fbx</Source>
+      <Name>hippo\pet_hippo</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>SkinnedModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo\pet_hippo.xnb</Output>
+      <Time>2013-04-21T17:20:01-04:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\hippo\hippo_final_0.xml</Key>
+        <Value>2013-04-21T22:21:00.2773-04:00</Value>
+      </Dependency>
+      <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo\hippo04UV_2_0.xnb</Request>
     </Item>
     <Item>
       <Source>hippo04UV_2.png</Source>
@@ -79,15 +127,6 @@
       <Options>None</Options>
       <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2.xnb</Output>
       <Time>2013-04-15T15:17:31-04:00</Time>
-    </Item>
-    <Item>
-      <Source>texture.tga</Source>
-      <Name>texture</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\texture.xnb</Output>
-      <Time>2013-04-20T17:59:31.4391387-04:00</Time>
     </Item>
     <Item>
       <Source>Untitled.png</Source>
@@ -819,6 +858,69 @@
       <Time>2013-04-19T18:13:02-04:00</Time>
     </Item>
     <Item>
+      <Source>treetexture.png</Source>
+      <Name>treetexture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\treetexture.xnb</Output>
+      <Time>2013-04-20T17:55:59-04:00</Time>
+    </Item>
+    <Item>
+      <Source>texture.tga</Source>
+      <Name>texture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\texture.xnb</Output>
+      <Time>2013-04-20T17:59:31.4391387-04:00</Time>
+    </Item>
+    <Item>
+      <Source>hippo\hippo04UV_2.png</Source>
+      <Name>hippo\hippo_blueeyes_default</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo\hippo_blueeyes_default.xnb</Output>
+      <Time>2013-04-21T17:20:01-04:00</Time>
+    </Item>
+    <Item>
+      <Source>hippo\hippo04UV_2_backup.png</Source>
+      <Name>hippo\hippo04UV_2_backup</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo\hippo04UV_2_backup.xnb</Output>
+      <Time>2013-04-21T17:20:01-04:00</Time>
+    </Item>
+    <Item>
+      <Source>hippo\hippo_blueeyes_blue.png</Source>
+      <Name>hippo\hippo_blueeyes_blue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo\hippo_blueeyes_blue.xnb</Output>
+      <Time>2013-04-21T17:20:01-04:00</Time>
+    </Item>
+    <Item>
+      <Source>hippo\hippo_blueeyes_camo.png</Source>
+      <Name>hippo\hippo_blueeyes_camo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo\hippo_blueeyes_camo.xnb</Output>
+      <Time>2013-04-21T17:20:01-04:00</Time>
+    </Item>
+    <Item>
+      <Source>hippo\hippo_blueeyes_pink.png</Source>
+      <Name>hippo\hippo_blueeyes_pink</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo\hippo_blueeyes_pink.xnb</Output>
+      <Time>2013-04-21T17:20:01-04:00</Time>
+    </Item>
+    <Item>
       <Source>fonts\SpriteFont.spritefont</Source>
       <Name>fonts\SpriteFont</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -972,50 +1074,30 @@
       </Parameters>
       <Options>None</Options>
       <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\FBX\E57D2FC0\grass_low_poly.fbm\low_poly_grass2_0.xnb</Output>
-      <Time>2013-04-20T17:22:50-04:00</Time>
+      <Time>2013-04-21T22:20:43.3384326-04:00</Time>
     </Item>
     <Item>
-      <Source>tree4-fbx.FBX</Source>
-      <Name>tree4-fbx</Name>
+      <Source>hippo\hippo_final.fbx</Source>
       <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Parameters>
-        <Data Key="DefaultEffect">AlphaTestEffect</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\tree4-fbx.xnb</Output>
-      <Time>2013-04-19T13:18:43-04:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\tree4-fbx_0.xml</Key>
-        <Value>2013-04-20T17:22:50.342939-04:00</Value>
-      </Dependency>
-      <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\texture_0.xnb</Request>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\hippo\hippo_final_0.xml</Output>
+      <Time>2013-04-21T17:20:01-04:00</Time>
     </Item>
     <Item>
-      <Source>grass_low_poly.FBX</Source>
-      <Name>grass_low_poly</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Parameters>
-        <Data Key="DefaultEffect">AlphaTestEffect</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\grass_low_poly.xnb</Output>
-      <Time>2013-04-19T15:56:17-04:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\grass_low_poly_0.xml</Key>
-        <Value>2013-04-20T17:22:50.6855079-04:00</Value>
-      </Dependency>
-      <Request>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\FBX\E57D2FC0\grass_low_poly.fbm\low_poly_grass2_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>treetexture.png</Source>
-      <Name>treetexture</Name>
+      <Source>hippo\hippo04UV_2.png</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
       <Options>None</Options>
-      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\treetexture.xnb</Output>
-      <Time>2013-04-20T17:55:59-04:00</Time>
+      <Output>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo\hippo04UV_2_0.xnb</Output>
+      <Time>2013-04-21T17:20:01-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -1029,6 +1111,10 @@
       <OutputDirectory>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
+      <Assembly>
+        <Key>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\SkinnedModelPipeline.dll</Key>
+        <Value>2013-04-21T16:04:54-04:00</Value>
+      </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
         <Value>2010-08-23T13:41:18-04:00</Value>

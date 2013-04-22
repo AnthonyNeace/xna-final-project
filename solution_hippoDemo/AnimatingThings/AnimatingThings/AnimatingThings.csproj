@@ -90,6 +90,9 @@
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>
+    <Reference Include="SkinnedModel">
+      <HintPath>..\..\SkinnedModel.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
@@ -110,8 +113,10 @@
     <Compile Include="Button.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="Cards.cs" />
+    <Compile Include="GameInfo.cs" />
+    <Compile Include="Hippo.cs" />
     <Compile Include="Matching.cs" />
-    <Compile Include="MiniGame.cs" />
+    <Compile Include="RPS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />

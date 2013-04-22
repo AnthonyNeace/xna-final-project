@@ -83,7 +83,7 @@ namespace xnaPetGame
                     parent.spriteBatch.End();
                     break;
                 // INGAME TEXT
-                case Game1.GameState.InHome:
+                case Game1.GameState.Home:
                     break;
                 // GAMEOVER TEXT
                 case Game1.GameState.RPS:

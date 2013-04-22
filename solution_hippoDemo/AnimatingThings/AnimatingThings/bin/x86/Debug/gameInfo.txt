@@ -1,0 +1,4 @@
+Score:57
+Pet:
+Hunger:0
+Happiness:0

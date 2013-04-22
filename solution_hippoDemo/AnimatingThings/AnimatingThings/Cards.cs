@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace xnaPetGame
 {
-    class Cards : Microsoft.Xna.Framework.GameComponent
+    class Cards : Microsoft.Xna.Framework.DrawableGameComponent
     {
         List<Texture2D> cardList = new List<Texture2D>() { };
         Texture2D aceH, kingH, queenH, jackH, tenH, nineH, eightH, sevenH, sixH, fiveH, fourH, threeH, twoH, back;
@@ -27,14 +27,12 @@ namespace xnaPetGame
         int win_width, win_height;       
         Point select = new Point();
         Random rand = new Random();
-        Boolean played = false, waiting = true;
-        int result, prevCard, curCard,score=0;
+        int result, prevCard, curCard;
         Texture2D btn, background;
         Texture2D test;
         MouseState cur, prev;
 
         String output = "Score:", winLose="Begin";
-        int left=150, up=50;
 
         public Cards(Game g)
             : base(g)
@@ -99,15 +97,12 @@ namespace xnaPetGame
             cardList.Add(aceS = game.Content.Load<Texture2D>(@"MiniGameImages/cards/s1"));
             cardList.Add(aceH = game.Content.Load<Texture2D>(@"MiniGameImages/cards/h1"));
             cardList.Add(aceD = game.Content.Load<Texture2D>(@"MiniGameImages/cards/d1"));
-            
-                        
-            test = new Texture2D(game.GraphicsDevice, 1, 1);
-            test.SetData(new[] { Color.White });
 
-            sf = game.Content.Load<SpriteFont>(@"fonts/SpriteFont");
-            sfScore = game.Content.Load<SpriteFont>(@"fonts/SpriteFont");
-            sfScore2 = game.Content.Load<SpriteFont>(@"fonts/SpriteFont");
-            title = game.Content.Load<SpriteFont>(@"fonts/SpriteFont"); 
+
+            sf = game.Content.Load<SpriteFont>("fonts/font");
+            sfScore = game.Content.Load<SpriteFont>("fonts/cards");
+            sfScore2 = game.Content.Load<SpriteFont>("fonts/score");
+            title = game.Content.Load<SpriteFont>("fonts/SpriteFont1");
         }
        
         public override void Initialize()
@@ -116,48 +111,30 @@ namespace xnaPetGame
         }
 
         public override void Update(GameTime gameTime)
-        {            
-            KeyboardState keyInput = Keyboard.GetState();           
+        {
+            KeyboardState keyInput = Keyboard.GetState();
             if (keyInput.IsKeyDown(Keys.Escape))
             {
                 game.Exit();
             }
-
-            if (keyInput.IsKeyDown(Keys.Up))
-            {
-                up -= 1;
-            }
-            if (keyInput.IsKeyDown(Keys.Down))
-            {
-                up += 1;
-            }
-            if (keyInput.IsKeyDown(Keys.Left))
-            {
-                left -= 1;
-            }
-            if (keyInput.IsKeyDown(Keys.Right))
-            {
-                left += 1;
-            }
-            //Console.WriteLine("left: " + left + ", up: " + up);
             //Get mouse left click to identify which sprite the user chooses
             cur = Mouse.GetState();
-            if (cur.LeftButton == ButtonState.Pressed && prev.LeftButton==ButtonState.Released)
+            if (cur.LeftButton == ButtonState.Pressed && prev.LeftButton == ButtonState.Released)
             {
                 select.X = cur.X;
-                select.Y = cur.Y;                              
+                select.Y = cur.Y;
                 if (higherClicked.Contains(select))
                 {
                     result = rand.Next(51) + 1;
                     curCard = (result / 4) + 1;
                     if (prevCard < curCard)
                     {
-                        score += 2;
+                        game.score += 2;
                         winLose = "Right";
                     }
                     else if (prevCard >= curCard)
                     {
-                        score -= 1;
+                        game.score -= 1;
                         winLose = "Wrong";
                     }
                 }
@@ -167,28 +144,31 @@ namespace xnaPetGame
                     curCard = (result / 4) + 1;
                     if (prevCard > curCard)
                     {
-                        score += 2;
+                        game.score += 2;
                         winLose = "Right";
                     }
-                    else if (prevCard <= curCard)
+                    else if (prevCard < curCard)
                     {
-                        score -= 1;
+                        game.score -= 1;
                         winLose = "Wrong";
                     }
-                }                
+                }
                 output = "Score:";
-                if (score < 0)
+                if (game.score < 0)
                 {
-                    score = 0;
+                    game.score = 0;
                 }
             }
             prev = cur;
             prevCard = curCard;
+            //Console.WriteLine("Score in cards = " + game.score);
+            
             base.Update(gameTime);
         }
 
-        public void Draw(SpriteBatch sb)
-        {                                               
+        public override void Draw(GameTime gameTime)
+        {
+            SpriteBatch sb = new SpriteBatch(Game.GraphicsDevice); ;         
             lower = new Rectangle(1106, 568, 150, 150);
             higher = new Rectangle(1106, 374, 150, 150);             
             cardR = new Rectangle(358, 96, 200, 250);
@@ -204,15 +184,15 @@ namespace xnaPetGame
             sb.DrawString(title, "Guess the card", new Vector2(20, 16), Color.Red);
             sb.DrawString(sfScore, winLose, new Vector2(70,168), Color.Red);
             sb.DrawString(sfScore2, output, new Vector2(92, 228), Color.Red);
-            if (score < 10)
+            if (game.score < 10)
             {
-                sb.DrawString(sfScore2, "" + score, new Vector2(142, 272), Color.Red);
+                sb.DrawString(sfScore2, "" + game.score, new Vector2(142, 272), Color.Red);
             }
-            else if (score > 9)
+            else if (game.score > 9)
             {
-                sb.DrawString(sfScore2, "" + score, new Vector2(126, 270), Color.Red);
+                sb.DrawString(sfScore2, "" + game.score, new Vector2(126, 270), Color.Red);
             }
-            sb.DrawString(sf, "Press H to return home", new Vector2(18, 444), Color.Black);
+            //sb.DrawString(sf, "Press H to return home", new Vector2(18, 444), Color.Black);
             sb.End();
             
         }
