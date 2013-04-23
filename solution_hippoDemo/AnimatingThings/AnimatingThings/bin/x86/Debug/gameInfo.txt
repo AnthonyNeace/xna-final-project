@@ -1,4 +1,0 @@
-Score:9
-Pet:
-Hunger:0
-Happiness:1

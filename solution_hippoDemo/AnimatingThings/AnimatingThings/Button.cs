@@ -5,17 +5,27 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 
 namespace xnaPetGame
 {
     class Button: Sprite
     {
 
+        SoundEffect soundfxButtonHover;
+        SoundEffect soundfxButtonClick;
+        bool justEntered;
+        bool justClicked;
+
         public Button(Texture2D textureImage, Vector2 position, Point size,
             int collisionOffset, SpriteFont font, Color fontcolor, string text)
             : base(textureImage, position, size, collisionOffset, font, fontcolor, text)
         {
-            //default construcotr
+            soundfxButtonHover = Game1.soundfxButton;
+            soundfxButtonClick = Game1.soundfxButton2;
+            justEntered = false;
+            //default constructor
         }
 
         public override void Update(GameTime gameTime)
@@ -27,18 +37,34 @@ namespace xnaPetGame
             {
                 if (mouse.LeftButton == ButtonState.Pressed)
                 {
+                    // Play button click sound
+                    if (!justClicked && soundfxButtonClick != null)
+                    {
+                        soundfxButtonClick.Play();
+                        justEntered = true;
+                        justClicked = true;
+                    }
                     _opacity = 0.0f;
                     fontcolor = Color.White;
                 }
                 else
                 {
+                    // Play button hover sound
+                    if (!justEntered && soundfxButtonHover != null)
+                    {
+                        soundfxButtonHover.Play();
+                        justEntered = true;
+                    }
                     _opacity = 1.0f;
                     if (opacity >= 0.0f) opacity -= 0.08f;
                     fontcolor = Color.White;
+                    justClicked = false;
                 }
             }
             else
             {
+                justEntered = false;
+                justClicked = false;
                 _opacity = 1.0f;
                 if (opacity <= 1.0f) opacity += 0.03f;
                 fontcolor = Color.Black;
