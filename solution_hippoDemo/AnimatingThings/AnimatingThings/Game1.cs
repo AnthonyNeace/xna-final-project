@@ -87,6 +87,7 @@ namespace xnaPetGame
         SoundEffectInstance backgroundInstance2;
         public static SoundEffect soundfxButton;
         public static SoundEffect soundfxButton2;
+        
 
         public Game1()
         {
@@ -195,16 +196,18 @@ namespace xnaPetGame
             Texture2D heightMap = Content.Load<Texture2D>("Untitled");
 
             // Load Sounds
-            audioBackground = Content.Load<SoundEffect>(@"sound\background1");
+            audioBackground = Content.Load<SoundEffect>(@"sound\jungle");
             backgroundInstance = audioBackground.CreateInstance();
             backgroundInstance.Volume = 0.35f;
 
-            audioBackground2 = Content.Load<SoundEffect>(@"sound\background2");
+            audioBackground2 = Content.Load<SoundEffect>(@"sound\background1");
             backgroundInstance2 = audioBackground2.CreateInstance();
             backgroundInstance2.Volume = 0.35f;
 
             soundfxButton = Content.Load<SoundEffect>(@"sound\button");
             soundfxButton2 = Content.Load<SoundEffect>(@"sound\button2");
+
+            
 
             //Intializing Camera
             c = new Camera(this);

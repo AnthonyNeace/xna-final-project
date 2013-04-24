@@ -23,6 +23,11 @@ namespace xnaPetGame
         public SkinningData skinningData;
         public bool restart;
 
+        Random r = new Random();
+
+        SoundEffect hipposound;
+        SoundEffect birds;
+
         public Texture2D texture;
 
         public string[] clips = {
@@ -94,10 +99,39 @@ namespace xnaPetGame
             animationPlayer.StartClip(clip);
             animating = true;
 
+            hipposound = parent.Content.Load<SoundEffect>(@"sound\hipposound");
+            birds = parent.Content.Load<SoundEffect>(@"sound\birds");
+
+        }
+
+        private void playbackgroundsounds(){
+            if (r.Next(600) == 0)
+            {
+                hipposound.Play();
+            }
+            if (r.Next(1000) == 0)
+            {
+                birds.Play(0.3f,0.0f,0.0f);
+            }
         }
 
         public override void Update(GameTime gameTime)
         {
+
+            switch (parent.currentState)
+            {
+                case Game1.GameState.Instructions:
+                    playbackgroundsounds();
+                    break;
+                case Game1.GameState.Home:
+                    playbackgroundsounds();
+                    break;
+                case Game1.GameState.Start:
+                    playbackgroundsounds();
+                    break;
+            }
+
+
             if (animating)  // Process animation
             {
                 animationPlayer.Update(gameTime.ElapsedGameTime, true, Matrix.Identity);
