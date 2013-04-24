@@ -18,13 +18,15 @@ namespace xnaPetGame
         public SpriteBatch spriteBatch;
         SpriteManager spriteManager;
 
+        MouseState currentmouse, previousmouse;
+
         Model m;
         Model tree;
         Model grass;
 
         public Camera c;
         Terrain t;
-        Hippo h;
+        public Hippo h;
 
         Matrix[] modelTransforms;
         Matrix[] originalTransforms;
@@ -53,7 +55,7 @@ namespace xnaPetGame
 
         Button mainscore;
         Button happyscore;
-        Button savebutton;
+        Button enter;
 
         //*** Save Game ***//
         public GameInfo gameFile;
@@ -68,8 +70,8 @@ namespace xnaPetGame
         public int removeFood = 0;
 
         //**** MiniGames ****//
-        RPS rps;
-        Matching matching;
+        public RPS rps;
+        public Matching matching;
         Cards cards;
 
         //**** Game State ****//
@@ -122,6 +124,16 @@ namespace xnaPetGame
 
             mainscore.buttonhover = mainscore.buttonnorm = mainscore.buttonpressed = Content.Load<Texture2D>("widebutton");
             happyscore.buttonhover = happyscore.buttonnorm = happyscore.buttonpressed = Content.Load<Texture2D>("widebutton");
+
+            enter = new Button(Content.Load<Texture2D>("buttonnorm"),//Texture
+                new Vector2(Window.ClientBounds.Width / 2 - 50, 420),//Position
+                new Point(100, 50),//Framesize
+                0, //Collision Offset
+                font,
+                Color.Black,
+                "Start!");
+
+            enter.buttonhover = enter.buttonnorm = enter.buttonpressed = Content.Load<Texture2D>("buttonhover");
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -220,13 +232,6 @@ namespace xnaPetGame
             {
                 happiness = 100;
             }
-            timer += gameTime.ElapsedGameTime.Milliseconds;
-            if (timer >= 3600)
-            {
-                h.restart = true;
-                happiness--;
-                timer -= 3600;
-            }
 
             //Creates Pretty Rotation Effect
             if (r2 >= 5.00f)
@@ -240,52 +245,62 @@ namespace xnaPetGame
 
             r1 = MathHelper.Pi * 1.5f;
             //int ctr = 0;
+
+            currentmouse = Mouse.GetState();
+
             switch (currentState)
             {
                 case GameState.Start:
                     // Delay for keyboard input
                     // If you hold enter, proceed to next game state
-                    if (updatecounter == 6)
+                    if (enter.collisionRect.Contains(currentmouse.X, currentmouse.Y) &&
+                            currentmouse.LeftButton == ButtonState.Pressed &&
+                            previousmouse.LeftButton == ButtonState.Released)
                     {
-                        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
-                        {
-                            currentState = GameState.Instructions;
-                        }
-                        updatecounter = 0;
-                        break;
+                        currentState = GameState.Instructions;
+                        enter.text = "Continue";
                     }
-
+                    enter.Update(gameTime);
                     h.worldMatrix = Matrix.Identity *
                         Matrix.CreateScale(5.0f) *
                         Matrix.CreateRotationZ(r2) *
                         Matrix.Identity * Matrix.CreateTranslation(0.0f, 0.0f, 0.0f) *
                         Matrix.CreateRotationX((float)(Math.PI) * 1.5f);
+                    spriteManager.Update(gameTime);
                     break;
                 case GameState.Instructions:
-                    // Delay for keyboard input
-                    // If you hold enter, proceed to next game state
-                    if (updatecounter == 12)
+                    if (enter.collisionRect.Contains(currentmouse.X, currentmouse.Y) &&
+                            currentmouse.LeftButton == ButtonState.Pressed &&
+                            previousmouse.LeftButton == ButtonState.Released)
                     {
-                        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
-                        {
-                            currentState = GameState.Home;
-                            Components.Add(spriteManager);
-                        }
-                        updatecounter = 0;
-                        break;
+                        currentState = GameState.Home;
+                        Components.Add(spriteManager);
                     }
+                    enter.Update(gameTime);
+                    spriteManager.Update(gameTime);
                     break;
                 case GameState.Home:
+                    if (happiness <= 0)
+                    {
+                        happiness = 0;
+                    }
+                    else if (happiness >= 100)
+                    {
+                        happiness = 100;
+                    }
+                    timer += gameTime.ElapsedGameTime.Milliseconds;
+                    if (timer >= 5000)
+                    {
+                        h.restart = true;
+                        happiness--;
+                        timer -= 5000;
+                    }
                     ctr = 0;
                     spriteManager.Update(gameTime);
-                    h.worldMatrix = Matrix.Identity *
-                        Matrix.CreateScale(5.0f) *
-                        Matrix.CreateRotationZ(r2 / 10) *
-                        Matrix.Identity * Matrix.CreateTranslation(0.0f, 0.0f, 0.0f) *
-                        Matrix.CreateRotationX((float)(Math.PI) * 1.5f);
+                    
                     mainscore.text = "Score: " + score;
                     mainscore.Update(gameTime);
-                    happyscore.text = "Happiness: " + happiness;
+                    happyscore.text = "Happiness: " + happiness + "%";
                     happyscore.Update(gameTime);
                     break;
                 case GameState.RPS:
@@ -310,6 +325,7 @@ namespace xnaPetGame
 
             h.Update(gameTime);
             updatecounter++;
+            previousmouse = currentmouse;
             base.Update(gameTime);
         }
 
@@ -329,8 +345,14 @@ namespace xnaPetGame
                     mainBGColor = mainScreenColorFade(mainBGColor);
                     GraphicsDevice.Clear(mainBGColor);
                     h.Draw(gameTime);
+                    spriteBatch.Begin();
+                    enter.Draw(gameTime, spriteBatch);
+                    spriteBatch.End();
                     break;
                 case GameState.Instructions:
+                    spriteBatch.Begin();
+                    enter.Draw(gameTime, spriteBatch);
+                    spriteBatch.End();
                     break;
                 case GameState.Home:
                     spriteManager.Draw(gameTime);

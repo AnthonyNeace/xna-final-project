@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace xnaPetGame
 {
-    class Matching : Microsoft.Xna.Framework.DrawableGameComponent
+    public class Matching : Microsoft.Xna.Framework.DrawableGameComponent
     {
         SpriteFont sf, sfWin;
         Game1 game;
@@ -217,6 +217,14 @@ namespace xnaPetGame
             }
         }
 
+        public void ResetMatching()
+        {
+            won = false;
+            matches.Clear();
+            recoverBoxes();
+            setBoard();
+        }
+
         public override void Update(GameTime gameTime)
         {
             if (game.currentState == Game1.GameState.Matching)
@@ -232,22 +240,6 @@ namespace xnaPetGame
                     matches.Clear();
                     recoverBoxes();
                     setBoard();
-                }
-                if (keyInput.IsKeyDown(Keys.Left))
-                {
-                    l++;
-                }
-                if (keyInput.IsKeyDown(Keys.Right))
-                {
-                    l--;
-                }
-                if (keyInput.IsKeyDown(Keys.Up))
-                {
-                    u++;
-                }
-                if (keyInput.IsKeyDown(Keys.Down))
-                {
-                    u--;
                 }
 
                 //Get mouse left click to identify which sprite the user chooses
@@ -474,7 +466,7 @@ namespace xnaPetGame
             sb.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
             if (won == false)
             {
-                sb.DrawString(sf, "Find the matches!                                   R->reset H->home", new Vector2(5, 2), Color.Black);
+                sb.DrawString(sf, "Find the matches!", new Vector2(5, 2), Color.Black);
                 sb.Draw(tex11, box11, null, Color.White, 0, new Vector2((win_width / 2 - tex11.Width / 2), (win_height / 2 - tex11.Height / 2)), SpriteEffects.None, 1.0f);
                 sb.Draw(tex21, box21, null, Color.White, 0, new Vector2((win_width / 2 - tex21.Width / 2), (win_height / 2 - tex21.Height / 2)), SpriteEffects.None, 1.0f);
                 sb.Draw(tex31, box31, null, Color.White, 0, new Vector2((win_width / 2 - tex31.Width / 2), win_height / 2 - tex31.Height / 2), SpriteEffects.None, 1.0f);
@@ -494,7 +486,7 @@ namespace xnaPetGame
             {
                 String s = "You Won!";
                 String ss = "Your score is now";
-                //sb.DrawString(sfWin, game.score + "", new Vector2(355, 261), Color.Black);
+                sb.DrawString(sfWin, game.score + "", new Vector2(355, 261), Color.Black);
                 sb.DrawString(sfWin, ss, new Vector2(100, 179), Color.Black);
                 sb.DrawString(sfWin, s, new Vector2(219, 100), Color.Black);
             }

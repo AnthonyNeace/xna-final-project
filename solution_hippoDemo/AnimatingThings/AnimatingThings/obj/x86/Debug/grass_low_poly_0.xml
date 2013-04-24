@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>grass_2_0</Name>
     <Identity>
-      <SourceFilename>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\grass_low_poly.FBX</SourceFilename>
+      <SourceFilename>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\grass_low_poly.FBX</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <OpaqueData>
@@ -31,7 +31,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>grass_mat</Name>
       <Identity>
-        <SourceFilename>C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\grass_low_poly.FBX</SourceFilename>
+        <SourceFilename>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\grass_low_poly.FBX</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -70,9 +70,9 @@
     </Resource>
   </Resources>
   <ExternalReferences>
-    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">FBX\14F03451\grass_low_poly.fbm\low_poly_grass2.png</ExternalReference>
-    <ExternalReference ID="#External2" TargetType="Graphics:TextureContent">FBX\14F03451\grass_low_poly.fbm\low_poly_grass_specular.png</ExternalReference>
-    <ExternalReference ID="#External3" TargetType="Graphics:TextureContent">FBX\14F03451\grass_low_poly.fbm\low_poly_grass_normal.png</ExternalReference>
-    <ExternalReference ID="#External4" TargetType="Graphics:TextureContent">FBX\14F03451\grass_low_poly.fbm\low_poly_grass_opacity.png</ExternalReference>
+    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">FBX\E57D2FC0\grass_low_poly.fbm\low_poly_grass2.png</ExternalReference>
+    <ExternalReference ID="#External2" TargetType="Graphics:TextureContent">FBX\E57D2FC0\grass_low_poly.fbm\low_poly_grass_specular.png</ExternalReference>
+    <ExternalReference ID="#External3" TargetType="Graphics:TextureContent">FBX\E57D2FC0\grass_low_poly.fbm\low_poly_grass_normal.png</ExternalReference>
+    <ExternalReference ID="#External4" TargetType="Graphics:TextureContent">FBX\E57D2FC0\grass_low_poly.fbm\low_poly_grass_opacity.png</ExternalReference>
   </ExternalReferences>
 </XnaContent>

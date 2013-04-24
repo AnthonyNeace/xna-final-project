@@ -28,12 +28,16 @@ namespace xnaPetGame
 
         Game1 parent;
         Color fontcolor = Color.Black;
-        string text;
+        //string text;
+        Texture2D logo;
 
         public TextInterface(Game game)
             : base(game)
         {
             parent = (Game1)game;                       // Associate Game1 with parent
+            logo = game.Content.Load<Texture2D>(@"hippotastic");
+
+
         }
 
         public override void Initialize()
@@ -41,8 +45,11 @@ namespace xnaPetGame
             base.Initialize();
         }
 
+
         public override void Update(GameTime gameTime)
         {
+
+            //enter.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -55,48 +62,20 @@ namespace xnaPetGame
                 case Game1.GameState.Start:
                     // Main Screen Text
                     parent.spriteBatch.Begin();
-                    parent.spriteBatch.DrawString(parent.startFont,
-                        "UKY    PETS",
-                        new Vector2((parent.Window.ClientBounds.Width / 2) - 200, 60f),
-                        Color.White,
-                        0,
-                        Vector2.Zero,
-                        1,
-                        SpriteEffects.None,
-                        1);
-                    parent.spriteBatch.DrawString(parent.descriptionFont, "Hold enter to begin!", new Vector2(295, 400), Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
+                    parent.spriteBatch.Draw(logo, new Vector2(parent.Window.ClientBounds.Width / 2 - 400, -40), new Rectangle(0,0,800,300), Color.White);
                     parent.spriteBatch.End();
+                    
                     break;
                 // INSTRUCTION TEXT
                 case Game1.GameState.Instructions:
                     parent.spriteBatch.Begin();
-                    parent.spriteBatch.DrawString(parent.startFont, "UKY    PETS", new Vector2(parent.Window.ClientBounds.Width / 2 - 200, 60), Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
-                    parent.spriteBatch.DrawString(parent.descriptionFont, "Controls:  ", new Vector2(20, 200), Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
-                    parent.spriteBatch.DrawString(parent.descriptionFont, "           M  -  Enter 'Rock, Paper, Scissors' Minigame", new Vector2(20, 220), Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
-                    parent.spriteBatch.DrawString(parent.descriptionFont, "           H  -  Return from minigame", new Vector2(20, 240), Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);                    
-                    parent.spriteBatch.DrawString(parent.descriptionFont, "           Mouse    -  Look, Select Actions", new Vector2(20, 260), Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
-                    parent.spriteBatch.DrawString(parent.descriptionFont, "Game:", new Vector2(20, 280), Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
-                    parent.spriteBatch.DrawString(parent.descriptionFont, "        You've decided to get a pet today!", new Vector2(20, 300), Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
-                    parent.spriteBatch.DrawString(parent.descriptionFont, "        You can win food and items for your pet in minigames!", new Vector2(20, 320), Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
-                    parent.spriteBatch.DrawString(parent.descriptionFont, "        Win minigames to unlock new actions with your pet!", new Vector2(20, 340), Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
-                    parent.spriteBatch.DrawString(parent.descriptionFont, "Hold enter to begin!", new Vector2(295, 400), Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
+                    parent.spriteBatch.Draw(logo, new Vector2(parent.Window.ClientBounds.Width / 2 - 400, -40), new Rectangle(0, 0, 800, 300), Color.White);
+                    parent.spriteBatch.DrawString(parent.descriptionFont, "You've decided to adopt a hippo!\n" +
+                        "Keep your pet hippo happy by playing minigames and earning points!\n" +
+                        "The more points you earn, the more things you can buy!\n",
+                        new Vector2(20, 200), Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
                     parent.spriteBatch.End();
                     break;
-                // INGAME TEXT
-                case Game1.GameState.Home:
-                    break;
-                // GAMEOVER TEXT
-                case Game1.GameState.RPS:
-                    parent.spriteBatch.Begin();
-                    text = "To reset Rock Paper Scissors, Press R";
-                    parent.spriteBatch.DrawString(parent.font, text,
-                        new Vector2(20, 20 + 375), fontcolor, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
-                    text = "To return Home, Press H";
-                    parent.spriteBatch.DrawString(parent.font, text,
-                        new Vector2(20, 20 + 400), fontcolor, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
-                    parent.spriteBatch.End();
-                    break;
-
             }
 
             base.Draw(gameTime);

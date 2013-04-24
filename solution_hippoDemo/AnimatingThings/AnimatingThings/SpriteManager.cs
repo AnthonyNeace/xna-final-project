@@ -24,11 +24,15 @@ namespace xnaPetGame
         Color fontcolor = Color.Black;
         bool isgametrayopen = false;
         bool isfoodtrayopen = false;
+        bool isaccesstrayopen = false;
 
         List<Sprite> buttons = new List<Sprite>();
         List<Sprite> gamelist = new List<Sprite>();
         List<Sprite> foodlist = new List<Sprite>();
+        List<Sprite> accesslist = new List<Sprite>();
         Button exitbutton;
+        Button resetbutton;
+        Button enter;
 
         public SpriteManager(Game game)
             : base(game)
@@ -105,7 +109,7 @@ namespace xnaPetGame
                 0, //Collision Offset
                 font,
                 Color.Black,
-                "Apple\nS:-10/H:+1"));
+                "Apple\n-10/+1"));
 
             foodlist.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
                 new Vector2(-200, 20),//Position
@@ -113,7 +117,7 @@ namespace xnaPetGame
                 0, //Collision Offset
                 font,
                 Color.Black,
-                "Cherry\nS:-25/H:+5"));
+                "Cherry\n-25/+5"));
 
             foodlist.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
                 new Vector2(-200, 20),//Position
@@ -121,17 +125,52 @@ namespace xnaPetGame
                 0, //Collision Offset
                 font,
                 Color.Black,
-                "Banana\nS:-50/H:+10"));
+                "Banana\n-50/+10"));
+
+            accesslist.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
+                new Vector2(-200, 70),//Position
+                new Point(100, 50),//Framesize
+                0, //Collision Offset
+                font,
+                Color.Black,
+                "Blue Coat\n-100/+100"));
+
+            accesslist.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
+                new Vector2(-200, 70),//Position
+                new Point(100, 50),//Framesize
+                0, //Collision Offset
+                font,
+                Color.Black,
+                "Green Coat\n-250/+100"));
+
+            accesslist.Add(new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
+                new Vector2(-200, 70),//Position
+                new Point(100, 50),//Framesize
+                0, //Collision Offset
+                font,
+                Color.Black,
+                "Pink Coat\n-500/+100"));
 
 
 
             exitbutton = new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
-                new Vector2(parent.Window.ClientBounds.Width - 120, 0),//Position
+                new Vector2(parent.Window.ClientBounds.Width - 105, 5),//Position
                 new Point(100, 50),//Framesize
                 0, //Collision Offset
                 font,
                 Color.Black,
                 "Go Back");
+
+            resetbutton = new Button(Game.Content.Load<Texture2D>("buttonnorm"),//Texture
+                new Vector2(parent.Window.ClientBounds.Width - 215, 5),//Position
+                new Point(100, 50),//Framesize
+                0, //Collision Offset
+                font,
+                Color.Black,
+                "Reset");
+
+
+         
 
             foreach (Sprite b in buttons)
             {
@@ -154,9 +193,20 @@ namespace xnaPetGame
                 b.buttonpressed = Game.Content.Load<Texture2D>("buttonpressed");
             }
 
+            foreach (Sprite b in accesslist)
+            {
+                b.buttonhover = Game.Content.Load<Texture2D>("buttonhover");
+                b.buttonnorm = Game.Content.Load<Texture2D>("buttonnorm");
+                b.buttonpressed = Game.Content.Load<Texture2D>("buttonpressed");
+            }
+
             exitbutton.buttonhover = Game.Content.Load<Texture2D>("buttonhover");
             exitbutton.buttonnorm = Game.Content.Load<Texture2D>("buttonnorm");
             exitbutton.buttonpressed = Game.Content.Load<Texture2D>("buttonpressed");
+
+            resetbutton.buttonhover = Game.Content.Load<Texture2D>("buttonhover");
+            resetbutton.buttonnorm = Game.Content.Load<Texture2D>("buttonnorm");
+            resetbutton.buttonpressed = Game.Content.Load<Texture2D>("buttonpressed");
 
             //font = Game.Content.Load<SpriteFont>("Spritefont");
             base.Initialize();
@@ -167,10 +217,12 @@ namespace xnaPetGame
                 buttons.Clear();
                 gamelist.Clear();
                 foodlist.Clear();
+                accesslist.Clear();
         }
 
         protected override void LoadContent()
         {
+
             base.LoadContent();
         }
 
@@ -199,6 +251,16 @@ namespace xnaPetGame
             }
         }
 
+        void openaccesstray()
+        {
+            int i = 120;
+            foreach (Sprite b in accesslist)
+            {
+                b.position.X = i;
+                i += 110;
+            }
+        }
+
         void closegametray()
         {
             foreach (Sprite b in gamelist)
@@ -215,6 +277,15 @@ namespace xnaPetGame
             }
         }
 
+        void closeaccesstray()
+        {
+            foreach (Sprite b in accesslist)
+            {
+                b.position.X = -300;
+            }
+        }
+
+
         public override void Update(GameTime gameTime)
         {
             currentmouse = Mouse.GetState();
@@ -225,8 +296,16 @@ namespace xnaPetGame
             if (isfoodtrayopen) openfoodtray();
             else closefoodtray();
 
+            if (isaccesstrayopen) openaccesstray();
+            else closeaccesstray();
+
             switch (parent.currentState)
             {
+
+                case Game1.GameState.Start:
+                    break;
+                case Game1.GameState.Instructions:
+                    break;
                 case Game1.GameState.Home:
                     foreach (Sprite b in buttons)
                     {
@@ -248,10 +327,13 @@ namespace xnaPetGame
                             {
                                 isgametrayopen = !isgametrayopen;
                             }
-
                             if (b.text.CompareTo("Food >") == 0)
                             {
                                 isfoodtrayopen = !isfoodtrayopen;
+                            }
+                            if (b.text.CompareTo("Accessories") == 0)
+                            {
+                                isaccesstrayopen = !isaccesstrayopen;
                             }
                             if (b.text.CompareTo("Save Data") == 0)
                             {
@@ -291,38 +373,78 @@ namespace xnaPetGame
                             currentmouse.LeftButton == ButtonState.Pressed &&
                             previousmouse.LeftButton == ButtonState.Released)
                         {
-                            if (b.text.CompareTo("Apple\nS:-10/H:+1") == 0)
+                            if (b.text.CompareTo("Apple\n-10/+1") == 0)
                             {
                                 if (parent.score >= 10)
                                 {
                                     parent.score -= 10;
                                     parent.happiness += 1;
                                 }
-                                //isfoodtrayopen = !isfoodtrayopen;
                             }
-                            if (b.text.CompareTo("Cherry\nS:-25/H:+5") == 0)
+                            if (b.text.CompareTo("Cherry\n-25/+5") == 0)
                             {
                                 if (parent.score >= 25)
                                 {
                                     parent.score -= 25;
                                     parent.happiness += 5;
                                 }
-                                //isfoodtrayopen = !isfoodtrayopen;
                             }
-                            if (b.text.CompareTo("Banana\nS:-50/H:+10") == 0)
+                            if (b.text.CompareTo("Banana\n-50/+10") == 0)
                             {
                                 if (parent.score >= 50)
                                 {
                                     parent.score -= 50;
                                     parent.happiness += 10;
                                 }
-                                //isfoodtrayopen = !isfoodtrayopen;
+                            }
+                        }
+                        b.Update(gameTime);
+                    }
+                    foreach (Sprite b in accesslist)
+                    {
+                        if (b.collisionRect.Contains(currentmouse.X, currentmouse.Y) &&
+                            currentmouse.LeftButton == ButtonState.Pressed &&
+                            previousmouse.LeftButton == ButtonState.Released)
+                        {
+                            if (b.text.CompareTo("Blue Coat\n-100/+100") == 0)
+                            {
+                                if (parent.score >= 100)
+                                {
+                                    parent.h.texture = parent.h.textures[2];
+                                    parent.score -= 100;
+                                    parent.happiness = 100;
+                                }
+                            }
+                            if (b.text.CompareTo("Green Coat\n-250/+100") == 0)
+                            {
+                                if (parent.score >= 250)
+                                {
+                                    parent.h.texture = parent.h.textures[3];
+                                    parent.score -= 250;
+                                    parent.happiness += 100;
+                                }
+                            }
+                            if (b.text.CompareTo("Pink Coat\n-500/+100") == 0)
+                            {
+                                if (parent.score >= 500)
+                                {
+                                    parent.h.texture = parent.h.textures[1];
+                                    parent.score -= 500;
+                                    parent.happiness += 100;
+                                }
                             }
                         }
                         b.Update(gameTime);
                     }
                     break;
                 case Game1.GameState.RPS:
+                    if (resetbutton.collisionRect.Contains(currentmouse.X, currentmouse.Y) &&
+                            currentmouse.LeftButton == ButtonState.Pressed &&
+                            previousmouse.LeftButton == ButtonState.Released)
+                    {
+                        parent.rps.ResetRPS();
+                    }
+                    resetbutton.Update(gameTime);
                     if (exitbutton.collisionRect.Contains(currentmouse.X, currentmouse.Y) &&
                             currentmouse.LeftButton == ButtonState.Pressed &&
                             previousmouse.LeftButton == ButtonState.Released)
@@ -333,6 +455,20 @@ namespace xnaPetGame
                     exitbutton.Update(gameTime);
                     break;
                 case Game1.GameState.Matching:
+                    if (resetbutton.collisionRect.Contains(currentmouse.X, currentmouse.Y) &&
+                            currentmouse.LeftButton == ButtonState.Pressed &&
+                            previousmouse.LeftButton == ButtonState.Released)
+                    {
+                        parent.matching.ResetMatching();
+                    }
+                    resetbutton.Update(gameTime);
+                    if (resetbutton.collisionRect.Contains(currentmouse.X, currentmouse.Y) &&
+                            currentmouse.LeftButton == ButtonState.Pressed &&
+                            previousmouse.LeftButton == ButtonState.Released)
+                    {
+                        //parent.rps.ResetRPS();
+                    }
+                    resetbutton.Update(gameTime);
                     if (exitbutton.collisionRect.Contains(currentmouse.X, currentmouse.Y) &&
                             currentmouse.LeftButton == ButtonState.Pressed &&
                             previousmouse.LeftButton == ButtonState.Released)
@@ -368,6 +504,10 @@ namespace xnaPetGame
             // Draw the buttons
             switch (parent.currentState)
             {
+                case Game1.GameState.Start:
+                    break;
+                case Game1.GameState.Instructions:
+                    break;
                 case Game1.GameState.Home:
                     foreach (Sprite b in buttons)
                     {
@@ -382,11 +522,17 @@ namespace xnaPetGame
                     {
                         b.Draw(gameTime, spriteBatch);
                     }
+                    foreach (Sprite b in accesslist)
+                    {
+                        b.Draw(gameTime, spriteBatch);
+                    }
                     break;
                 case Game1.GameState.RPS:
+                    resetbutton.Draw(gameTime, spriteBatch);
                     exitbutton.Draw(gameTime, spriteBatch);
                     break;
                 case Game1.GameState.Matching:
+                    resetbutton.Draw(gameTime, spriteBatch);
                     exitbutton.Draw(gameTime, spriteBatch);
                     break;
                 case Game1.GameState.Cards:

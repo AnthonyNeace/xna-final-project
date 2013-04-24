@@ -11,16 +11,12 @@ using Microsoft.Xna.Framework.Media;
 
 namespace xnaPetGame
 {
-    class RPS: Microsoft.Xna.Framework.DrawableGameComponent
+    public class RPS : Microsoft.Xna.Framework.DrawableGameComponent
     {
-
-        MouseState currentmouse, previousmouse;
-        SpriteBatch sb;
-
         Texture2D rock, paper, scissors, p, c, back;
-        SpriteFont sf;
+        SpriteFont sf, sf1, sf2;
         Game1 game;
-        Rectangle rockRec, paperRec, scissorsRec, pr, cr;
+        Rectangle rockRec, paperRec, scissorsRec, pr, cr, backR;
         int win_width, win_height;
         String result = "";
         Point select = new Point();
@@ -30,43 +26,49 @@ namespace xnaPetGame
         MouseState mouse, prev;
         Texture2D rt, pt, st;
         Rectangle rr, pp, ss;
-        int l = 100, u = 100;
+        Rectangle rockClick = new Rectangle(43, 119, 200, 200);
+        Rectangle paperClick = new Rectangle(309, 125, 200, 200);
+        Rectangle scissorsClick = new Rectangle(548, 128, 200, 200);
 
         public RPS(Game g)
             : base(g)
         {
             game = (Game1)g;
-
             win_width = game.Window.ClientBounds.Width;
             win_height = game.Window.ClientBounds.Height;
-
             rock = game.Content.Load<Texture2D>(@"MiniGameImages/Rock3");
             paper = game.Content.Load<Texture2D>(@"MiniGameImages/Paper");
             scissors = game.Content.Load<Texture2D>(@"MiniGameImages/Scissor");
-
+            back = game.Content.Load<Texture2D>(@"MiniGameImages/74956");
             //set default values for player and computer game choice textures
             p = game.Content.Load<Texture2D>(@"MiniGameImages/Paper");
             c = paper = game.Content.Load<Texture2D>(@"MiniGameImages/Paper");
-
-            sf = game.Content.Load<SpriteFont>(@"fonts\SpriteFont");   
+            sf = game.Content.Load<SpriteFont>("fonts/SpriteFont1");
+            sf1 = game.Content.Load<SpriteFont>("fonts/font");
+            sf2 = game.Content.Load<SpriteFont>("fonts/score");
         }
 
-         public override void Initialize()
+        public override void Initialize()
         {
             base.Initialize();
         }
 
-        public override void Update(GameTime gameTime)
-        {            
-            KeyboardState keyInput = Keyboard.GetState();
+        public void ResetRPS()
+        {
+            player = -1;
+            played = false;
+            waiting = true;
+            result = "";
+        }
 
-            if (game.currentState == Game1.GameState.RPS)
-            {
+        public override void Update(GameTime gameTime)
+        {
+                KeyboardState keyInput = Keyboard.GetState();
                 if (keyInput.IsKeyDown(Keys.Escape))
                 {
                     game.Exit();
                 }
-                
+
                 //Reset game
                 if (keyInput.IsKeyDown(Keys.R))
                 {
@@ -75,99 +77,107 @@ namespace xnaPetGame
                     waiting = true;
                     result = "";
                 }
-
-
                 //Get mouse left click to identify which sprite the user chooses
-                currentmouse = Mouse.GetState();
-                if (currentmouse.LeftButton == ButtonState.Pressed &&
-                    previousmouse.LeftButton == ButtonState.Released && waiting == true)
+                mouse = Mouse.GetState();
+                if (mouse.LeftButton == ButtonState.Pressed && prev.LeftButton == ButtonState.Released && waiting == true)
                 {
-                    select.X = currentmouse.X;
-                    select.Y = currentmouse.Y;
-                    waiting = false;
-                    played = true;
+                    select.X = mouse.X;
+                    select.Y = mouse.Y;
                     computer = rand.Next(3);
 
-
-                    //Get which sprite the player clicks on as their choice
-                    //if (rockRec.Contains(select))
-                    if (select.X <= 275)
+                    //Get which sprite the player clicks on as their choice                    
+                    if (rockClick.Contains(select))
                     {
+                        waiting = false;
+                        played = true;
                         player = 0;
                         p = rock;
                     }
-                    else if (select.X <= 510 && select.X > 275)
+                    else if (paperClick.Contains(select))
                     {
+                        waiting = false;
+                        played = true;
                         player = 1;
                         p = paper;
                     }
-                    else if (select.X > 510 && select.Y < game.Window.ClientBounds.Height-500)
+                    else if (scissorsClick.Contains(select))
                     {
+                        waiting = false;
+                        played = true;
                         player = 2;
                         p = scissors;
                     }
 
-                    //Get pets choice by getting a random number between 0 and 2.
-                    //assign texture and rect of the resulting number to display                        
-                    if (computer == 0)
+                    if (played == true)
                     {
-                        c = rock;
-                    }
-                    else if (computer == 1)
-                    {
-                        c = paper;
-                    }
-                    else if (computer == 2)
-                    {
-                        c = scissors;
-                    }
+                        //Get pets choice by getting a random number between 0 and 2.
+                        //assign texture and rect of the resulting number to display                        
+                        if (computer == 0)
+                        {
+                            c = rock;
+                        }
+                        else if (computer == 1)
+                        {
+                            c = paper;
+                        }
+                        else if (computer == 2)
+                        {
+                            c = scissors;
+                        }
 
-                    //Check who won.
-                    // 0->Rock, 1->Paper, 2->Scissors
-                    if (player == computer)
-                    {
-                        result = "Tie";
-                        //game.score += 1;
-                    }
-                    else if ((player == 0 && computer == 2) ||
-                        (player == 1 && computer == 0) ||
-                        (player == 2 && computer == 1))
-                    {
-                        result = "You Won!";
-                        game.score += 5;
-                    }
-                    else
-                    {
-                        result = "You Lost";
-                        game.score -= 1;
+                        //Check who won.
+                        // 0->Rock, 1->Paper, 2->Scissors
+                        if (player == computer)
+                        {
+                            result = " Tie";
+                            game.score += 1;
+                        }
+                        else if ((player == 0 && computer == 2) || (player == 1 && computer == 0) || (player == 2 && computer == 1))
+                        {
+                            result = "Won";
+                            game.score += 2;
+                        }
+                        else
+                        {
+                            result = "Lost";
+                            if (game.score > 0)
+                            {
+                                game.score -= 1;
+                            }
+                            else
+                                game.score = 0;
+                        }
                     }
                 }
-            }
+            
 
-            previousmouse = currentmouse;
+            prev = mouse;
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            sb = new SpriteBatch(Game.GraphicsDevice);
-
+            SpriteBatch sb = new SpriteBatch(Game.GraphicsDevice);
             if (waiting == true)
-            {                
+            {
                 rockRec = new Rectangle(400, 305, 200, 200);
                 paperRec = new Rectangle(685, 290, 200, 200);
                 scissorsRec = new Rectangle(900, 275, 200, 200);
-               
+                Rectangle x = new Rectangle(-206, -382, 900, 700);
+
                 sb.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
-                sb.Draw(rock, rockRec, null, Color.White, 0, new Vector2((win_width / 2 - rock.Width / 2), (win_height / 2 - rock.Height / 2)), SpriteEffects.None, 1.0f);
-                sb.Draw(paper, paperRec, null, Color.White, 0, new Vector2((win_width / 2 - paper.Width / 2), win_height / 2 - paper.Height / 2), SpriteEffects.None, 1.0f);
-                sb.Draw(scissors, scissorsRec, null, Color.White, 0, new Vector2((win_width / 2 - scissors.Width / 2), win_height / 2 - scissors.Height / 2), SpriteEffects.None, 1.0f);
+                sb.DrawString(sf2, "Score: " + game.score, new Vector2(16, 12), Color.Black);
+                sb.Draw(rock, rockRec, null, Color.White, 0, new Vector2((win_width / 2 - rock.Width / 2), (win_height / 2 - rock.Height / 2)), SpriteEffects.None, 0.1f);
+                sb.Draw(paper, paperRec, null, Color.White, 0, new Vector2((win_width / 2 - paper.Width / 2), win_height / 2 - paper.Height / 2), SpriteEffects.None, 0.1f);
+                sb.Draw(scissors, scissorsRec, null, Color.White, 0, new Vector2((win_width / 2 - scissors.Width / 2), (win_height / 2 - scissors.Height / 2)), SpriteEffects.None, 0.1f);
+                sb.Draw(back, x, null, Color.White, 0, new Vector2((win_width / 2 - back.Width / 2), (win_height / 2 - back.Height / 2)), SpriteEffects.None, 1.0f);
                 sb.End();
             }
             else if (played == true)
             {
                 pr = new Rectangle(480, 290, 200, 200);
                 cr = new Rectangle(800, 290, 200, 200);
+                Rectangle x = new Rectangle(-206, -382, 900, 700);
                 if (p == rock)
                 {
                     pr = new Rectangle(480, 315, 200, 200);
@@ -178,15 +188,17 @@ namespace xnaPetGame
                 }
 
                 sb.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
-                sb.DrawString(sf, result, new Vector2((win_width / 2) - (sf.MeasureString(result).X / 2),(sf.MeasureString(result).Y / 2)), Color.Black);
-                sb.Draw(p, pr, null, Color.White, 0, new Vector2((win_width / 2 - p.Width / 2), (win_height / 2 - p.Height / 2)), SpriteEffects.None, 1.0f);
-                sb.Draw(c, cr, null, Color.White, 0, new Vector2((win_width / 2 - c.Width / 2), win_height / 2 - c.Height / 2), SpriteEffects.None, 1.0f);
-                sb.DrawString(sf, "You", new Vector2((win_width / 4) - (sf.MeasureString("You").X / 2), (win_height - sf.MeasureString("You").Y ) ), Color.Black);
-                sb.DrawString(sf, "Pet", new Vector2((win_width / 4)*3 - (sf.MeasureString("Pet").X / 2)-50, (win_height - sf.MeasureString("Pet").Y ) ), Color.Black);
+                sb.DrawString(sf, result, new Vector2(310, 40), Color.Black);
+                sb.Draw(p, pr, null, Color.White, 0, new Vector2((win_width / 2 - p.Width / 2), (win_height / 2 - p.Height / 2)), SpriteEffects.None, 0.1f);
+                sb.Draw(c, cr, null, Color.White, 0, new Vector2((win_width / 2 - c.Width / 2), win_height / 2 - c.Height / 2), SpriteEffects.None, 0.1f);
+                sb.DrawString(sf1, "You", new Vector2(180, 376), Color.Black);
+                sb.DrawString(sf1, "Pet", new Vector2(510, 376), Color.Black);
+                sb.DrawString(sf2, "Score: " + game.score, new Vector2(16, 12), Color.Black);
+                sb.Draw(back, x, null, Color.White, 0, new Vector2((win_width / 2 - back.Width / 2), (win_height / 2 - back.Height / 2)), SpriteEffects.None, 1.0f);
                 sb.End();
             }
 
-            
+
         }
 
     }

@@ -1,7 +1,3 @@
-Content\tank.xnb
-Content\test.xnb
-Content\hippo.xnb
-Content\hippo2.xnb
 Content\hippo7.xnb
 Content\tree4-fbx.xnb
 Content\grass_low_poly.xnb
@@ -30,7 +26,6 @@ Content\MiniGameImages\Rock2.xnb
 Content\MiniGameImages\Rock3.xnb
 Content\MiniGameImages\Scissor.xnb
 Content\MiniGameImages\Tree.xnb
-Content\low_poly_grass2mag.xnb
 Content\MiniGameImages\cards\back.xnb
 Content\MiniGameImages\cards\black_joker.xnb
 Content\MiniGameImages\cards\c1.xnb
@@ -96,6 +91,7 @@ Content\hippo\hippo_blueeyes_blue.xnb
 Content\hippo\hippo_blueeyes_camo.xnb
 Content\hippo\hippo_blueeyes_pink.xnb
 Content\widebutton.xnb
+Content\MiniGameImages\74956.xnb
 Content\fonts\SpriteFont.xnb
 Content\fonts\Start.xnb
 Content\fonts\Description.xnb
@@ -103,9 +99,9 @@ Content\fonts\font.xnb
 Content\fonts\cards.xnb
 Content\fonts\SpriteFont1.xnb
 Content\fonts\score.xnb
-Content\engine_diff_tex_0.xnb
-Content\turret_alt_diff_tex_0.xnb
 Content\hippo04UV_2_0.xnb
 Content\texture_0.xnb
 Content\low_poly_grass2_0.xnb
 Content\hippo\hippo04UV_2_0.xnb
+Content\low_poly_grass2mag.xnb
+Content\hippotastic.xnb

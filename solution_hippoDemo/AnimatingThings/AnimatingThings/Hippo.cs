@@ -23,6 +23,8 @@ namespace xnaPetGame
         public SkinningData skinningData;
         public bool restart;
 
+        public Texture2D texture;
+
         public string[] clips = {
             "Dance",
             "Headshake",
@@ -50,7 +52,7 @@ namespace xnaPetGame
 
         bool animating = false;
 
-        Texture2D[] textures = new Texture2D[4];
+        public Texture2D[] textures = new Texture2D[4];
 
         public Hippo(Game game)
             : base(game)
@@ -72,6 +74,8 @@ namespace xnaPetGame
             textures[1] = parent.Content.Load<Texture2D>(@"hippo/hippo_blueeyes_pink");
             textures[2] = parent.Content.Load<Texture2D>(@"hippo/hippo_blueeyes_blue");
             textures[3] = parent.Content.Load<Texture2D>(@"hippo/hippo_blueeyes_camo");
+
+            texture = textures[0];
 
             skinningData = hippo.Tag as SkinningData;
 
@@ -121,13 +125,30 @@ namespace xnaPetGame
             {
                 currentaction = AnimationState.Looking;
             }
+            else currentaction = AnimationState.Headshake;
+
+            worldMatrix = Matrix.Identity *
+                Matrix.CreateScale(5.0f) *
+                Matrix.CreateRotationZ(parent.r2 / 10) *
+                Matrix.Identity * Matrix.CreateTranslation(0.0f, 0.0f, 0.0f) *
+                Matrix.CreateRotationX((float)(Math.PI) * 1.5f);
 
             switch (currentaction)
             {
                 case AnimationState.Headshake:
+                    worldMatrix = Matrix.Identity *
+                        Matrix.CreateScale(5.0f) *
+                        Matrix.CreateRotationZ(-parent.r2 / 10) *
+                        Matrix.Identity * Matrix.CreateTranslation(0.0f, 0.0f, -35.0f) *
+                        Matrix.CreateRotationX((float)(Math.PI) * 0.5f);
                     currentclip = clips[1];
                     break;
                 case AnimationState.Grazing:
+                    worldMatrix = Matrix.Identity *
+                        Matrix.CreateScale(5.0f) *
+                        Matrix.CreateRotationZ(-parent.r2 / 10) *
+                        Matrix.Identity * Matrix.CreateTranslation(0.0f, 0.0f, -35.0f) *
+                        Matrix.CreateRotationX((float)(Math.PI) * 0.5f);
                     currentclip = clips[6];
                     break;
                 case AnimationState.Dance:
@@ -146,6 +167,7 @@ namespace xnaPetGame
                     currentclip = clips[5];
                     break;
             }
+            //worldMatrix *= Matrix.Identity * Matrix.CreateScale(5.0f * (parent.happiness / 100));
 
             previousaction = currentaction;
 
@@ -171,7 +193,7 @@ namespace xnaPetGame
                 {
                     effect.SetBoneTransforms(bones);
                     effect.GraphicsDevice.DepthStencilState = DepthStencilState.Default;
-                    effect.Texture = textures[0];
+                    effect.Texture = texture;
                     effect.World = worldMatrix;
                     effect.View = parent.c.view;
                     effect.Projection = parent.c.proj;

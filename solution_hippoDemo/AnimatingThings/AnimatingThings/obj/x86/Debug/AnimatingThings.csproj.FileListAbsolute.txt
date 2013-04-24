@@ -56,16 +56,10 @@ F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solutio
 F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\obj\x86\Debug\AnimatingThings.exe
 F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\obj\x86\Debug\AnimatingThings.pdb
 F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\grass-texture-2.xnb
-F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\tank.xnb
-F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\test.xnb
-F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo.xnb
-F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo2.xnb
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo7.xnb
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2.xnb
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\Untitled.xnb
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\grass-texture-2.xnb
-F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\engine_diff_tex_0.xnb
-F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\turret_alt_diff_tex_0.xnb
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippo04UV_2_0.xnb
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\AnimatingThings.exe
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\AnimatingThings.pdb
@@ -244,7 +238,6 @@ C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\Animating
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\tree4-fbx.xnb
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\grass_low_poly.xnb
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\texture.xnb
-F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\low_poly_grass2mag.xnb
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\cards\back.xnb
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\cards\black_joker.xnb
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\cards\c1.xnb
@@ -333,3 +326,6 @@ C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\Animating
 C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\fonts\cards.xnb
 C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\fonts\SpriteFont1.xnb
 C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\fonts\score.xnb
+F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\MiniGameImages\74956.xnb
+F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\low_poly_grass2mag.xnb
+F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThings\bin\x86\Debug\Content\hippotastic.xnb

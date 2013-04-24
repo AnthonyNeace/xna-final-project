@@ -45,38 +45,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="tank.fbx">
-      <Name>tank</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="test.FBX">
-      <Name>test</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="hippoXNAattempt4.fbx">
-      <Name>hippo</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="hippo04UV_2.png">
       <Name>hippo04UV_2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="hippoXNAttempt3.fbx">
-      <Name>hippo2</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +59,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="low_poly_grass2mag.png">
+      <Name>low_poly_grass2mag</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Untitled.png">
       <Name>Untitled</Name>
       <Importer>TextureImporter</Importer>
@@ -244,13 +221,6 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_DefaultEffect>AlphaTestEffect</ProcessorParameters_DefaultEffect>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="low_poly_grass2mag.png">
-      <Name>low_poly_grass2mag</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -621,6 +591,20 @@
   <ItemGroup>
     <Compile Include="widebutton.png">
       <Name>widebutton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MiniGameImages\74956.jpg">
+      <Name>74956</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="hippotastic.png">
+      <Name>hippotastic</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
