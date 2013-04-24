@@ -1,8 +1,5 @@
-Content\hippo7.xnb
-Content\tree4-fbx.xnb
-Content\grass_low_poly.xnb
-Content\hippo\pet_hippo.xnb
 Content\hippo04UV_2.xnb
+Content\low_poly_grass2mag.xnb
 Content\Untitled.xnb
 Content\grass-texture-2.xnb
 Content\buttonhover.xnb
@@ -92,6 +89,11 @@ Content\hippo\hippo_blueeyes_camo.xnb
 Content\hippo\hippo_blueeyes_pink.xnb
 Content\widebutton.xnb
 Content\MiniGameImages\74956.xnb
+Content\hippotastic.xnb
+Content\hippo7.xnb
+Content\tree4-fbx.xnb
+Content\grass_low_poly.xnb
+Content\hippo\pet_hippo.xnb
 Content\fonts\SpriteFont.xnb
 Content\fonts\Start.xnb
 Content\fonts\Description.xnb
@@ -99,9 +101,12 @@ Content\fonts\font.xnb
 Content\fonts\cards.xnb
 Content\fonts\SpriteFont1.xnb
 Content\fonts\score.xnb
+Content\sound\171670__fins__success-2.xnb
 Content\hippo04UV_2_0.xnb
 Content\texture_0.xnb
 Content\low_poly_grass2_0.xnb
 Content\hippo\hippo04UV_2_0.xnb
-Content\low_poly_grass2mag.xnb
-Content\hippotastic.xnb
+Content\sound\button2.xnb
+Content\sound\button.xnb
+Content\sound\background1.xnb
+Content\sound\background2.xnb

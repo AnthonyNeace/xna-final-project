@@ -5,3 +5,4 @@ F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solutio
 F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\AnimatingThingsContent.contentprojResolveAssemblyReference.cache
 C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\AnimatingThingsContent.contentprojResolveAssemblyReference.cache
 C:\Users\Anthony\Documents\GitHub\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\AnimatingThingsContent.contentprojResolveAssemblyReference.cache
+C:\Temp\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\AnimatingThingsContent.contentprojResolveAssemblyReference.cache

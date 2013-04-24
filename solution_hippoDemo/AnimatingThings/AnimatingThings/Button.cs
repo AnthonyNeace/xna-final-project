@@ -5,17 +5,37 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+<<<<<<< .merge_file_a05188
+=======
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+>>>>>>> .merge_file_a05096
 
 namespace xnaPetGame
 {
     class Button: Sprite
     {
 
+<<<<<<< .merge_file_a05188
+=======
+        SoundEffect soundfxButtonHover;
+        SoundEffect soundfxButtonClick;
+        bool justEntered;
+        bool justClicked;
+
+>>>>>>> .merge_file_a05096
         public Button(Texture2D textureImage, Vector2 position, Point size,
             int collisionOffset, SpriteFont font, Color fontcolor, string text)
             : base(textureImage, position, size, collisionOffset, font, fontcolor, text)
         {
+<<<<<<< .merge_file_a05188
             //default construcotr
+=======
+            soundfxButtonHover = Game1.soundfxButton;
+            soundfxButtonClick = Game1.soundfxButton2;
+            justEntered = false;
+            //default constructor
+>>>>>>> .merge_file_a05096
         }
 
         public override void Update(GameTime gameTime)
@@ -27,18 +47,46 @@ namespace xnaPetGame
             {
                 if (mouse.LeftButton == ButtonState.Pressed)
                 {
+<<<<<<< .merge_file_a05188
+=======
+                    // Play button click sound
+                    if (!justClicked && soundfxButtonClick != null)
+                    {
+                        soundfxButtonClick.Play();
+                        justEntered = true;
+                        justClicked = true;
+                    }
+>>>>>>> .merge_file_a05096
                     _opacity = 0.0f;
                     fontcolor = Color.White;
                 }
                 else
                 {
+<<<<<<< .merge_file_a05188
                     _opacity = 1.0f;
                     if (opacity >= 0.0f) opacity -= 0.08f;
                     fontcolor = Color.White;
+=======
+                    // Play button hover sound
+                    if (!justEntered && soundfxButtonHover != null)
+                    {
+                        soundfxButtonHover.Play();
+                        justEntered = true;
+                    }
+                    _opacity = 1.0f;
+                    if (opacity >= 0.0f) opacity -= 0.08f;
+                    fontcolor = Color.White;
+                    justClicked = false;
+>>>>>>> .merge_file_a05096
                 }
             }
             else
             {
+<<<<<<< .merge_file_a05188
+=======
+                justEntered = false;
+                justClicked = false;
+>>>>>>> .merge_file_a05096
                 _opacity = 1.0f;
                 if (opacity <= 1.0f) opacity += 0.03f;
                 fontcolor = Color.Black;

@@ -1,4 +1,4 @@
-Score:152
+Score:154
 Pet:
 Hunger:0
 Happiness:75

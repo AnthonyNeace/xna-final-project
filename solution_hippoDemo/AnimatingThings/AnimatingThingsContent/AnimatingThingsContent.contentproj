@@ -596,6 +596,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< .merge_file_a01320
     <Compile Include="MiniGameImages\74956.jpg">
       <Name>74956</Name>
       <Importer>TextureImporter</Importer>
@@ -607,6 +608,38 @@
       <Name>hippotastic</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+=======
+    <Compile Include="sound\37661__ls__jungle.wav">
+      <Name>background1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="sound\171670__fins__success-2.wav">
+      <Name>171670__fins__success-2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="sound\24039__bebeto__loop022.wav">
+      <Name>background2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="sound\171521__fins__button.wav">
+      <Name>button</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="sound\146718__fins__button.wav">
+      <Name>button2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+>>>>>>> .merge_file_a06392
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

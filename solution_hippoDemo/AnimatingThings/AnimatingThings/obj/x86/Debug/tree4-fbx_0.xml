@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>LOD01</Name>
     <Identity>
-      <SourceFilename>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\tree4-fbx.FBX</SourceFilename>
+      <SourceFilename>C:\Temp\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\tree4-fbx.FBX</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>34.7158623 2.65658924E-14 -93.78064 0 -93.78064 9.834203E-15 -34.7158623 0 0 100 2.83276939E-14 0 1940.62292 3.02019248E-29 138.14859 1</Transform>
@@ -27,7 +27,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>2 - Default</Name>
       <Identity>
-        <SourceFilename>F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\tree4-fbx.FBX</SourceFilename>
+        <SourceFilename>C:\Temp\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\tree4-fbx.FBX</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>

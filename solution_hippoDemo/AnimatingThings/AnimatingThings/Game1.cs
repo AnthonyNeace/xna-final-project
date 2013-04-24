@@ -80,6 +80,14 @@ namespace xnaPetGame
 
         int updatecounter = 0;
 
+        // Audio
+        SoundEffect audioBackground;
+        SoundEffectInstance backgroundInstance;
+        SoundEffect audioBackground2;
+        SoundEffectInstance backgroundInstance2;
+        public static SoundEffect soundfxButton;
+        public static SoundEffect soundfxButton2;
+        
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -186,6 +194,18 @@ namespace xnaPetGame
             //Loading Height Texture
             Texture2D heightMap = Content.Load<Texture2D>("Untitled");
 
+            // Load Sounds
+            audioBackground = Content.Load<SoundEffect>(@"sound\background1");
+            backgroundInstance = audioBackground.CreateInstance();
+            backgroundInstance.Volume = 0.35f;
+
+            audioBackground2 = Content.Load<SoundEffect>(@"sound\background2");
+            backgroundInstance2 = audioBackground2.CreateInstance();
+            backgroundInstance2.Volume = 0.35f;
+
+            soundfxButton = Content.Load<SoundEffect>(@"sound\button");
+            soundfxButton2 = Content.Load<SoundEffect>(@"sound\button2");
+
             //Intializing Camera
             c = new Camera(this);
             Components.Add(c);
@@ -251,6 +271,9 @@ namespace xnaPetGame
             switch (currentState)
             {
                 case GameState.Start:
+                    // Loop background music
+                    if (backgroundInstance.State != SoundState.Playing)
+                        backgroundInstance.Play();
                     // Delay for keyboard input
                     // If you hold enter, proceed to next game state
                     if (enter.collisionRect.Contains(currentmouse.X, currentmouse.Y) &&
@@ -269,9 +292,18 @@ namespace xnaPetGame
                     spriteManager.Update(gameTime);
                     break;
                 case GameState.Instructions:
+<<<<<<< .merge_file_a07980
                     if (enter.collisionRect.Contains(currentmouse.X, currentmouse.Y) &&
                             currentmouse.LeftButton == ButtonState.Pressed &&
                             previousmouse.LeftButton == ButtonState.Released)
+=======
+                    // Loop background music
+                    if (backgroundInstance.State != SoundState.Playing)
+                        backgroundInstance.Play();
+                    // Delay for keyboard input
+                    // If you hold enter, proceed to next game state
+                    if (updatecounter == 12)
+>>>>>>> .merge_file_a00212
                     {
                         currentState = GameState.Home;
                         Components.Add(spriteManager);
@@ -280,6 +312,7 @@ namespace xnaPetGame
                     spriteManager.Update(gameTime);
                     break;
                 case GameState.Home:
+<<<<<<< .merge_file_a07980
                     if (happiness <= 0)
                     {
                         happiness = 0;
@@ -294,6 +327,13 @@ namespace xnaPetGame
                         h.restart = true;
                         happiness--;
                         timer -= 5000;
+=======
+                    // Loop background music
+                    if (backgroundInstance.State != SoundState.Playing)
+                    {
+                        backgroundInstance2.Stop();
+                        backgroundInstance.Play();
+>>>>>>> .merge_file_a00212
                     }
                     ctr = 0;
                     spriteManager.Update(gameTime);
@@ -304,18 +344,36 @@ namespace xnaPetGame
                     happyscore.Update(gameTime);
                     break;
                 case GameState.RPS:
+                    // Loop background music
+                    if (backgroundInstance2.State != SoundState.Playing)
+                    {
+                        backgroundInstance.Stop();
+                        backgroundInstance2.Play();
+                    }
                     spriteManager.Update(gameTime);
                     if (ctr > 10)
                         rps.Update(gameTime);
                     ctr++;
                     break;
                 case GameState.Matching:
+                    // Loop background music
+                    if (backgroundInstance2.State != SoundState.Playing)
+                    {
+                        backgroundInstance.Stop();
+                        backgroundInstance2.Play();
+                    }
                     spriteManager.Update(gameTime);
                     if (ctr > 10)
                         matching.Update(gameTime);
                     ctr++;
                     break;
                 case GameState.Cards:
+                    // Loop background music
+                    if (backgroundInstance2.State != SoundState.Playing)
+                    {
+                        backgroundInstance.Stop();
+                        backgroundInstance2.Play();
+                    }
                     spriteManager.Update(gameTime);
                     if(ctr > 10)
                         cards.Update(gameTime);
