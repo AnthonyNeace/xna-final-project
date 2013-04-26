@@ -1,8 +1,0 @@
-C:\Dropbox\CS485\Examples\ClassExamples\AnimatingThings\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Anthony\Downloads\AnimatingThings (1)\AnimatingThings\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Alex\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\AnimatingThingsContent.contentprojResolveAssemblyReference.cache
-F:\Dropbox\VS Projects\xna-final-project-master\xna-final-project-master\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\AnimatingThingsContent.contentprojResolveAssemblyReference.cache
-F:\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\AnimatingThingsContent.contentprojResolveAssemblyReference.cache
-C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\AnimatingThingsContent.contentprojResolveAssemblyReference.cache
-C:\Users\Anthony\Documents\GitHub\xna-final-project\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\AnimatingThingsContent.contentprojResolveAssemblyReference.cache
-C:\Temp\solution_hippoDemo\AnimatingThings\AnimatingThingsContent\obj\x86\Debug\AnimatingThingsContent.contentprojResolveAssemblyReference.cache

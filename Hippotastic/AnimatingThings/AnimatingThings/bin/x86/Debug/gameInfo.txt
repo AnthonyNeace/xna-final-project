@@ -1,0 +1,4 @@
+Score:103
+Pet:
+Hunger:0
+Happiness:92
