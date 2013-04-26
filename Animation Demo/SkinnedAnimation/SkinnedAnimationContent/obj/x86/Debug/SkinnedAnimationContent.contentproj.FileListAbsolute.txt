@@ -1,1 +1,0 @@
-C:\Users\Alex\Dropbox\VS Projects\xna-final-project\solution_animationDemo\SkinnedAnimation\SkinnedAnimationContent\obj\x86\Debug\SkinnedAnimationContent.contentprojResolveAssemblyReference.cache
