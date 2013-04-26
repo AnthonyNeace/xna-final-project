@@ -1,0 +1,26 @@
+ANIMATION DEMO USAGE
+--------------------
+
+1. You *must* be using "XNA 4.0 Refresh" version for multiple animations in .FBX files
+   to work correctly.  This is an updated version of XNA 4.0 that patches .FBX issues
+   that were present in the initial download on microsoft's page.
+
+   Update URL: http://www.microsoft.com/en-us/download/details.aspx?id=27599
+
+2. The SkinnedModelPipeline DLLs present in this package are compiled for 64-bit use only.
+
+3. To load models:
+
+	a) Load model into program as you normally would
+	b) In properties window (below the solution explorer window in the UI) 
+           change Content Processor to 'SkinnedModelProcessor'
+
+4. I've installed sample logic to switch between textures and animations as a framework
+   for what can be used in the actual game.
+
+   SPACE switches quickly between textures.
+   F1-F8 switches between animations.
+
+   Some animation initialization locations are slightly offset the hippo's starting
+   location.  We can transform/rotate the hippo in-world with the logic we use to
+   determine when we are going to use these animations.
