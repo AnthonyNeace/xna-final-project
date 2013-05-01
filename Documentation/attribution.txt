@@ -1,14 +1,49 @@
-Final Project Prototype
+References and Content Attribution:
 
-Content Attribution
+Code Libraries and Samples:
+  -MSDN Skinned Model Sample and Animation Pipeline
+      http://xbox.create.msdn.com/en-US/education/catalog/sample/skinned_model
+  -Microsoft Permissive Lisence: http://xbox.create.msdn.com/downloads/?id=15
+  -How To: Read from a Text File
+      http://msdn.microsoft.com/en-us/library/db5x7c0d.aspx
+  -How To: Write text from a File
+      http://msdn.microsoft.com/en-us/library/6ka1wd3w.aspx
+  - Terrain class was provided in-class.
+  - spriteManager and sprite classes based from the examples in our "Learning XNA 4.0" textbook.
 
--------------------
+Sound Assets:
 
-Models:
+loop022.wav
+  By freesound.org user "bebeto"
+  Retrieved from freesound.org under the Attribution Noncommercial "Creative Commons" License.
+button.wav
+  By freesound.org user “fins”
+  Retrieved from freesound.org under the "Creative Commons 0" License.
+  http://www.freesound.org/people/fins/sounds/146718/
+button.wav (separate soundfx, same filename)
+  By freesound.org user “fins”
+  Retrieved from freesound.org under the "Creative Commons 0" License.
+  http://www.freesound.org/people/fins/sounds/171521/
 
-- Anthony designed hippo model and texture.
 
-Code:
 
-- Terrain class was provided in-class.
-- spriteManager and sprite classes based from the examples in our "Learning XNA 4.0" textbook.
+Image Assets:
+
+Iconarchive.com Image Assets
+  Each of the image assets below has a usage license that can be viewed from the associated URL
+        http://www.iconarchive.com/show/mammoth-icons-by-fasticon.html
+	http://www.iconarchive.com/show/fruitsalad-icons-by-fi3ur/apple-icon.html
+	http://www.iconarchive.com/show/mammoth-icons-by-fasticon/Mammoth-Seated-icon.html
+	http://www.iconarchive.com/show/ecommerce-business-icons-by-designcontest/alert-icon.html
+	http://www.iconarchive.com/show/library-icons-by-skuzigraphic/globe-icon.html
+	http://www.iconarchive.com/show/oxygen-icons-by-oxygen-icons.org/Actions-document-save-icon.html
+	http://www.iconarchive.com/show/construction-icons-by-mpt1st/paint-bucket-icon.html
+	http://www.iconarchive.com/show/casino-icons-by-designcontest/Chip-5-icon.html
+	http://www.iconarchive.com/show/basic-icons-by-pixelmixer/document-icon.html
+	http://www.iconarchive.com/show/snowish-icons-by-saki/Edit-Cut-icon.html
+  http://code.google.com/p/vector-playing-cards/downloads/detail?name=PNG-cards.zip&can=4&q=
+  http://commons.wikimedia.org/wiki/Category:SVG_playing_cards
+  http://wall.alphacoders.com/big.php?i=52026
+  http://wall.alphacoders.com/big.php?i=74956
+  http://all-free-download.com/free-psd/sort-by-newest/page/3/
+	
