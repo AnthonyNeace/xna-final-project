@@ -22,14 +22,18 @@ https://trello.com/board/xna-final-project/5163312653beb3df0e0095c4
 File Structure
 --------------
 
-assets
+Animation Demo
+* Contains a demo project with the Hippo model installed.
+* SPACE allows you to switch between textures.
+* F1-F8 allows you to switch between animations.
+
+Assets
 * Contains images, models, and other media that can be used for documentation.
 
-solution_finalGame
-* Contains the game as submitted by the end of April.
+Documentation
+* Contains our writeups, presentation, and project attribution.
 
-solution_hippoDemo
-* Contains a demo used to test models and animated in XNA.
-
-solution_prototypeGame
-* Contains the game as submitted for our first review period.
+Hippotastic
+* Source code for the completed game is in this folder.
+* Requires "XNA 4.0 Refresh" to correctly view hippo animations.
+* Uses Microsoft's Skinned Model Pipeline for animations.
